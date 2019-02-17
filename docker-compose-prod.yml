@@ -1,0 +1,66 @@
+version: '3'
+
+services:
+
+    nginx:
+      image: nginx:latest
+      build:
+        context: .
+        args:
+          - "BUILD_ARGUMENT_APP_ENV=production"
+        dockerfile: ./docker/nginx/Dockerfile
+      container_name: nginx
+      restart: always
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - .:/var/www/html:ro
+      depends_on:
+        - laravel
+      links:
+        - laravel
+
+    laravel:
+      image: laravel:latest
+      build:
+        context: .
+        args:
+          - "BUILD_ARGUMENT_APP_ENV=production"
+          - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
+          - "BUILD_ARGUMENT_ENV_FILE=.env.prod"
+        dockerfile: ./Dockerfile
+      container_name: laravel
+      expose:
+        - "9000"
+      depends_on:
+        - mysql
+      links:
+        - mysql
+
+    supervisord:
+      image: laravel:latest
+      build:
+        context: .
+        args:
+          - "BUILD_ARGUMENT_APP_ENV=production"
+          - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
+          - "BUILD_ARGUMENT_ENV_FILE=.env.prod"
+        dockerfile: ./Dockerfile
+      container_name: supervisord
+      user: root
+      depends_on:
+        - mysql
+      links:
+        - mysql
+      command: ["/usr/bin/supervisord"]
+
+    mysql:
+      image: mysql:8.0
+      container_name: mysql
+      command: --default-authentication-plugin=mysql_native_password
+      environment:
+        - MYSQL_ROOT_PASSWORD=secret
+        - MYSQL_DATABASE=laravel
+      volumes:
+        - ./storage/mysql-data:/var/lib/mysql

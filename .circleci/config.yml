@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/html
+    machine: true
+    branches:
+        ignore:
+          - develop
+    steps:
+      - checkout
+
+      - run:
+          name: Start container and verify it's working
+          command: |
+            make start-ci
+
+      - run:
+          name: Wait for DB container is running and initialize DB
+          command: |
+            make wait-for-db
+            make drop-migrate
+            make seed
+
+      - run:
+          name: Run unit/functional tests
+          command: |
+            make phpunit
+
+      - store_artifacts:
+          path: reports
+
+      - store_test_results:
+          path: reports
