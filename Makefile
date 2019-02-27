@@ -1,4 +1,3 @@
-ENV=local
 dir=${CURDIR}
 project=-p laravel
 service=laravel:latest
@@ -6,8 +5,8 @@ service=laravel:latest
 start:
 	@docker-compose -f docker-compose.yml $(project) up -d
 
-start-ci:
-	@docker-compose -f docker-compose-ci.yml $(project) up -d
+start-test:
+	@docker-compose -f docker-compose-test-ci.yml $(project) up -d
 
 start-prod:
 	@docker-compose -f docker-compose-prod.yml $(project) up -d
@@ -15,21 +14,18 @@ start-prod:
 stop:
 	@docker-compose -f docker-compose.yml $(project) down
 
-stop-ci:
-	@docker-compose -f docker-compose-ci.yml $(project) down
+stop-test:
+	@docker-compose -f docker-compose-test-ci.yml $(project) down
 
 stop-prod:
 	@docker-compose -f docker-compose-prod.yml $(project) down
 
 restart: stop start
-restart-ci: stop-ci start-ci
+restart-test: stop-test start-test
 restart-prod: stop-prod start-prod
 
-env-local:
-	cp ./.env.local ./.env
-
-env-prod:
-	cp ./.env.prod ./.env
+env-test-ci:
+	@make exec cmd="cp ./.env.test-ci ./.env"
 
 ssh:
 	@docker-compose $(project) exec laravel bash
@@ -41,11 +37,10 @@ exec:
 	@docker-compose $(project) exec laravel $$cmd
 
 clean:
-	rm -rf $(dir)/reports
+	rm -rf $(dir)/reports/*
 
 prepare:
-	mkdir $(dir)/reports
-	mkdir $(dir)/reports/coverage
+	mkdir -p $(dir)/reports/coverage
 
 wait-for-db:
 	@make exec cmd="php artisan db:wait"
@@ -65,11 +60,14 @@ info:
 
 drop-migrate:
 	@make exec cmd="php artisan migrate:fresh"
-	@make exec cmd="php artisan migrate:fresh --env=testing"
+	@make exec cmd="php artisan migrate:fresh --env=test"
+
+migrate-prod:
+	@make exec cmd="php artisan migrate --force"
 
 migrate:
 	@make exec cmd="php artisan migrate --force"
-	@make exec cmd="php artisan migrate --force --env=testing"
+	@make exec cmd="php artisan migrate --force --env=test"
 
 seed:
 	@make exec cmd="php artisan db:seed --force"

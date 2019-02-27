@@ -1,8 +1,8 @@
 FROM nginx:1.15-alpine
 
 # set main params
-ARG BUILD_ARGUMENT_APP_ENV=development
-ENV APP_ENV=$BUILD_ARGUMENT_APP_ENV
+ARG BUILD_ARGUMENT_APP_ENV=dev
+ENV ENV=$BUILD_ARGUMENT_ENV
 
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \

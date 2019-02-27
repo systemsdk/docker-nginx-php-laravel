@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Start container and verify it's working
           command: |
-            make start-ci
+            make start-test
 
       - run:
           name: Wait for DB container is running and initialize DB

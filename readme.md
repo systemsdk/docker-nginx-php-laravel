@@ -42,7 +42,7 @@ Note: OS recommendation - Linux Ubuntu based.
     ```
 5. Configure Xdebug:
     - In case you need debug only requests from frontend in Firefox:
-        * Edit /docker/development/xdebug.ini:
+        * Edit /docker/dev/xdebug.ini:
         ```
         xdebug.remote_autostart = 0
         ```
@@ -50,7 +50,7 @@ Note: OS recommendation - Linux Ubuntu based.
         * Install locally in Firefox extension "Xdebug helper" and set in settings IDE KEY: PHPSTORM
         * Have fun with debugging
     - In case you need debug any request to an api:
-        * Edit /docker/development/xdebug.ini:
+        * Edit /docker/dev/xdebug.ini:
         ```
         xdebug.remote_autostart = 1
         ```
@@ -60,17 +60,38 @@ Note: OS recommendation - Linux Ubuntu based.
 ## Additional main command available:
     ```
     make start
+    make start-test
+    make start-prod
+    
     make stop
+    make stop-test
+    make stop-prod
+    
     make restart
+    make restart-test
+    make restart-prod
+    
+    make env-test-ci
+    
     make ssh
     make ssh-supervisord
+    
+    make composer-install-prod
     make composer-install
+    
     make composer-update
+    
     make info
+    
     make drop-migrate
+    
+    make migrate-prod
     make migrate
+    
     make seed
+    
     make phpunit
+    
     etc....
     ```
     Notes: Please see more commands in Makefile
