@@ -58,6 +58,9 @@ info:
 	@make exec cmd="php artisan --version"
 	@make exec cmd="php --version"
 
+logs-supervisord:
+	@docker logs supervisord
+
 drop-migrate:
 	@make exec cmd="php artisan migrate:fresh"
 	@make exec cmd="php artisan migrate:fresh --env=test"

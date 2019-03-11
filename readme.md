@@ -17,7 +17,7 @@ Note: OS recommendation - Linux Ubuntu based.
 1. Nginx 1.15
 2. PHP 7.3 fpm
 3. MySQL 8
-4. Laravel 5.7
+4. Laravel 5.8
 
 ## Setting up DEV environment
 1. Build and start the image from your terminal:
@@ -83,6 +83,8 @@ Note: OS recommendation - Linux Ubuntu based.
     
     make info
     
+    make logs-supervisord
+    
     make drop-migrate
     
     make migrate-prod
@@ -97,7 +99,7 @@ Note: OS recommendation - Linux Ubuntu based.
     Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Laravel 5.7](https://laravel.com)
+* [Laravel 5.8](https://laravel.com)
 * [laravel-migrations-organiser](https://github.com/JayBizzle/Laravel-Migrations-Organiser)
 * [phpunit](https://phpunit.de/)
 * [phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer)
