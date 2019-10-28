@@ -58,45 +58,45 @@ Note: OS recommendation - Linux Ubuntu based.
         * Have fun with debugging
 
 ## Additional main command available:
-    ```
-    make start
-    make start-test
-    make start-prod
-    
-    make stop
-    make stop-test
-    make stop-prod
-    
-    make restart
-    make restart-test
-    make restart-prod
-    
-    make env-test-ci
-    
-    make ssh
-    make ssh-supervisord
-    
-    make composer-install-prod
-    make composer-install
-    
-    make composer-update
-    
-    make info
-    
-    make logs-supervisord
-    
-    make drop-migrate
-    
-    make migrate-prod
-    make migrate
-    
-    make seed
-    
-    make phpunit
-    
-    etc....
-    ```
-    Notes: Please see more commands in Makefile
+```
+make start
+make start-test
+make start-prod
+
+make stop
+make stop-test
+make stop-prod
+
+make restart
+make restart-test
+make restart-prod
+
+make env-test-ci
+
+make ssh
+make ssh-supervisord
+
+make composer-install-prod
+make composer-install
+
+make composer-update
+
+make info
+
+make logs-supervisord
+
+make drop-migrate
+
+make migrate-prod
+make migrate
+
+make seed
+
+make phpunit
+
+etc....
+```
+Notes: Please see more commands in Makefile
 
 ## Architecture & packages
 * [Laravel 5.8](https://laravel.com)
