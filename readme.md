@@ -77,6 +77,7 @@ Note: OS recommendation - Linux Ubuntu based.
     
     make ssh
     make ssh-supervisord
+    make ssh-mysql
     
     make composer-install-prod
     make composer-install
