@@ -14,7 +14,7 @@ class DbWaitDatabase extends Command
      *
      * @var int
      */
-    const WAIT_SLEEP_TIME = 2;
+    private const WAIT_SLEEP_TIME = 2;
 
     /**
      * The name and signature of the console command.

@@ -24,6 +24,9 @@ restart: stop start
 restart-test: stop-test start-test
 restart-prod: stop-prod start-prod
 
+env-dev:
+	@make exec cmd="cp ./.env.dev ./.env"
+
 env-test-ci:
 	@make exec cmd="cp ./.env.test-ci ./.env"
 
@@ -32,6 +35,9 @@ ssh:
 
 ssh-supervisord:
 	@docker-compose $(project) exec supervisord bash
+
+ssh-mysql:
+	@docker-compose $(project) exec mysql bash
 
 exec:
 	@docker-compose $(project) exec laravel $$cmd
@@ -58,8 +64,14 @@ info:
 	@make exec cmd="php artisan --version"
 	@make exec cmd="php --version"
 
+logs:
+	@docker logs -f laravel
+
 logs-supervisord:
-	@docker logs supervisord
+	@docker logs -f supervisord
+
+logs-mysql:
+	@docker logs -f mysql
 
 drop-migrate:
 	@make exec cmd="php artisan migrate:fresh"

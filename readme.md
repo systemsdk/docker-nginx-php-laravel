@@ -17,7 +17,7 @@ Note: OS recommendation - Linux Ubuntu based.
 1. Nginx 1.15
 2. PHP 7.3 fpm
 3. MySQL 8
-4. Laravel 5.8
+4. Laravel 6.4
 
 ## Setting up DEV environment
 1. Build and start the image from your terminal:
@@ -25,6 +25,7 @@ Note: OS recommendation - Linux Ubuntu based.
     docker-compose build
     make start
     make composer-install
+    make env-dev
     ```
 2. Add domain to local 'hosts' file:
     ```
@@ -71,6 +72,7 @@ Note: OS recommendation - Linux Ubuntu based.
     make restart-test
     make restart-prod
     
+    make env-dev
     make env-test-ci
     
     make ssh
@@ -83,7 +85,9 @@ Note: OS recommendation - Linux Ubuntu based.
     
     make info
     
+    make logs
     make logs-supervisord
+    make logs-mysql
     
     make drop-migrate
     
@@ -99,7 +103,7 @@ Note: OS recommendation - Linux Ubuntu based.
     Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Laravel 5.8](https://laravel.com)
+* [Laravel 6.4](https://laravel.com)
 * [laravel-migrations-organiser](https://github.com/JayBizzle/Laravel-Migrations-Organiser)
 * [phpunit](https://phpunit.de/)
 * [phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer)
