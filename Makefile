@@ -1,6 +1,10 @@
 dir=${CURDIR}
 project=-p laravel
 service=laravel:latest
+interactive:=$(shell [ -t 0 ] && echo 1)
+ifneq ($(interactive),1)
+	optionT=-T
+endif
 
 start:
 	@docker-compose -f docker-compose.yml $(project) up -d
@@ -31,7 +35,10 @@ env-test-ci:
 	@make exec cmd="cp ./.env.test-ci ./.env"
 
 ssh:
-	@docker-compose $(project) exec laravel bash
+	@docker-compose $(project) exec $(optionT) laravel bash
+
+ssh-nginx:
+	@docker-compose $(project) exec nginx /bin/sh
 
 ssh-supervisord:
 	@docker-compose $(project) exec supervisord bash
@@ -40,13 +47,16 @@ ssh-mysql:
 	@docker-compose $(project) exec mysql bash
 
 exec:
-	@docker-compose $(project) exec laravel $$cmd
+	@docker-compose $(project) exec $(optionT) laravel $$cmd
 
-clean:
-	rm -rf $(dir)/reports/*
+exec-bash:
+	@docker-compose $(project) exec $(optionT) laravel bash -c "$(cmd)"
 
-prepare:
+report-prepare:
 	mkdir -p $(dir)/reports/coverage
+
+report-clean:
+	rm -rf $(dir)/reports/*
 
 wait-for-db:
 	@make exec cmd="php artisan db:wait"
@@ -66,6 +76,9 @@ info:
 
 logs:
 	@docker logs -f laravel
+
+logs-nginx:
+	@docker logs -f nginx
 
 logs-supervisord:
 	@docker logs -f supervisord
@@ -88,4 +101,37 @@ seed:
 	@make exec cmd="php artisan db:seed --force"
 
 phpunit:
-	@make exec cmd="vendor/bin/phpunit -c phpunit.xml --log-junit reports/phpunit.xml --coverage-html reports/coverage --coverage-clover reports/coverage.xml"
+	@make exec cmd="./vendor/bin/phpunit -c phpunit.xml --coverage-html reports/coverage --coverage-clover reports/clover.xml --log-junit reports/junit.xml"
+
+###> php-coveralls ###
+report-code-coverage: ## update code coverage on coveralls.io. Note: COVERALLS_REPO_TOKEN should be set on CI side.
+	@make exec-bash cmd="export COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} && php ./vendor/bin/php-coveralls -v --coverage_clover reports/clover.xml --json_path reports/coverals.json"
+###< php-coveralls ###
+
+###> phpcs ###
+phpcs: ## Run PHP CodeSniffer
+	@make exec-bash cmd="./vendor/bin/phpcs --version && ./vendor/bin/phpcs --standard=PSR2 --colors -p app"
+###< phpcs ###
+
+###> ecs ###
+ecs: ## Run Easy Coding Standard
+	@make exec-bash cmd="error_reporting=0 ./vendor/bin/ecs --clear-cache check app"
+
+ecs-fix: ## Run The Easy Coding Standard to fix issues
+	@make exec-bash cmd="error_reporting=0 ./vendor/bin/ecs --clear-cache --fix check app"
+###< ecs ###
+
+###> phpmetrics ###
+phpmetrics:
+	@make exec cmd="make phpmetrics-process"
+
+phpmetrics-process: ## Generates PhpMetrics static analysis, should be run inside symfony container
+	@mkdir -p reports/phpmetrics
+	@if [ ! -f reports/junit.xml ] ; then \
+		printf "\033[32;49mjunit.xml not found, running tests...\033[39m\n" ; \
+		./vendor/bin/phpunit -c phpunit.xml --coverage-html reports/coverage --coverage-clover reports/clover.xml --log-junit reports/junit.xml ; \
+	fi;
+	@echo "\033[32mRunning PhpMetrics\033[39m"
+	@php ./vendor/bin/phpmetrics --version
+	@./vendor/bin/phpmetrics --junit=reports/junit.xml --report-html=reports/phpmetrics .
+###< phpmetrics ###

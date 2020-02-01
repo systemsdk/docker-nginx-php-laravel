@@ -1,0 +1,19 @@
+image: docker:stable
+
+options:
+  docker: true
+
+pipelines:
+  default:
+    - step:
+        script:
+          - chmod +x .bitbucket/dependencies.sh
+          - .bitbucket/dependencies.sh
+          - docker-compose -f docker-compose-test-ci.yml build
+          - make start-test
+          - docker ps -a
+          - make wait-for-db
+          - make drop-migrate
+          - make seed
+          - make phpunit
+          - make stop-test

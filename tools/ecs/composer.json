@@ -1,0 +1,16 @@
+{
+	"require": {},
+	"require-dev": {
+		"symplify/easy-coding-standard": "7.2.*",
+		"roave/security-advisories": "dev-master"
+	},
+	"config": {
+		"platform": {
+			"php": "7.4.0"
+		},
+		"preferred-install": {
+			"*": "dist"
+		},
+		"sort-packages": true
+	}
+}

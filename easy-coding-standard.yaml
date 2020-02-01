@@ -1,0 +1,32 @@
+services:
+    PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
+        syntax: short
+
+imports:
+    - { resource: '%vendor_dir%/symplify/easy-coding-standard/config/set/psr12.yaml' }
+    - { resource: '%vendor_dir%/symplify/easy-coding-standard/config/set/php71.yaml' }
+    - { resource: '%vendor_dir%/symplify/easy-coding-standard/config/set/clean-code.yaml' }
+    - { resource: '%vendor_dir%/symplify/easy-coding-standard/config/set/common.yaml' }
+
+parameters:
+    skip:
+        PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer: ~
+        PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
+        PhpCsFixer\Fixer\ArrayNotation\TrailingCommaInMultilineArrayFixer: ~
+        PhpCsFixer\Fixer\CastNotation\CastSpacesFixer: ~
+        PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: ~
+        PhpCsFixer\Fixer\Import\OrderedImportsFixer: ~
+        PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer: ~
+        PhpCsFixer\Fixer\NamespaceNotation\SingleBlankLineBeforeNamespaceFixer: ~
+        PhpCsFixer\Fixer\Operator\NotOperatorWithSuccessorSpaceFixer: ~
+        SlevomatCodingStandard\Sniffs\Exceptions\ReferenceThrowableOnlySniff: ~
+        SlevomatCodingStandard\Sniffs\Classes\TraitUseSpacingSniff: ~
+        Symplify\CodingStandard\Fixer\Commenting\ParamReturnAndVarTagMalformsFixer: ~
+        Symplify\CodingStandard\Fixer\Commenting\RemoveUselessDocBlockFixer: ~
+        Symplify\CodingStandard\Fixer\Strict\BlankLineAfterStrictTypesFixer: ~
+        PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff.Found: ~
+        PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff.FoundInWhileCondition:
+        SlevomatCodingStandard\Sniffs\TypeHints\NullableTypeForNullDefaultValueSniff.NullabilitySymbolRequired:
+        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
+        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingTraversableReturnTypeHintSpecification:
+            - '*Kernel.php'

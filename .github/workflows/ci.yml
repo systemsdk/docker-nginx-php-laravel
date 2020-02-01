@@ -1,0 +1,38 @@
+name: Laravel App
+
+on:
+    push:
+        branches:
+            - master
+            - develop
+    pull_request:
+        branches:
+            - master
+            - develop
+    release:
+        types: [published]
+
+jobs:
+
+    build:
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Build the docker images
+              run: docker-compose -f docker-compose-test-ci.yml build
+            - name: Start the docker images
+              run: make start-test
+            - name: Check running containers
+              run: docker ps -a
+            - name: Wait for database connection
+              run: make wait-for-db
+            - name: Run migrations
+              run: make drop-migrate
+            - name: Run seeds
+              run: make seed
+            - name: Run test suite
+              run: make phpunit
+            - name: Stop the docker images
+              run: make stop-test

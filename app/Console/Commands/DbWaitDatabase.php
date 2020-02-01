@@ -40,7 +40,6 @@ class DbWaitDatabase extends Command
     public function handle(DB $db): int
     {
         for ($i = 0; $i < 60; $i += self::WAIT_SLEEP_TIME) {
-
             try {
                 $db::select('SHOW TABLES');
                 $this->info('Connection to the database is ok!');
@@ -52,7 +51,6 @@ class DbWaitDatabase extends Command
 
                 continue;
             }
-
         }
 
         $this->error('Can not connect to the database');
