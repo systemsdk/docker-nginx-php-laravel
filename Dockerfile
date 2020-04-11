@@ -30,14 +30,17 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       cron \
       libzip-dev \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
+    && docker-php-ext-configure intl \
     && docker-php-ext-install \
       pdo_mysql \
+      sockets \
       intl \
-      zip && \
-      rm -fr /tmp/* && \
-      rm -rf /var/list/apt/* && \
-      rm -r /var/lib/apt/lists/* && \
-      apt-get clean
+      opcache \
+      zip \
+    && rm -rf /tmp/* \
+    && rm -rf /var/list/apt/* \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 # create document root
 RUN mkdir -p $APP_HOME/public
@@ -49,13 +52,15 @@ RUN chown -R www-data:www-data $APP_HOME
 COPY ./docker/$BUILD_ARGUMENT_ENV/www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./docker/$BUILD_ARGUMENT_ENV/php.ini /usr/local/etc/php/php.ini
 
-# install Xdebug in case development environment
+# install Xdebug in case dev/test environment
 COPY ./docker/general/do_we_need_xdebug.sh /tmp/
 COPY ./docker/dev/xdebug.ini /tmp/
 RUN chmod u+x /tmp/do_we_need_xdebug.sh && /tmp/do_we_need_xdebug.sh
 
 # install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN chmod +x /usr/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # add supervisor
 RUN mkdir -p /var/log/supervisor
@@ -76,8 +81,8 @@ COPY --chown=www-data:www-data . $APP_HOME/
 COPY --chown=www-data:www-data .env.$ENV $APP_HOME/.env
 
 # install all PHP dependencies
-RUN if [ "$BUILD_ARGUMENT_ENV" = "dev" ] || [ "$BUILD_ARGUMENT_ENV" = "test" ]; then composer install --no-interaction --no-progress; \
-    else composer install --no-interaction --no-progress --no-dev; \
+RUN if [ "$BUILD_ARGUMENT_ENV" = "dev" ] || [ "$BUILD_ARGUMENT_ENV" = "test" ]; then COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-interaction --no-progress; \
+    else COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-interaction --no-progress --no-dev; \
     fi
 
 USER root

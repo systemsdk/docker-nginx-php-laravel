@@ -34,5 +34,9 @@ jobs:
               run: make seed
             - name: Run test suite
               run: make phpunit
+            - name: Run coding standard
+              run: make ecs
+            - name: Run codeSniffer
+              run: make phpcs
             - name: Stop the docker images
               run: make stop-test

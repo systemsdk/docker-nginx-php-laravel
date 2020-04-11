@@ -16,4 +16,6 @@ pipelines:
           - make drop-migrate
           - make seed
           - make phpunit
+          - make ecs
+          - make phpcs
           - make stop-test

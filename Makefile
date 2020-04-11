@@ -62,13 +62,13 @@ wait-for-db:
 	@make exec cmd="php artisan db:wait"
 
 composer-install-prod:
-	@make exec cmd="composer install --no-dev"
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-dev"
 
 composer-install:
-	@make exec cmd="composer install"
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader"
 
 composer-update:
-	@make exec cmd="composer update"
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
 info:
 	@make exec cmd="php artisan --version"

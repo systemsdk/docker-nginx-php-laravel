@@ -31,6 +31,12 @@ jobs:
           command: |
             make report-code-coverage
 
+      - run:
+          name: Check coding standard & CodeSniffer
+          command: |
+            make ecs
+            make phpcs
+
       - store_artifacts:
           path: reports
 

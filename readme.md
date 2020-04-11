@@ -19,7 +19,7 @@ Note: OS recommendation - Linux Ubuntu based.
 1. Nginx 1.17
 2. PHP 7.4 fpm
 3. MySQL 8
-4. Laravel 6
+4. Laravel 6 LTS
 
 ## Setting up DEV environment
 1.Clone this repository from GitHub.
@@ -86,7 +86,6 @@ make ssh-mysql
 
 make composer-install-prod
 make composer-install
-
 make composer-update
 
 make info
@@ -97,7 +96,6 @@ make logs-supervisord
 make logs-mysql
 
 make drop-migrate
-
 make migrate-prod
 make migrate
 
@@ -122,6 +120,7 @@ Notes: Please see more commands in Makefile
 * [laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
 * [scriptsdev](https://github.com/neronmoon/scriptsdev)
 * [composer-bin-plugin](https://github.com/bamarni/composer-bin-plugin)
+* [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
 * [security-advisories](https://github.com/Roave/SecurityAdvisories)
 * [php-coveralls](https://github.com/php-coveralls/php-coveralls)
 * [easy-coding-standard](https://github.com/Symplify/EasyCodingStandard)
