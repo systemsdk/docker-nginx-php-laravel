@@ -37,7 +37,7 @@ services:
       links:
         - mysql
 
-    ### Cron tasks, RabbitMQ consumers
+    ### Cron tasks
     supervisord:
       <<: *laravel-template
       container_name: supervisord

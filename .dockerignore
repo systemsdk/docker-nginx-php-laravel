@@ -1,12 +1,12 @@
 /.git*
 /.idea*
-#docker/
-storage/mysql-data
-vendor/
-bootstrap/cache
-!bootstrap/cache/.gitignore
 .dockerignore
 .editorconfig
+storage/mysql-data
+vendor/
+/tools/*/vendor/
+bootstrap/cache
+!bootstrap/cache/.gitignore
 .phpstorm.meta.php
 Dockerfile
 _ide_helper.php
