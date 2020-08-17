@@ -12,5 +12,6 @@ Dockerfile
 _ide_helper.php
 docker-compose.yml
 docker-compose-test-ci.yml
+docker-compose-staging.yml
 docker-compose-prod.yml
 Makefile
