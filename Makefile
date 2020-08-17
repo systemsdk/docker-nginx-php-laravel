@@ -1,11 +1,10 @@
 dir=${CURDIR}
+export COMPOSE_PROJECT_NAME=environment3
 
 ifndef APP_ENV
 	# Determine if .env file exist
 	ifneq ("$(wildcard .env)","")
 		include .env
-	else
-		export COMPOSE_PROJECT_NAME=environment3
 	endif
 endif
 
