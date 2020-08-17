@@ -9,7 +9,7 @@ services:
         args:
           - "BUILD_ARGUMENT_ENV=prod"
         dockerfile: ./nginx/Dockerfile
-      container_name: nginx
+      container_name: ${COMPOSE_PROJECT_NAME}_nginx
       restart: always
       ports:
         - 80:80
@@ -29,7 +29,8 @@ services:
           - "BUILD_ARGUMENT_ENV=prod"
           - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
         dockerfile: ./Dockerfile
-      container_name: laravel
+      container_name: ${COMPOSE_PROJECT_NAME}_laravel
+      restart: always
       expose:
         - 9000
       depends_on:
@@ -40,14 +41,14 @@ services:
     ### Cron tasks
     supervisord:
       <<: *laravel-template
-      container_name: supervisord
-      user: root
+      container_name: ${COMPOSE_PROJECT_NAME}_supervisord
       expose: []
       command: ["/usr/bin/supervisord"]
 
     mysql:
       image: mysql:8.0
-      container_name: mysql
+      container_name: ${COMPOSE_PROJECT_NAME}_mysql
+      restart: always
       command: --default-authentication-plugin=mysql_native_password
       environment:
         - MYSQL_ROOT_PASSWORD=secret

@@ -1,16 +1,40 @@
 dir=${CURDIR}
-project=-p laravel
-service=laravel:latest
+
+ifndef APP_ENV
+	include .env
+endif
+
+project=-p ${COMPOSE_PROJECT_NAME}
+service=${COMPOSE_PROJECT_NAME}:latest
 interactive:=$(shell [ -t 0 ] && echo 1)
 ifneq ($(interactive),1)
 	optionT=-T
 endif
+ifeq ($(GITLAB_CI),1)
+	# Determine additional params for phpunit in order to generate coverage badge on GitLabCI side
+	phpunitOptions=--coverage-text --colors=never
+endif
+
+build:
+	@docker-compose -f docker-compose.yml build
+
+build-test:
+	@docker-compose -f docker-compose-test-ci.yml build
+
+build-staging:
+	@docker-compose -f docker-compose-staging.yml build
+
+build-prod:
+	@docker-compose -f docker-compose-prod.yml build
 
 start:
 	@docker-compose -f docker-compose.yml $(project) up -d
 
 start-test:
 	@docker-compose -f docker-compose-test-ci.yml $(project) up -d
+
+start-staging:
+	@docker-compose -f docker-compose-staging.yml $(project) up -d
 
 start-prod:
 	@docker-compose -f docker-compose-prod.yml $(project) up -d
@@ -21,11 +45,15 @@ stop:
 stop-test:
 	@docker-compose -f docker-compose-test-ci.yml $(project) down
 
+stop-staging:
+	@docker-compose -f docker-compose-staging.yml $(project) down
+
 stop-prod:
 	@docker-compose -f docker-compose-prod.yml $(project) down
 
 restart: stop start
 restart-test: stop-test start-test
+restart-staging: stop-staging start-staging
 restart-prod: stop-prod start-prod
 
 env-dev:
@@ -61,7 +89,7 @@ report-clean:
 wait-for-db:
 	@make exec cmd="php artisan db:wait"
 
-composer-install-prod:
+composer-install-no-dev:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-dev"
 
 composer-install:
@@ -70,27 +98,31 @@ composer-install:
 composer-update:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
+key-generate:
+	@make exec cmd="php artisan key:generate"
+
 info:
 	@make exec cmd="php artisan --version"
+	@make exec cmd="php artisan env"
 	@make exec cmd="php --version"
 
 logs:
-	@docker logs -f laravel
+	@docker logs -f ${COMPOSE_PROJECT_NAME}_laravel
 
 logs-nginx:
-	@docker logs -f nginx
+	@docker logs -f ${COMPOSE_PROJECT_NAME}_nginx
 
 logs-supervisord:
-	@docker logs -f supervisord
+	@docker logs -f ${COMPOSE_PROJECT_NAME}_supervisord
 
 logs-mysql:
-	@docker logs -f mysql
+	@docker logs -f ${COMPOSE_PROJECT_NAME}_mysql
 
 drop-migrate:
 	@make exec cmd="php artisan migrate:fresh"
 	@make exec cmd="php artisan migrate:fresh --env=test"
 
-migrate-prod:
+migrate-no-test:
 	@make exec cmd="php artisan migrate --force"
 
 migrate:
@@ -101,7 +133,7 @@ seed:
 	@make exec cmd="php artisan db:seed --force"
 
 phpunit:
-	@make exec cmd="./vendor/bin/phpunit -c phpunit.xml --coverage-html reports/coverage --coverage-clover reports/clover.xml --log-junit reports/junit.xml"
+	@make exec cmd="./vendor/bin/phpunit -c phpunit.xml --coverage-html reports/coverage $(phpunitOptions) --coverage-clover reports/clover.xml --log-junit reports/junit.xml"
 
 ###> php-coveralls ###
 report-code-coverage: ## update code coverage on coveralls.io. Note: COVERALLS_REPO_TOKEN should be set on CI side.

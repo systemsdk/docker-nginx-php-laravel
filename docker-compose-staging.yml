@@ -7,7 +7,7 @@ services:
       build:
         context: ./docker/
         args:
-          - "BUILD_ARGUMENT_ENV=dev"
+          - "BUILD_ARGUMENT_ENV=staging"
         dockerfile: ./nginx/Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}_nginx
       restart: always
@@ -26,14 +26,13 @@ services:
       build:
         context: .
         args:
-          - "BUILD_ARGUMENT_ENV=dev"
+          - "BUILD_ARGUMENT_ENV=staging"
           - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
         dockerfile: ./Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}_laravel
+      restart: always
       expose:
         - 9000
-      volumes:
-        - .:/var/www/html
       depends_on:
         - mysql
       links:
@@ -49,12 +48,10 @@ services:
     mysql:
       image: mysql:8.0
       container_name: ${COMPOSE_PROJECT_NAME}_mysql
+      restart: always
       command: --default-authentication-plugin=mysql_native_password
       environment:
         - MYSQL_ROOT_PASSWORD=secret
         - MYSQL_DATABASE=laravel
-      ports:
-        - 33061:3306
       volumes:
         - ./storage/mysql-data:/var/lib/mysql
-        - ./docker/dev/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql

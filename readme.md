@@ -16,13 +16,61 @@ Docker environment required to run Laravel (based on official php and mysql dock
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
-1. Nginx 1.17
+1. Nginx 1.19
 2. PHP 7.4 fpm
 3. MySQL 8
 4. Laravel 6 LTS
 
+## Setting up PROD environment
+1.Clone this repository from GitHub.
+
+2.Edit docker-compose-prod.yml and set necessary user/password for MySQL.
+
+Note: Delete storage/mysql-data folder if it is exist.
+
+3.Edit env.prod and set necessary user/password for MySQL.
+
+4.Build, start and install the docker images from your terminal:
+```bash
+make build-prod
+make start-prod
+```
+
+5.Make sure that you have installed migrations:
+```bash
+make migrate-no-test
+```
+
+6.Set key for application:
+```bash
+make key-generate
+```
+
+## Setting up STAGING environment
+1.Clone this repository from GitHub.
+
+Note: Delete storage/mysql-data folder if it is exist.
+
+2.Build, start and install the docker images from your terminal:
+```bash
+make build-staging
+make start-staging
+```
+
+3.Make sure that you have installed migrations:
+```bash
+make migrate-no-test
+```
+
+4.Set key for application:
+```bash
+make key-generate
+```
+
 ## Setting up DEV environment
 1.Clone this repository from GitHub.
+
+Note: Delete storage/mysql-data folder if it is exist.
 
 2.Add domain to local 'hosts' file:
 ```bash
@@ -44,7 +92,7 @@ xdebug.remote_autostart = 1
 
 4.Build and start the image from your terminal:
 ```bash
-docker-compose build
+make build
 make start
 make composer-install
 make env-dev
@@ -52,8 +100,7 @@ make env-dev
 
 5.Set key for application:
 ```bash
-make ssh
-php artisan key:generate
+make key-generate
 ```
 
 6.Make sure that you have installed migrations/seeds:
@@ -62,18 +109,58 @@ make migrate
 make seed
 ```
 
-## Additional main command available
+7.In order to use this application, please open in your browser next url: [http://localhost](http://localhost).
+
+## Getting shell to container
+After application will start (`make start`) and in order to get shell access inside laravel container you can run following command:
+```bash
+make ssh
+```
+Note 1: Please use next make commands in order to enter in other containers: `make ssh-nginx`, `make ssh-supervisord`, `make ssh-mysql`.
+
+Note 2: Please use `exit` command in order to return from container's shell to local shell.
+
+## Building containers
+In case you edited Dockerfile or other environment configuration you'll need to build containers again using next commands:
+```bash
+make stop
+make build
+make start
+```
+Note 1: Please use next command if you need to build staging environment `make build-staging` instead `make build`.
+
+Note 2: Please use next command if you need to build prod environment `make build-prod` instead `make build`.
+
+## Start and stop environment
+Please use next make commands in order to start and stop environment:
 ```bash
 make start
+make stop
+```
+Note 1: For staging environment need to be used next make commands: `make start-staging`, `make stop-staging`.
+
+Note 2: For prod environment need to be used next make commands: `make start-prod`, `make stop-prod`.
+
+## Additional main command available
+```bash
+make build
+make build-test
+make build-staging
+make build-prod
+
+make start
 make start-test
+make start-staging
 make start-prod
 
 make stop
 make stop-test
+make stop-staging
 make stop-prod
 
 make restart
 make restart-test
+make restart-staging
 make restart-prod
 
 make env-dev
@@ -84,9 +171,11 @@ make ssh-nginx
 make ssh-supervisord
 make ssh-mysql
 
-make composer-install-prod
+make composer-install-no-dev
 make composer-install
 make composer-update
+
+make key-generate
 
 make info
 
@@ -96,7 +185,7 @@ make logs-supervisord
 make logs-mysql
 
 make drop-migrate
-make migrate-prod
+make migrate-no-test
 make migrate
 
 make seed

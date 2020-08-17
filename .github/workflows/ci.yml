@@ -21,7 +21,7 @@ jobs:
         steps:
             - uses: actions/checkout@v1
             - name: Build the docker images
-              run: docker-compose -f docker-compose-test-ci.yml build
+              run: make build-test
             - name: Start the docker images
               run: make start-test
             - name: Check running containers

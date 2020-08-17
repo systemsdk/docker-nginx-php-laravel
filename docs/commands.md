@@ -6,16 +6,24 @@ This environment comes with "Makefile" and it allow to simplify using some funct
 In order to use command listed bellow just use next syntax in your local shell: `make {command name}`.
 Next commands available for this environment:
 ```bash
+make build                  # Build dev environment
+make build-test             # Build test or continuous integration environment
+make build-staging          # Build staging environment
+make build-prod             # Build prod environment
+
 make start                  # Start dev environment
 make start-test             # Start test or continuous integration environment
+make start-staging          # Start staging environment
 make start-prod             # Start prod environment
 
 make stop                   # Stop dev environment
 make stop-test              # Stop test or continuous integration environment
+make stop-staging           # Stop staging environment
 make stop-prod              # Stop prod environment
 
 make restart                # Stop and start dev environment
 make restart-test           # Stop and start test or continuous integration environment
+make restart-staging            # Stop and start staging environment
 make restart-prod           # Stop and start prod environment
 
 make env-dev                # Create config for dev environment
@@ -37,6 +45,8 @@ make wait-for-db            # Checking MySQL database availability, currently us
 make composer-install-prod  # Installing composer dependencies for prod environment (without dev tools)
 make composer-install       # Installing composer dependencies for dev environment
 make composer-update        # Update composer dependencies
+
+make key-generate           # Set the application key
 
 make info                   # Display information about laravel version and php version
 

@@ -1,0 +1,67 @@
+image: docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+  GITLAB_CI: 1
+
+services:
+  - docker:dind
+
+before_script:
+  - apk update
+  - apk upgrade
+  - apk add --no-cache make bash docker-compose && rm -rf /var/cache/apk/*
+
+stages:
+  - build
+  - deploy
+
+.general_scripts: &general_scripts
+  - make info
+
+build:
+  stage: build
+  script:
+    - make build-test
+    - make start-test
+    - docker ps -a
+    - make wait-for-db
+    - make drop-migrate
+    - make seed
+    - *general_scripts
+    - make phpunit
+    - make ecs
+    - make phpcs
+    - make stop-test
+  artifacts:
+    paths:
+      - reports/
+  only:
+    - merge_requests
+    - tags
+    - master
+    - develop
+
+push_staging_images:
+  stage: deploy
+  script:
+    - make build-staging
+    # TODO: set necessary image name in docker-compose-staging.yml according to your registry and edit lines bellow
+    #- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    #- docker-compose -f docker-compose-staging.yml push
+  only:
+    - master
+    - develop
+    - /^release.*$/
+
+push_prod_images:
+  stage: deploy
+  script:
+    - make build-prod
+    # TODO: set necessary image name in docker-compose-prod.yml according to your registry and edit lines bellow
+    #- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    #- docker-compose -f docker-compose-prod.yml push
+  only:
+    - master
+    - /^release.*$/

@@ -9,12 +9,13 @@ pipelines:
         script:
           - chmod +x .bitbucket/dependencies.sh
           - .bitbucket/dependencies.sh
-          - docker-compose -f docker-compose-test-ci.yml build
+          - make build-test
           - make start-test
           - docker ps -a
           - make wait-for-db
           - make drop-migrate
           - make seed
+          - make info
           - make phpunit
           - make ecs
           - make phpcs
