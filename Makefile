@@ -146,15 +146,15 @@ report-code-coverage: ## update code coverage on coveralls.io. Note: COVERALLS_R
 
 ###> phpcs ###
 phpcs: ## Run PHP CodeSniffer
-	@make exec-bash cmd="./vendor/bin/phpcs --version && ./vendor/bin/phpcs --standard=PSR2 --colors -p app"
+	@make exec-bash cmd="./vendor/bin/phpcs --version && ./vendor/bin/phpcs --standard=PSR2 --colors -p app tests"
 ###< phpcs ###
 
 ###> ecs ###
 ecs: ## Run Easy Coding Standard
-	@make exec-bash cmd="error_reporting=0 ./vendor/bin/ecs --clear-cache check app"
+	@make exec-bash cmd="./vendor/bin/ecs --version && ./vendor/bin/ecs --clear-cache check app tests"
 
 ecs-fix: ## Run The Easy Coding Standard to fix issues
-	@make exec-bash cmd="error_reporting=0 ./vendor/bin/ecs --clear-cache --fix check app"
+	@make exec-bash cmd="./vendor/bin/ecs --version && ./vendor/bin/ecs --clear-cache --fix check app tests"
 ###< ecs ###
 
 ###> phpmetrics ###
@@ -171,3 +171,27 @@ phpmetrics-process: ## Generates PhpMetrics static analysis, should be run insid
 	@php ./vendor/bin/phpmetrics --version
 	@./vendor/bin/phpmetrics --junit=reports/junit.xml --report-html=reports/phpmetrics .
 ###< phpmetrics ###
+
+###> php copy/paste detector ###
+phpcpd:
+	@make exec cmd="php phpcpd.phar --fuzzy app tests"
+###< php copy/paste detector ###
+
+###> php mess detector ###
+phpmd:
+	@make exec cmd="php ./vendor/bin/phpmd app text phpmd_ruleset.xml --suffixes php"
+###< php mess detector ###
+
+###> PHPStan static analysis tool ###
+phpstan:
+	@echo "\033[32mRunning PHPStan - PHP Static Analysis Tool\033[39m"
+	@make exec cmd="php artisan cache:clear --env=test"
+	@make exec cmd="./vendor/bin/phpstan --version"
+	@make exec cmd="./vendor/bin/phpstan analyze app tests"
+###< PHPStan static analysis tool ###
+
+###> Phpinsights PHP quality checks ###
+phpinsights:
+	@echo "\033[32mRunning PHP Insights\033[39m"
+	@make exec cmd="php -d error_reporting=0 ./vendor/bin/phpinsights analyse --no-interaction --min-quality=100 --min-complexity=85 --min-architecture=100 --min-style=100"
+###< Phpinsights PHP quality checks ###

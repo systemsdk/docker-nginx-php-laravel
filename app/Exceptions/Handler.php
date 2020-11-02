@@ -1,8 +1,8 @@
 <?php
+declare(strict_types = 1);
 
 namespace App\Exceptions;
 
-use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -25,28 +25,9 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Report or log an exception.
-     *
-     * @param  \Exception  $exception
-     *
-     * @throws \Exception
+     * Register the exception handling callbacks for the application.
      */
-    public function report(Exception $exception): void
+    public function register(): void
     {
-        parent::report($exception);
-    }
-
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Exception
-     */
-    public function render($request, Exception $exception)
-    {
-        return parent::render($request, $exception);
     }
 }

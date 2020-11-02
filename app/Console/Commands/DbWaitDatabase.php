@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Console\Commands;
 
@@ -11,8 +11,6 @@ class DbWaitDatabase extends Command
 {
     /**
      * Wait sleep time for db connection in seconds
-     *
-     * @var int
      */
     private const WAIT_SLEEP_TIME = 2;
 
@@ -32,20 +30,16 @@ class DbWaitDatabase extends Command
 
     /**
      * Execute the console command.
-     *
-     * @param DB $db
-     *
-     * @return integer
      */
-    public function handle(DB $db): int
+    public function handle(DB $database): int
     {
         for ($i = 0; $i < 60; $i += self::WAIT_SLEEP_TIME) {
             try {
-                $db::select('SHOW TABLES');
+                $database::select('SHOW TABLES');
                 $this->info('Connection to the database is ok!');
 
                 return 0;
-            } catch (QueryException $e) {
+            } catch (QueryException $exception) {
                 $this->comment('Trying to connect to the database seconds:' . $i);
                 sleep(self::WAIT_SLEEP_TIME);
 

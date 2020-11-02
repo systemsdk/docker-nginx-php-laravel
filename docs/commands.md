@@ -68,6 +68,10 @@ make phpcs                    # Run PHP CodeSniffer
 make ecs                      # Run The Easiest Way to Use Any Coding Standard
 make ecs-fix                  # Run The Easiest Way to Use Any Coding Standard to fix issues
 phpmetrics                    # Generates PhpMetrics static analysis
+make phpcpd                   # Run php copy/paste detector
+make phpmd                    # Run php mess detector
+make phpstan                  # Run php static analysis tool
+make phpinsights              # Run phpinsights PHP quality checks
 ```
 
 ## Laravel container shell

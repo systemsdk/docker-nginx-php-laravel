@@ -1,7 +1,7 @@
 {
 	"require": {},
 	"require-dev": {
-		"phpunit/phpunit": "9.4.*",
+		"phpmd/phpmd": "dev-master",
 		"roave/security-advisories": "dev-master"
 	},
 	"config": {

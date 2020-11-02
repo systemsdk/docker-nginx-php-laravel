@@ -19,4 +19,8 @@ pipelines:
           - make phpunit
           - make ecs
           - make phpcs
+          - make phpcpd
+          - make phpmd
+          - make phpstan
+          - make phpinsights
           - make stop-test

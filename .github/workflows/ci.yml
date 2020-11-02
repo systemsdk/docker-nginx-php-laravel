@@ -34,9 +34,17 @@ jobs:
               run: make seed
             - name: Run test suite
               run: make phpunit
-            - name: Run coding standard
+            - name: Run PHP coding standard
               run: make ecs
-            - name: Run codeSniffer
+            - name: Run PHP codeSniffer
               run: make phpcs
+            - name: Run PHP copy/paste detector
+              run: make phpcpd
+            - name: Run PHP mess detector
+              run: make phpmd
+            - name: Run PHPStan static analysis tool
+              run: make phpstan
+            - name: Run Phpinsights PHP quality checks
+              run: make phpinsights
             - name: Stop the docker images
               run: make stop-test

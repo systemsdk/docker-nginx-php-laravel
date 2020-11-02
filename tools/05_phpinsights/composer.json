@@ -1,7 +1,7 @@
 {
 	"require": {},
 	"require-dev": {
-		"php-coveralls/php-coveralls": "2.2.*",
+		"nunomaduro/phpinsights": "dev-master",
 		"roave/security-advisories": "dev-master"
 	},
 	"config": {

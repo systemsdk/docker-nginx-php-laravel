@@ -1,0 +1,8 @@
+<?php
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@PSR12' => true,
+        'array_syntax' => ['syntax' => 'short'],
+    ])
+;

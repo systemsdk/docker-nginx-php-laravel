@@ -4,6 +4,9 @@ This document describing how you can configure your IDE [PhpStorm](https://www.j
 ## Configuring PhpStorm
 ### General
 * Go to `Settings -> Plugins` and install next plugins:
+    - .env files support
+    - .ignore
+    - Makefile support
     - Laravel
     - Php Inspections ​(EA Extended)​
 * Go to `Settings -> Languages & Frameworks -> Php -> Laravel` and check `Enable plugin for this project`.

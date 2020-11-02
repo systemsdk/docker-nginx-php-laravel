@@ -55,13 +55,64 @@ Short list of most popular IDE for PHP development:
 * [NetBeans](https://netbeans.org/)
 * [Sublime Text](https://www.sublimetext.com/)
 
-## PHP Code Sniffer
-This tool is an essential development tool that ensures your code remains clean and consistent.
-PHP Code Sniffer is available for dev/test environment using next laravel container shell command:
+
+## PHP coding standard
+This tool is an essential development tool that ensures your code remains coding standard.
+
+PHP coding standard is available for dev/test environment using next local shell command:
 ```bash
-./vendor/bin/phpcs -i
+make ecs
 ```
-Note: Also you can use make command (`make phpcs`) in your local shell.
+
+If you want to fix all possible issues in auto mode(some issues can be fixed only manually) just use next local shell command:
+```bash
+make ecs-fix
+```
+
+## PHP code sniffer
+This tool is an essential development tool that ensures your code remains clean and consistent.
+
+PHP Code Sniffer is available for dev/test environment using next local shell command:
+```bash
+make phpcs
+```
 
 If you are using [PhpStorm](https://www.jetbrains.com/phpstorm/) you can configure PHP Code Sniffer using recommendation
 [here](https://www.jetbrains.com/help/phpstorm/using-php-code-sniffer.html).
+
+## PHP copy/paste detector
+This tool is a copy/paste detector for PHP code.
+
+PHP copy/paste detector is available for dev/test environment using next local shell command:
+```bash
+make phpcpd
+```
+
+## PHP mess detector
+This tool takes a given PHP source code base and look for several potential problems within that source. These problems can be things like:
+* Possible bugs
+* Suboptimal code
+* Overcomplicated expressions
+* Unused parameters, methods, properties
+
+PHP mess detector is available for dev/test environment using next local shell command:
+```bash
+make phpmd
+```
+
+## PHPStan static analysis tool
+PHPStan focuses on finding errors in your code without actually running it. It catches whole classes of bugs even before you write tests for the code.
+It moves PHP closer to compiled languages in the sense that the correctness of each line of the code can be checked before you run the actual line.
+
+PHPStan static analysis tool is available for dev/test environment using next local shell command:
+```bash
+make phpstan
+```
+
+## Phpinsights PHP quality checks
+PHP Insights was carefully crafted to simplify the analysis of your code directly from your terminal, and is the perfect starting point to analyze the code quality of your PHP projects. 
+
+Phpinsights is available for dev/test environment using next local shell command:
+```bash
+make phpinsights
+```

@@ -1,109 +1,113 @@
 {
-    "name": "dimadeush/docker-nginx-php-laravel",
-    "type": "project",
-    "description": "Docker laravel environment",
-    "keywords": [
-        "Docker",
-        "Nginx",
-        "Php",
-        "Laravel",
-        "Supervisord",
-        "MySQL"
-    ],
-    "homepage": "https://github.com/dimadeush/docker-nginx-php-laravel",
-    "version": "1.0.0",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Dmitriy Kravtsov",
-            "email": "dmitriy.kravtsov@systemsdk.com",
-            "homepage": "https://github.com/dimadeush",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^7.4.0",
-        "ext-ctype": "*",
-        "ext-iconv": "*",
-        "ext-json": "*",
-        "ext-mbstring": "*",
-        "ext-pdo": "*",
-        "ext-pdo_mysql": "*",
-        "fideloper/proxy": "^4.0",
-        "jaybizzle/laravel-migrations-organiser": "^4.4",
-        "laravel/framework": "^6.5",
-        "laravel/tinker": "^2.0"
-    },
-    "require-dev": {
-        "bamarni/composer-bin-plugin": "^1.4",
-        "barryvdh/laravel-ide-helper": "^2.8",
-        "ergebnis/composer-normalize": "^2.7",
-        "facade/ignition": "^1.4",
-        "fzaninotto/faker": "^1.9",
-        "mockery/mockery": "^1.0",
-        "neronmoon/scriptsdev": "^0.1",
-        "nunomaduro/collision": "^3.0",
-        "roave/security-advisories": "dev-master"
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "platform": {
-            "php": "7.4.0"
-        },
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "extra": {
-        "bamarni-bin": {
-            "target-directory": "tools"
-        },
-        "laravel": {
-            "dont-discover": []
-        },
-        "scripts-dev": {
-            "post-update-cmd": [
-                "php artisan ide-helper:generate",
-                "php artisan ide-helper:meta"
-            ]
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ]
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/",
-            "PHPUnit\\": "tools/01_phpunit/vendor/phpunit/phpunit/src/",
-            "PHPUnit\\Framework\\MockObject\\": "tools/01_phpunit/vendor/phpunit/phpunit/src/Framework/MockObject/ForwardCompatibility"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-install-cmd": [
-            "if test -d vendor/bamarni/composer-bin-plugin; then composer bin all install; fi"
-        ],
-        "post-update-cmd": [
-            "if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi"
-        ],
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
-        ]
-    },
-    "support": {
-        "issues": "https://github.com/dimadeush/docker-nginx-php-laravel/issues"
-    }
+	"name": "dimadeush/docker-nginx-php-laravel",
+	"type": "project",
+	"description": "Docker laravel environment",
+	"keywords": [
+		"Docker",
+		"Nginx",
+		"Php",
+		"Laravel",
+		"Supervisord",
+		"MySQL"
+	],
+	"homepage": "https://github.com/dimadeush/docker-nginx-php-laravel",
+	"version": "1.0.0",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Dmitriy Kravtsov",
+			"email": "dmitriy.kravtsov@systemsdk.com",
+			"homepage": "https://github.com/dimadeush",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": "^7.4.0",
+		"ext-ctype": "*",
+		"ext-iconv": "*",
+		"ext-json": "*",
+		"ext-mbstring": "*",
+		"ext-pdo": "*",
+		"ext-pdo_mysql": "*",
+		"fideloper/proxy": "^4.4",
+		"jaybizzle/laravel-migrations-organiser": "^4.4",
+		"laravel/framework": "^6.20",
+		"laravel/tinker": "^2.5"
+	},
+	"require-dev": {
+		"bamarni/composer-bin-plugin": "^1.4",
+		"barryvdh/laravel-ide-helper": "^2.8",
+		"ergebnis/composer-normalize": "^2.10",
+		"facade/ignition": "^1.16",
+		"fakerphp/faker": "^1.9",
+		"mockery/mockery": "^1.0",
+		"neronmoon/scriptsdev": "^0.1",
+		"nunomaduro/collision": "^3.0",
+		"roave/security-advisories": "dev-master"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"platform": {
+			"php": "7.4.0"
+		},
+		"preferred-install": "dist",
+		"sort-packages": true
+	},
+	"extra": {
+		"bamarni-bin": {
+			"target-directory": "tools"
+		},
+		"laravel": {
+			"dont-discover": []
+		},
+		"scripts-dev": {
+			"post-update-cmd": [
+				"php artisan ide-helper:generate",
+				"php artisan ide-helper:meta"
+			]
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app/"
+		},
+		"classmap": [
+			"database/seeds",
+			"database/factories"
+		]
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/",
+			"PHPUnit\\": "tools/01_phpunit/vendor/phpunit/phpunit/src",
+			"PHPUnit\\Framework\\MockObject\\": "tools/01_phpunit/vendor/phpunit/phpunit/src/Framework/MockObject/ForwardCompatibility",
+			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/src/bin",
+			"PhpCsFixer\\": "tools/03_ecs/vendor/friendsofphp/php-cs-fixer/src",
+			"SlevomatCodingStandard\\": "tools/03_ecs/vendor/slevomat/coding-standard/SlevomatCodingStandard",
+			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/coding-standard/src"
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"scripts": {
+		"post-install-cmd": [
+			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all install; fi"
+		],
+		"post-update-cmd": [
+			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi"
+		],
+		"post-autoload-dump": [
+			"Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+			"@php artisan package:discover --ansi"
+		],
+		"post-root-package-install": [
+			"@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+		],
+		"post-create-project-cmd": [
+			"@php artisan key:generate --ansi"
+		]
+	},
+	"support": {
+		"issues": "https://github.com/dimadeush/docker-nginx-php-laravel/issues"
+	}
 }
