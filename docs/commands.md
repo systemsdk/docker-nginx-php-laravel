@@ -64,10 +64,10 @@ make seed                     # Run all seeds for test database
 make phpunit                  # Run all tests
 make report-code-coverage     # Update code coverage report on https://coveralls.io (COVERALLS_REPO_TOKEN should be set on CI side)
 
-make phpcs                    # Run PHP CodeSniffer
 make ecs                      # Run The Easiest Way to Use Any Coding Standard
 make ecs-fix                  # Run The Easiest Way to Use Any Coding Standard to fix issues
-phpmetrics                    # Generates PhpMetrics static analysis
+make phpcs                    # Run PHP CodeSniffer
+make phpmetrics               # Generates PhpMetrics static analysis
 make phpcpd                   # Run php copy/paste detector
 make phpmd                    # Run php mess detector
 make phpstan                  # Run php static analysis tool

@@ -19,3 +19,5 @@ reports/*
 npm-debug.log
 yarn-error.log
 .phpunit.result.cache
+.php_cs
+.php_cs.cache

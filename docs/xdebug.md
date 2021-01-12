@@ -44,8 +44,15 @@ If everything configured properly you will get something like next:
 If you're using [Postman](https://www.getpostman.com/) to test/debug your application when `xdebug.remote_autostart = 0` you need to add `?XDEBUG_SESSION_START=PHPSTORM` to each URL
 that you use with Postman. If you have default configuration (`xdebug.remote_autostart = 1`) - nothing to do and your Xdebug should work out of the box.
 
+## Debug Console commands
+If you want to debug console commands you just need to uncomment/edit option `xdebug.remote_host` in config `docker/dev/xdebug.ini`:
+```bash
+xdebug.remote_host=172.17.0.1
+```
+Just find out the proper host ip in your docker bridge configuration and set above option (in general it is `172.17.0.1`).
+Don't forget to rebuild docker containers according to [general](../readme.md) documentation.
+
 ## External documentations
 * [Debugging PHP (web and cli) with Xdebug using Docker and PHPStorm](https://thecodingmachine.io/configuring-xdebug-phpstorm-docker)
 * [Debug your PHP in Docker with Intellij/PHPStorm and Xdebug](https://gist.github.com/jehaby/61a89b15571b4bceee2417106e80240d)
 * [Debugging with Postman and PHPStorm (Xdebug)](https://www.thinkbean.com/drupal-development-blog/debugging-postman-and-phpstorm-xdebug)
-

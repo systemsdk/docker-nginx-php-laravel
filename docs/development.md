@@ -2,7 +2,7 @@
 This document contains basic information and recommendation for development this application.
 
 ## General
-* Follow the [PSR-1 guide](https://www.php-fig.org/psr/psr-1/), [PSR-2 guide](https://www.php-fig.org/psr/psr-2/).
+* Follow the [PSR-1 guide](https://www.php-fig.org/psr/psr-1/), [PSR-12 guide](https://www.php-fig.org/psr/psr-12/).
 * Try to keep class names informative but not too long.
 * Follow Laravel conventions and good practices.
 * Separate application logic from presentation and data-persistence layers.
