@@ -1,9 +1,9 @@
-version: '3'
+version: '3.5'
 
 services:
 
     nginx:
-      image: nginx:latest
+      image: ${COMPOSE_PROJECT_NAME}_nginx:latest
       build:
         context: ./docker/
         args:
@@ -18,11 +18,11 @@ services:
         - .:/var/www/html:ro
       depends_on:
         - laravel
-      links:
+      networks:
         - laravel
 
     laravel: &laravel-template
-      image: laravel:latest
+      image: ${COMPOSE_PROJECT_NAME}_laravel:latest
       build:
         context: .
         args:
@@ -31,12 +31,10 @@ services:
         dockerfile: ./Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}_laravel
       restart: always
-      expose:
-        - 9000
       depends_on:
         - mysql
-      links:
-        - mysql
+      networks:
+        - laravel
 
     ### Cron tasks
     supervisord:
@@ -55,3 +53,9 @@ services:
         - MYSQL_DATABASE=laravel
       volumes:
         - ./storage/mysql-data:/var/lib/mysql
+      networks:
+        - laravel
+
+networks:
+  laravel:
+    name: laravel

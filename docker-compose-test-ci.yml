@@ -1,9 +1,9 @@
-version: '3'
+version: '3.5'
 
 services:
 
     nginx:
-      image: nginx:latest
+      image: ${COMPOSE_PROJECT_NAME}_nginx:latest
       build:
         context: ./docker/
         args:
@@ -18,11 +18,11 @@ services:
         - .:/var/www/html:ro
       depends_on:
         - laravel
-      links:
+      networks:
         - laravel
 
     laravel: &laravel-template
-      image: laravel:latest
+      image: ${COMPOSE_PROJECT_NAME}_laravel:latest
       build:
         context: .
         args:
@@ -30,12 +30,12 @@ services:
           - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
         dockerfile: ./Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}_laravel
-      expose:
-        - 9000
+      volumes:
+        - ./.git:/var/www/html/.git
       depends_on:
         - mysql
-      links:
-        - mysql
+      networks:
+        - laravel
 
     ### Cron tasks
     supervisord:
@@ -56,3 +56,9 @@ services:
       volumes:
         - ./storage/mysql-data:/var/lib/mysql
         - ./docker/dev/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+      networks:
+        - laravel
+
+networks:
+  laravel:
+    name: laravel

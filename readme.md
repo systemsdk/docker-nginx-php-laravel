@@ -81,13 +81,13 @@ Note: Delete storage/mysql-data folder if it is exist.
 
 - In case you need debug only requests with IDE KEY: PHPSTORM from frontend in your browser:
 ```bash
-xdebug.remote_autostart = 0
+xdebug.start_with_request = no
 ```
 Install locally in Firefox extension "Xdebug helper" and set in settings IDE KEY: PHPSTORM
 
 - In case you need debug any request to an api (by default):
 ```bash
-xdebug.remote_autostart = 1
+xdebug.start_with_request = yes
 ```
 
 4.Build and start the image from your terminal:

@@ -8,6 +8,7 @@ ifndef APP_ENV
 	endif
 endif
 
+laravel_user=-u www-data
 project=-p ${COMPOSE_PROJECT_NAME}
 service=${COMPOSE_PROJECT_NAME}:latest
 interactive:=$(shell [ -t 0 ] && echo 1)
@@ -67,7 +68,7 @@ env-test-ci:
 	@make exec cmd="cp ./.env.test-ci ./.env"
 
 ssh:
-	@docker-compose $(project) exec $(optionT) laravel bash
+	@docker-compose $(project) exec $(optionT) $(laravel_user) laravel bash
 
 ssh-nginx:
 	@docker-compose $(project) exec nginx /bin/sh
@@ -79,10 +80,13 @@ ssh-mysql:
 	@docker-compose $(project) exec mysql bash
 
 exec:
-	@docker-compose $(project) exec $(optionT) laravel $$cmd
+	@docker-compose $(project) exec $(optionT) $(laravel_user) laravel $$cmd
 
 exec-bash:
-	@docker-compose $(project) exec $(optionT) laravel bash -c "$(cmd)"
+	@docker-compose $(project) exec $(optionT) $(laravel_user) laravel bash -c "$(cmd)"
+
+exec-by-root:
+	@docker-compose $(project) exec $(optionT) laravel $$cmd
 
 report-prepare:
 	mkdir -p $(dir)/reports/coverage
@@ -159,7 +163,7 @@ ecs-fix: ## Run The Easy Coding Standard to fix issues
 
 ###> phpmetrics ###
 phpmetrics:
-	@make exec cmd="make phpmetrics-process"
+	@make exec-by-root cmd="make phpmetrics-process"
 
 phpmetrics-process: ## Generates PhpMetrics static analysis, should be run inside symfony container
 	@mkdir -p reports/phpmetrics
@@ -169,7 +173,7 @@ phpmetrics-process: ## Generates PhpMetrics static analysis, should be run insid
 	fi;
 	@echo "\033[32mRunning PhpMetrics\033[39m"
 	@php ./vendor/bin/phpmetrics --version
-	@./vendor/bin/phpmetrics --junit=reports/junit.xml --report-html=reports/phpmetrics .
+	@php ./vendor/bin/phpmetrics --junit=reports/junit.xml --report-html=reports/phpmetrics .
 ###< phpmetrics ###
 
 ###> php copy/paste detector ###
