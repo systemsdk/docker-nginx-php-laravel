@@ -1,7 +1,9 @@
 <?php
 
 // https://mlocati.github.io/php-cs-fixer-configurator/
-return PhpCsFixer\Config::create()
+$finder = PhpCsFixer\Finder::create()->in(__DIR__)->exclude('somedir');
+
+return (new PhpCsFixer\Config())
     ->setRules([
         '@PSR12' => true,
         'array_syntax' => ['syntax' => 'short'],
@@ -27,5 +29,4 @@ return PhpCsFixer\Config::create()
         'not_operator_with_successor_space' => false,
         'single_line_throw' => false,
 
-    ])
-;
+    ])->setFinder($finder);

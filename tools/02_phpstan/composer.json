@@ -3,7 +3,7 @@
 	"require-dev": {
 		"laravel/framework": "^6.20",
 		"nunomaduro/larastan":  "0.7.*",
-		"roave/security-advisories": "dev-master"
+		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {

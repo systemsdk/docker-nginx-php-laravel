@@ -1,8 +1,8 @@
 {
 	"require": {},
 	"require-dev": {
-		"symplify/easy-coding-standard": "9.2.*",
-		"roave/security-advisories": "dev-master"
+		"symplify/easy-coding-standard": "9.3.*",
+		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {

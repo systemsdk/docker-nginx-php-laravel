@@ -2,7 +2,7 @@
 	"require": {},
 	"require-dev": {
 		"nunomaduro/phpinsights": "1.14.*",
-		"roave/security-advisories": "dev-master"
+		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {

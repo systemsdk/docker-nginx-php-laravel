@@ -30,7 +30,6 @@ use Symplify\CodingStandard\Fixer\Strict\BlankLineAfterStrictTypesFixer;
 return static function (ContainerConfigurator $containerConfigurator): void {
     $imports = [
         '/tools/03_ecs/vendor/symplify/easy-coding-standard/config/set/psr12.php',
-        '/tools/03_ecs/vendor/symplify/easy-coding-standard/config/set/php80-migration-risky.php',
         '/tools/03_ecs/vendor/symplify/easy-coding-standard/config/set/clean-code.php',
         '/tools/03_ecs/vendor/symplify/easy-coding-standard/config/set/common.php',
     ];

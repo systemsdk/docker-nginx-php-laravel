@@ -2,7 +2,7 @@
 	"require": {},
 	"require-dev": {
 		"phpmd/phpmd": "dev-master",
-		"roave/security-advisories": "dev-master"
+		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {
