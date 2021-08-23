@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bffda723e4ae754a31bf8243d5120822",
+    "content-hash": "35a3da2f48d763b5273658c5ce4eadca",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -881,6 +881,76 @@
                 "source": "https://github.com/guzzle/psr7/tree/2.0.0"
             },
             "time": "2021-06-30T20:03:07+00:00"
+        },
+        {
+            "name": "jaybizzle/laravel-migrations-organiser",
+            "version": "v6.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JayBizzle/Laravel-Migrations-Organiser.git",
+                "reference": "b40b5b085127761fc12c759a52c8dc47be86126b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JayBizzle/Laravel-Migrations-Organiser/zipball/b40b5b085127761fc12c759a52c8dc47be86126b",
+                "reference": "b40b5b085127761fc12c759a52c8dc47be86126b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": ">=7.3 <8.1"
+            },
+            "require-dev": {
+                "illuminate/database": "^8.0",
+                "illuminate/filesystem": "^8.0",
+                "mockery/mockery": "^1.3.1",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jaybizzle\\MigrationsOrganiser\\MigrationsOrganiserServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jaybizzle\\MigrationsOrganiser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Beech",
+                    "email": "mbeech@mark-beech.co.uk"
+                },
+                {
+                    "name": "Max King",
+                    "email": "max@kingkreations.co.uk"
+                }
+            ],
+            "description": "A Laravel package to help organise migration files.",
+            "keywords": [
+                "Organizer",
+                "date",
+                "dated",
+                "folder",
+                "laravel",
+                "migrate",
+                "migrations",
+                "organise",
+                "organiser",
+                "organize"
+            ],
+            "support": {
+                "issues": "https://github.com/JayBizzle/Laravel-Migrations-Organiser/issues",
+                "source": "https://github.com/JayBizzle/Laravel-Migrations-Organiser/tree/v6.1.0"
+            },
+            "time": "2021-02-24T20:32:17+00:00"
         },
         {
             "name": "laravel/framework",
