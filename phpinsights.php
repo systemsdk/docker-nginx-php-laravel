@@ -54,41 +54,28 @@ return [
         NunoMaduro\PhpInsights\Domain\Sniffs\ForbiddenSetterSniff::class,
         ObjectCalisthenics\Sniffs\Classes\ForbiddenPublicPropertySniff::class,
         ObjectCalisthenics\Sniffs\NamingConventions\NoSetterSniff::class,
+        PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer::class,
         SlevomatCodingStandard\Sniffs\Classes\SuperfluousExceptionNamingSniff::class,
         SlevomatCodingStandard\Sniffs\Classes\SuperfluousInterfaceNamingSniff::class,
         SlevomatCodingStandard\Sniffs\Classes\SuperfluousTraitNamingSniff::class,
+        SlevomatCodingStandard\Sniffs\Classes\ForbiddenPublicPropertySniff::class,
         SlevomatCodingStandard\Sniffs\Commenting\DocCommentSpacingSniff::class,
         SlevomatCodingStandard\Sniffs\Commenting\InlineDocCommentDeclarationSniff::class,
         SlevomatCodingStandard\Sniffs\Commenting\UselessInheritDocCommentSniff ::class,
         SlevomatCodingStandard\Sniffs\Commenting\UselessFunctionDocCommentSniff::class,
+        SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff::class,
         SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff::class,
         SlevomatCodingStandard\Sniffs\TypeHints\DisallowArrayTypeHintSyntaxSniff::class,
         SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff::class,
         SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff::class,
         SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff::class,
         SlevomatCodingStandard\Sniffs\ControlStructures\DisallowEmptySniff::class,
-
-        PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\UselessOverridingMethodSniff::class,
         PHP_CodeSniffer\Standards\Generic\Sniffs\Commenting\TodoSniff::class,
+        SlevomatCodingStandard\Sniffs\ControlStructures\DisallowShortTernaryOperatorSniff::class,
     ],
     'config' => [
-        ObjectCalisthenics\Sniffs\Files\ClassTraitAndInterfaceLengthSniff::class => [
-            'maxLength' => 600,
-        ],
-        ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff::class => [
-            'maxLength' => 45,
-        ],
-        ObjectCalisthenics\Sniffs\NamingConventions\ElementNameMinimalLengthSniff::class => [
-            'allowedShortNames' => ['i', 'id', 'to', 'up', 'io', 'em'],
-        ],
-        ObjectCalisthenics\Sniffs\Metrics\MaxNestingLevelSniff::class => [
-            'maxNestingLevel' => 3,
-        ],
-        ObjectCalisthenics\Sniffs\Metrics\MethodPerClassLimitSniff::class => [
-            'maxCount' => 25,
-        ],
-        ObjectCalisthenics\Sniffs\Metrics\PropertyPerClassLimitSniff::class => [
-            'maxCount' => 20,
+        SlevomatCodingStandard\Sniffs\Functions\FunctionLengthSniff::class => [
+            'maxLinesLength' => 45,
         ],
         PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
             'lineLimit' => 120,
@@ -111,16 +98,28 @@ return [
         PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer::class => [
             'space' => 'none', // possible values ['none', 'single']
         ],
+        PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer::class => [
+            'operators' => [
+                '&' => 'align',
+            ],
+        ],
         SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff::class => [
-            'exclude' => [],
+            'exclude' => [
+                'app/Exceptions/Handler.php',
+            ],
         ],
         SlevomatCodingStandard\Sniffs\Namespaces\UnusedUsesSniff::class => [
             'searchAnnotations' => true,
         ],
         SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff::class => [
-            'newlinesCountAfterDeclare' => 2,
-            'newlinesCountBetweenOpenTagAndDeclare' => 2,
-            'spacesCountAroundEqualsSign' => 0,
+            'linesCountBeforeDeclare' => 1,
+            'linesCountAfterDeclare' => 1,
+            'spacesCountAroundEqualsSign' => 1,
+        ],
+        SlevomatCodingStandard\Sniffs\Namespaces\UseSpacingSniff::class => [
+            'linesCountBeforeFirstUse' => 1,
+            'linesCountBetweenUseTypes' => 1,
+            'linesCountAfterLastUse' => 1,
         ],
     ],
 ];

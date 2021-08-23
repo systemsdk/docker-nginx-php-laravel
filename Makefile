@@ -197,5 +197,5 @@ phpstan:
 ###> Phpinsights PHP quality checks ###
 phpinsights:
 	@echo "\033[32mRunning PHP Insights\033[39m"
-	@make exec cmd="php -d error_reporting=0 ./vendor/bin/phpinsights analyse --no-interaction --min-quality=100 --min-complexity=85 --min-architecture=100 --min-style=100"
+	@make exec cmd="php -d error_reporting=0 ./vendor/bin/phpinsights analyse --no-interaction --min-quality=100 --min-complexity=80 --min-architecture=100 --min-style=100"
 ###< Phpinsights PHP quality checks ###

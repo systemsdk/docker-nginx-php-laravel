@@ -1,7 +1,9 @@
 {
+	"name": "dimadeush/docker-nginx-php-laravel-tools",
+	"description": "",
 	"require": {},
 	"require-dev": {
-		"nunomaduro/phpinsights": "1.14.*",
+		"nunomaduro/phpinsights": "2.0.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

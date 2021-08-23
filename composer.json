@@ -22,33 +22,35 @@
 		}
 	],
 	"require": {
-		"php": "^7.4.0",
+		"php": "^8.0",
 		"ext-ctype": "*",
 		"ext-iconv": "*",
 		"ext-json": "*",
 		"ext-mbstring": "*",
 		"ext-pdo": "*",
 		"ext-pdo_mysql": "*",
-		"fideloper/proxy": "^4.4",
-		"jaybizzle/laravel-migrations-organiser": "^4.4",
-		"laravel/framework": "^6.20",
+		"fruitcake/laravel-cors": "^2.0",
+		"guzzlehttp/guzzle": "^7.0",
+		"laravel/framework": "^8.54",
+		"laravel/sanctum": "^2.11",
 		"laravel/tinker": "^2.5"
 	},
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.4",
-		"barryvdh/laravel-ide-helper": "^2.8",
+		"barryvdh/laravel-ide-helper": "^2.10",
 		"ergebnis/composer-normalize": "^2.13",
-		"facade/ignition": "^1.16",
+		"facade/ignition": "^2.5",
 		"fakerphp/faker": "^1.9",
-		"mockery/mockery": "^1.0",
+		"laravel/sail": "^1.0",
+		"mockery/mockery": "^1.4",
 		"neronmoon/scriptsdev": "^0.1",
-		"nunomaduro/collision": "^3.0",
+		"nunomaduro/collision": "^5.0",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"optimize-autoloader": true,
 		"platform": {
-			"php": "7.4.0"
+			"php": "8.0.0"
 		},
 		"preferred-install": "dist",
 		"sort-packages": true
@@ -69,22 +71,24 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"App\\": "app/"
-		},
-		"classmap": [
-			"database/seeds",
-			"database/factories"
-		]
+			"App\\": "app/",
+			"Database\\Factories\\": "database/factories/",
+			"Database\\Seeders\\": "database/seeders/"
+		}
 	},
 	"autoload-dev": {
 		"psr-4": {
 			"Tests\\": "tests/",
 			"PHPUnit\\": "tools/01_phpunit/vendor/phpunit/phpunit/src",
-			"PHPUnit\\Framework\\MockObject\\": "tools/01_phpunit/vendor/phpunit/phpunit/src/Framework/MockObject/ForwardCompatibility",
 			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/src/bin",
-			"PhpCsFixer\\": "tools/03_ecs/vendor/friendsofphp/php-cs-fixer/src",
-			"SlevomatCodingStandard\\": "tools/03_ecs/vendor/slevomat/coding-standard/SlevomatCodingStandard",
-			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/coding-standard/src"
+			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
+			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
+			"Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
+			"PHPStan\\PhpDoc\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/PhpDoc/PHPUnit",
+			"PHPStan\\Rules\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Rules/PHPUnit",
+			"PHPStan\\Symfony\\": "tools/02_phpstan/vendor/phpstan/phpstan-symfony/src/Symfony",
+			"PHPStan\\Type\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Type/PHPUnit",
+			"PHPStan\\Type\\Symfony\\": "tools/02_phpstan/vendor/phpstan/phpstan-symfony/src/Type/Symfony"
 		}
 	},
 	"minimum-stability": "dev",
@@ -94,7 +98,8 @@
 			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all install; fi"
 		],
 		"post-update-cmd": [
-			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi"
+			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi",
+			 "@php artisan vendor:publish --tag=laravel-assets --ansi"
 		],
 		"post-autoload-dump": [
 			"Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

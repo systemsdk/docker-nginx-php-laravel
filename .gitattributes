@@ -3,6 +3,5 @@
 *.scss linguist-vendored
 *.js linguist-vendored
 CHANGELOG.md export-ignore
-docs/postman/symfony.postman_collection.json binary
 tools/**/composer.lock binary
 composer.lock binary

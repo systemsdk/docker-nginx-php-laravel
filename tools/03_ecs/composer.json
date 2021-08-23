@@ -1,12 +1,14 @@
 {
+	"name": "dimadeush/docker-nginx-php-laravel-tools",
+	"description": "",
 	"require": {},
 	"require-dev": {
-		"symplify/easy-coding-standard": "9.3.*",
+		"symplify/easy-coding-standard": "9.4.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {
-			"php": "7.4.0"
+			"php": "8.0.0"
 		},
 		"preferred-install": {
 			"*": "dist"
