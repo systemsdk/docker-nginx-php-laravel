@@ -102,7 +102,7 @@
   <inspection_tool class="PhpAssignmentReplaceableWithPrefixExpressionInspection" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="PhpCSFixerValidationInspection" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="CODING_STANDARD" value="Custom" />
-    <option name="CUSTOM_RULESET_PATH" value=".php_cs.dist" />
+    <option name="CUSTOM_RULESET_PATH" value=".php-cs-fixer.dist.php" />
     <option name="ALLOW_RISKY_RULES" value="true" />
   </inspection_tool>
   <inspection_tool class="PhpCSValidationInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
