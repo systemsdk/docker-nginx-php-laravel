@@ -30,11 +30,11 @@
 		"ext-pdo": "*",
 		"ext-pdo_mysql": "*",
 		"fruitcake/laravel-cors": "^2.0",
-		"guzzlehttp/guzzle": "^7.0",
+		"guzzlehttp/guzzle": "^7.3",
 		"jaybizzle/laravel-migrations-organiser": "^6.1",
-		"laravel/framework": "^8.54",
+		"laravel/framework": "^8.55",
 		"laravel/sanctum": "^2.11",
-		"laravel/tinker": "^2.5"
+		"laravel/tinker": "^2.6"
 	},
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.4",
