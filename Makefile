@@ -1,5 +1,5 @@
 dir=${CURDIR}
-export COMPOSE_PROJECT_NAME=environment3
+export COMPOSE_PROJECT_NAME=cassioik/systom
 
 ifndef APP_ENV
 	# Determine if .env file exist
@@ -199,3 +199,16 @@ phpinsights:
 	@echo "\033[32mRunning PHP Insights\033[39m"
 	@make exec cmd="php -d error_reporting=0 ./vendor/bin/phpinsights analyse --no-interaction --min-quality=100 --min-complexity=80 --min-architecture=100 --min-style=100"
 ###< Phpinsights PHP quality checks ###
+
+### Swarm ####
+stack-deploy:
+	@docker stack deploy -c docker-compose.yml systom
+
+stack-deploy-prod:
+	@docker stack deploy -c docker-compose-prod.yml systom
+
+stack-rm:
+	@docker stack rm systom
+
+push:
+	@docker-compose -f docker-compose.yml push
