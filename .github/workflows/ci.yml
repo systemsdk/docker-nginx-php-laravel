@@ -19,37 +19,42 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v1
-            - name: Build the docker images
-              run: make build-test
-            - name: Start the docker images
-              run: make start-test
-            - name: Check running containers
-              run: docker ps -a
-            - name: Wait for database connection
-              run: make wait-for-db
-            - name: Run migrations
-              run: make drop-migrate
-            - name: Run seeds
-              run: make seed
-            - name: Run test suite
-              run: make phpunit
-            - name: Run PHP coding standard
-              run: make ecs
-            - name: Run PHP codeSniffer
-              run: make phpcs
-            - name: Run PHP copy/paste detector
-              run: make phpcpd
-            - name: Run PHP mess detector
-              run: make phpmd
-            - name: Run PHPStan static analysis tool
-              run: make phpstan
-            - name: Run Phpinsights PHP quality checks
-              run: make phpinsights
-            - name: Stop the docker images
-              run: make stop-test
+            # - uses: actions/checkout@v1
+            # - name: Build the docker images
+            #   run: make build-test
+            # - name: Start the docker images
+            #   run: make start-test
+            # - name: Check running containers
+            #   run: docker ps -a
+            # - name: Wait for database connection
+            #   run: make wait-for-db
+            # - name: Run migrations
+            #   run: make drop-migrate
+            # - name: Run seeds
+            #   run: make seed
+            # - name: Run test suite
+            #   run: make phpunit
+            # - name: Run PHP coding standard
+            #   run: make ecs
+            # - name: Run PHP codeSniffer
+            #   run: make phpcs
+            # - name: Run PHP copy/paste detector
+            #   run: make phpcpd
+            # - name: Run PHP mess detector
+            #   run: make phpmd
+            # - name: Run PHPStan static analysis tool
+            #   run: make phpstan
+            # - name: Run Phpinsights PHP quality checks
+            #   run: make phpinsights
+            # - name: Stop the docker images
+            #   run: make stop-test
 
             - name: Build production docker image
               run: make build-prod
+            - name: Login to Docker Hub
+              uses: docker/login-action@v1
+              with:
+                username: cassioik # mudar para ${{ secrets.DOCKERHUB_USERNAME }}
+                password: 5c696e16-65af-468a-9d84-86ae79240034 # mudar para ${{ secrets.DOCKERHUB_TOKEN }}
             - name: Push production docker image
               run: make push-prod
