@@ -48,3 +48,8 @@ jobs:
               run: make phpinsights
             - name: Stop the docker images
               run: make stop-test
+
+            - name: Build production docker image
+              run: make build-prod
+            - name: Push production docker image
+              run: make push-prod

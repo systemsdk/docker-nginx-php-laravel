@@ -1,5 +1,6 @@
 dir=${CURDIR}
-export COMPOSE_PROJECT_NAME=cassioik/systom
+export IMAGE_NAME=cassioik/systom
+export COMPOSE_PROJECT_NAME=systom
 
 ifndef APP_ENV
 	# Determine if .env file exist
@@ -212,3 +213,6 @@ stack-rm:
 
 push:
 	@docker-compose -f docker-compose.yml push
+
+push-prod:
+	@docker-compose -f docker-compose-prod.yml push
