@@ -3,7 +3,7 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"php-coveralls/php-coveralls": "2.4.*",
+		"php-coveralls/php-coveralls": "2.5.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

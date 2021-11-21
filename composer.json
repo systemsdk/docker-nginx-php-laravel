@@ -39,7 +39,7 @@
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.4",
 		"barryvdh/laravel-ide-helper": "^2.10",
-		"ergebnis/composer-normalize": "^2.13",
+		"ergebnis/composer-normalize": "^2.15",
 		"facade/ignition": "^2.5",
 		"fakerphp/faker": "^1.9",
 		"laravel/sail": "^1.0",
@@ -84,10 +84,7 @@
 			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/src/bin",
 			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
 			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
-			"Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
-			"PHPStan\\PhpDoc\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/PhpDoc/PHPUnit",
-			"PHPStan\\Rules\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Rules/PHPUnit",
-			"PHPStan\\Type\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Type/PHPUnit"
+			"Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src"
 		}
 	},
 	"minimum-stability": "dev",
