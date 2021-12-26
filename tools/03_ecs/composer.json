@@ -1,9 +1,9 @@
 {
-	"name": "dimadeush/docker-nginx-php-laravel-tools",
+	"name": "systemsdk/docker-nginx-php-laravel-tools",
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"symplify/easy-coding-standard": "9.4.*",
+		"symplify/easy-coding-standard": "10.0.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

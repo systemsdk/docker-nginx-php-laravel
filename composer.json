@@ -1,5 +1,5 @@
 {
-	"name": "dimadeush/docker-nginx-php-laravel",
+	"name": "systemsdk/docker-nginx-php-laravel",
 	"type": "project",
 	"description": "Docker laravel environment",
 	"keywords": [
@@ -10,8 +10,7 @@
 		"Supervisord",
 		"MySQL"
 	],
-	"homepage": "https://github.com/dimadeush/docker-nginx-php-laravel",
-	"version": "1.0.0",
+	"homepage": "https://github.com/systemsdk/docker-nginx-php-laravel",
 	"license": "MIT",
 	"authors": [
 		{
@@ -30,16 +29,16 @@
 		"ext-pdo": "*",
 		"ext-pdo_mysql": "*",
 		"fruitcake/laravel-cors": "^2.0",
-		"guzzlehttp/guzzle": "^7.3",
+		"guzzlehttp/guzzle": "^7.4",
 		"jaybizzle/laravel-migrations-organiser": "^6.1",
-		"laravel/framework": "^8.55",
-		"laravel/sanctum": "^2.11",
+		"laravel/framework": "^8.76",
+		"laravel/sanctum": "^2.13",
 		"laravel/tinker": "^2.6"
 	},
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.4",
 		"barryvdh/laravel-ide-helper": "^2.10",
-		"ergebnis/composer-normalize": "^2.15",
+		"ergebnis/composer-normalize": "^2.18",
 		"facade/ignition": "^2.5",
 		"fakerphp/faker": "^1.9",
 		"laravel/sail": "^1.0",
@@ -54,7 +53,13 @@
 			"php": "8.0.0"
 		},
 		"preferred-install": "dist",
-		"sort-packages": true
+		"sort-packages": true,
+		"allow-plugins": {
+			"bamarni/composer-bin-plugin": true,
+			"composer/package-versions-deprecated": true,
+			"ergebnis/composer-normalize": true,
+			"neronmoon/scriptsdev": true
+		}
 	},
 	"extra": {
 		"bamarni-bin": {
@@ -84,7 +89,8 @@
 			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/src/bin",
 			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
 			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
-			"Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src"
+			"Symplify\\EasyCodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/src",
+			"ECSPrefix20210928\\Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src"
 		}
 	},
 	"minimum-stability": "dev",
@@ -102,13 +108,13 @@
 			"@php artisan package:discover --ansi"
 		],
 		"post-root-package-install": [
-			"@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+			"@php -r \"file_exists('.env') || copy('.env.dev', '.env');\""
 		],
 		"post-create-project-cmd": [
 			"@php artisan key:generate --ansi"
 		]
 	},
 	"support": {
-		"issues": "https://github.com/dimadeush/docker-nginx-php-laravel/issues"
+		"issues": "https://github.com/systemsdk/docker-nginx-php-laravel/issues"
 	}
 }

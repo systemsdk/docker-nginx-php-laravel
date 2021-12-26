@@ -1,9 +1,9 @@
 {
-	"name": "dimadeush/docker-nginx-php-laravel-tools",
+	"name": "systemsdk/docker-nginx-php-laravel-tools",
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"laravel/framework": "^8.54",
+		"laravel/framework": "^8.76",
 		"nunomaduro/larastan":  "1.0.*",
 		"roave/security-advisories": "dev-latest"
 	},
