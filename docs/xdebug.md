@@ -18,7 +18,7 @@ Install locally in Firefox extension "Xdebug helper" and set in settings IDE KEY
 xdebug.start_with_request = yes
 ```
 
-2.Go to `Settings -> Languages & Frameworks -> Php -> Debug` and set Xdebug port `10000`
+2.Go to `Settings -> Php -> Debug` and set Xdebug port `10000`
 
 3.Check your `Run/Debug Configurations` as on image bellow
 

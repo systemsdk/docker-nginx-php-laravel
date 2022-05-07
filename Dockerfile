@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.1-fpm
 
 # set main params
 ARG BUILD_ARGUMENT_DEBUG_ENABLED=false

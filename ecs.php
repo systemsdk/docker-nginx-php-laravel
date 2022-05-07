@@ -5,7 +5,6 @@ declare(strict_types=1);
 use PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer;
 use PhpCsFixer\Fixer\CastNotation\CastSpacesFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
-use PhpCsFixer\Fixer\ConstantNotation\NativeConstantInvocationFixer;
 use PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
 use PhpCsFixer\Fixer\FunctionNotation\SingleLineThrowFixer;
@@ -27,10 +26,7 @@ use PhpCsFixer\Fixer\Whitespace\BlankLineBeforeStatementFixer;
 use PhpCsFixer\Fixer\Whitespace\HeredocIndentationFixer;
 use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayListItemNewlineFixer;
-use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayOpenerAndCloserNewlineFixer;
-use Symplify\CodingStandard\Fixer\Commenting\ParamReturnAndVarTagMalformsFixer;
-use Symplify\CodingStandard\Fixer\Strict\BlankLineAfterStrictTypesFixer;
+use Symplify\EasyCodingStandard\ValueObject\Option;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $imports = [
@@ -85,7 +81,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                             'case',
                             'continue',
                             'curly_brace_block',
-                            'default', 'extra',
+                            'default',
+                            'extra',
                             'parenthesis_brace_block',
                             'return',
                             'square_brace_block',
@@ -112,15 +109,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             NoBlankLinesBeforeNamespaceFixer::class => null,
             NotOperatorWithSuccessorSpaceFixer::class => null,
             SingleLineThrowFixer::class => null,
-            BlankLineAfterStrictTypesFixer::class => null,
-            ParamReturnAndVarTagMalformsFixer::class => null,
-            ArrayOpenerAndCloserNewlineFixer::class => null,
-            ArrayListItemNewlineFixer::class => null,
             PhpdocAlignFixer::class => null,
             HeredocIndentationFixer::class => null,
             PhpdocToCommentFixer::class => null,
             NativeFunctionInvocationFixer::class => null,
-            NativeConstantInvocationFixer::class => null,
         ]
     );
+
+    $parameters->set(Option::PARALLEL, true);
 };

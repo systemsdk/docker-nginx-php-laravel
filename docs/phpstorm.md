@@ -9,25 +9,25 @@ This document describing how you can configure your IDE [PhpStorm](https://www.j
     - Makefile support
     - Laravel
     - Php Inspections ​(EA Extended)​
-* Go to `Settings -> Languages & Frameworks -> Php -> Laravel` and check `Enable plugin for this project`.
-* Go to `Settings -> Languages & Frameworks -> Php -> Composer` and set path to composer.json, check other settings:
+* Go to `Settings -> Php -> Laravel` and check `Enable plugin for this project`.
+* Go to `Settings -> Php -> Composer` and set path to composer.json, check other settings:
 
 ![Path mappings](images/phpstorm_01.png)
 
 ### CLI Interpreter
 You need to set correct CLI interpreter for your PhpStorm. 
-In order to do it please open `Settings -> Languages & Frameworks -> PHP` section and follow recommendations [configuring remote PHP interpreters](https://www.jetbrains.com/help/phpstorm/configuring-remote-interpreters.html).
+In order to do it please open `Settings -> PHP` section and follow recommendations [configuring remote PHP interpreters](https://www.jetbrains.com/help/phpstorm/configuring-remote-interpreters.html).
 
 ![Path mappings](images/phpstorm_02.png)
 
 ### Server
-In order to configure PHP servers please open `Settings -> Languages & Frameworks -> PHP -> Servers`.
+In order to configure PHP servers please open `Settings -> PHP -> Servers`.
 You need to configure how your local files will be mapped inside docker container:
 
 ![Path mappings](images/phpstorm_03.png)
 
 ### Test Frameworks
-If you want to run tests directly from your IDE you need to do following configuration in `Settings -> Languages & Frameworks -> PHP -> Test Frameworks`:
+If you want to run tests directly from your IDE you need to do following configuration in `Settings -> PHP -> Test Frameworks`:
 
 ![Path mappings](images/phpstorm_04.png)
 
@@ -39,7 +39,7 @@ Next you need to add Run/Debug configuration for PHP Remote Debug. It needs to b
 In order to use Xdebug as debugging tool please follow [Using Xdebug](xdebug.md) documentation.
 
 ### PHP Inspections and code quality tools
-* Go to `Settings -> Languages and Frameworks -> PHP -> Quality tools` and configure next:
+* Go to `Settings -> PHP -> Quality tools` and configure next:
 
 ![Path mappings](images/phpstorm_06.png)
 ![Path mappings](images/phpstorm_07.png)

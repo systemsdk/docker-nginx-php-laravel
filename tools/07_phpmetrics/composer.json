@@ -3,12 +3,12 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"phpmetrics/phpmetrics": "2.7.*",
+		"phpmetrics/phpmetrics": "2.8.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {
-			"php": "8.0.0"
+			"php": "8.1.0"
 		},
 		"preferred-install": {
 			"*": "dist"

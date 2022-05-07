@@ -3,12 +3,12 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"symplify/easy-coding-standard": "10.0.*",
+		"symplify/easy-coding-standard": "10.2.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {
-			"php": "8.0.0"
+			"php": "8.1.0"
 		},
 		"preferred-install": {
 			"*": "dist"
