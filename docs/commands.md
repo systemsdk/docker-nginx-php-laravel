@@ -30,6 +30,7 @@ make env-dev                  # Create config for dev environment
 make env-test-ci              # Create config for test/ci environment
 
 make ssh                      # Enter laravel container shell
+make ssh-root                 # Enter laravel container shell under root user
 make ssh-nginx                # Enter nginx container shell
 make ssh-supervisord          # Enter supervisord container shell (cron jobs running there, etc...)
 make ssh-mysql                # Enter mysql container shell

@@ -1,15 +1,14 @@
 FROM php:8.1-fpm
 
 # set main params
-ARG BUILD_ARGUMENT_DEBUG_ENABLED=false
-ENV DEBUG_ENABLED=$BUILD_ARGUMENT_DEBUG_ENABLED
 ARG BUILD_ARGUMENT_ENV=dev
 ENV ENV=$BUILD_ARGUMENT_ENV
 ENV APP_HOME /var/www/html
-ARG UID=1000
-ARG GID=1000
+ARG HOST_UID=1000
+ARG HOST_GID=1000
 ENV USERNAME=www-data
-
+ARG INSIDE_DOCKER_CONTAINER=1
+ENV INSIDE_DOCKER_CONTAINER=$INSIDE_DOCKER_CONTAINER
 
 # check environment
 RUN if [ "$BUILD_ARGUMENT_ENV" = "default" ]; then echo "Set BUILD_ARGUMENT_ENV in docker build-args like --build-arg BUILD_ARGUMENT_ENV=dev" && exit 2; \
@@ -51,8 +50,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 # create document root, fix permissions for www-data user and change owner to www-data
 RUN mkdir -p $APP_HOME/public && \
     mkdir -p /home/$USERNAME && chown $USERNAME:$USERNAME /home/$USERNAME \
-    && usermod -u $UID $USERNAME -d /home/$USERNAME \
-    && groupmod -g $GID $USERNAME \
+    && usermod -o -u $HOST_UID $USERNAME -d /home/$USERNAME \
+    && groupmod -o -g $HOST_GID $USERNAME \
     && chown -R ${USERNAME}:${USERNAME} $APP_HOME
 
 # put php config for Laravel

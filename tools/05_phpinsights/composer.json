@@ -3,7 +3,7 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"nunomaduro/phpinsights": "2.2.*",
+		"nunomaduro/phpinsights": "2.4.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

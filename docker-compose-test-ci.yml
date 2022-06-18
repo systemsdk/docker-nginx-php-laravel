@@ -7,15 +7,15 @@ services:
       build:
         context: ./docker/
         args:
-          - "BUILD_ARGUMENT_ENV=test"
+          BUILD_ARGUMENT_ENV: test
         dockerfile: ./nginx/Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}_nginx
       restart: always
       ports:
-        - 80:80
-        - 443:443
+        - "80:80"
+        - "443:443"
       volumes:
-        - .:/var/www/html:ro
+        - .:/var/www/html:ro,cached
       depends_on:
         - laravel
       networks:
@@ -26,12 +26,13 @@ services:
       build:
         context: .
         args:
-          - "BUILD_ARGUMENT_ENV=test"
-          - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
+          BUILD_ARGUMENT_ENV: test
+          HOST_UID: ${HOST_UID}
+          HOST_GID: ${HOST_GID}
         dockerfile: ./Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}_laravel
       volumes:
-        - ./.git:/var/www/html/.git
+        - ./.git:/var/www/html/.git:cached
       depends_on:
         - mysql
       networks:
@@ -49,12 +50,12 @@ services:
       container_name: ${COMPOSE_PROJECT_NAME}_mysql
       command: --default-authentication-plugin=mysql_native_password
       environment:
-        - MYSQL_ROOT_PASSWORD=secret
-        - MYSQL_DATABASE=laravel
+        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_DATABASE: laravel
       ports:
-        - 33061:3306
+        - "33061:3306"
       volumes:
-        - ./storage/mysql-data:/var/lib/mysql
+        - ./storage/mysql-data:/var/lib/mysql:delegated
         - ./docker/dev/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
       networks:
         - laravel

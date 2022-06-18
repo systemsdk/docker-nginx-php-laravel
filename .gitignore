@@ -19,5 +19,8 @@ reports/*
 npm-debug.log
 yarn-error.log
 .phpunit.result.cache
+###> friendsofphp/php-cs-fixer ###
+.php-cs-fixer.cache
 .php_cs
 .php_cs.cache
+###< friendsofphp/php-cs-fixer ###

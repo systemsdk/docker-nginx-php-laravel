@@ -3,7 +3,7 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"laravel/framework": "^9.2",
+		"laravel/framework": "^9.17",
 		"nunomaduro/larastan":  "2.1.*",
 		"roave/security-advisories": "dev-latest"
 	},

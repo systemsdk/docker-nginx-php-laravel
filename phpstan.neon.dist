@@ -1,7 +1,12 @@
-includes:
-    - tools/02_phpstan/vendor/nunomaduro/larastan/extension.neon
 parameters:
     # The level 8 is the highest level
     level: 5
+    paths:
+        - app
+        - tests
+    editorUrl: '%%file%%:%%line%%'
     checkMissingIterableValueType: false
     checkGenericClassInNonGenericObjectType: false
+    checkExplicitMixed: false
+includes:
+    - tools/02_phpstan/vendor/nunomaduro/larastan/extension.neon

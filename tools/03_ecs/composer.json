@@ -3,7 +3,7 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"symplify/easy-coding-standard": "10.2.*",
+		"symplify/easy-coding-standard": "11.0.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
