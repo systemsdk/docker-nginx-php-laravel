@@ -250,6 +250,7 @@ Notes: Please see more commands in Makefile
 * [phpmd](https://packagist.org/packages/phpmd/phpmd)
 * [phpstan](https://packagist.org/packages/nunomaduro/larastan)
 * [phpinsights](https://packagist.org/packages/nunomaduro/phpinsights)
+* [rector](https://packagist.org/packages/rector/rector)
 
 ## Guidelines
 * [Commands](docs/commands.md)

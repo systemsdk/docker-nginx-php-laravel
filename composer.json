@@ -91,7 +91,12 @@
 			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
 			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
 			"Symplify\\EasyCodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/src",
-			"ECSPrefix20210928\\Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src"
+			"ECSPrefix20210928\\Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
+			"Rector\\Core\\": "tools/08_rector/vendor/rector/rector/src",
+			"Rector\\Php74\\": "tools/08_rector/vendor/rector/rector/rules/Php74",
+			"Rector\\Php80\\": "tools/08_rector/vendor/rector/rector/rules/Php80",
+			"Rector\\Php81\\": "tools/08_rector/vendor/rector/rector/rules/Php81",
+			"Rector\\Set\\": "tools/08_rector/vendor/rector/rector/packages/Set"
 		}
 	},
 	"minimum-stability": "dev",

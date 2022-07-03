@@ -1,0 +1,18 @@
+{
+	"name": "systemsdk/docker-nginx-php-laravel-tools",
+	"description": "",
+	"require": {},
+	"require-dev": {
+		"rector/rector": "0.13.*",
+		"roave/security-advisories": "dev-latest"
+	},
+	"config": {
+		"platform": {
+			"php": "8.1.0"
+		},
+		"preferred-install": {
+			"*": "dist"
+		},
+		"sort-packages": true
+	}
+}

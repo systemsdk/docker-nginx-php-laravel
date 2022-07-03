@@ -110,9 +110,36 @@ make phpstan
 ```
 
 ## Phpinsights PHP quality checks
-PHP Insights was carefully crafted to simplify the analysis of your code directly from your terminal, and is the perfect starting point to analyze the code quality of your PHP projects. 
+PHP Insights was carefully crafted to simplify the analysis of your code directly from your terminal, and is the perfect starting point to analyze the code quality of your PHP projects.
 
 Phpinsights is available for dev/test environment using next local shell command:
 ```bash
 make phpinsights
 ```
+
+## Metrics
+This environment contains [PhpMetrics](https://github.com/phpmetrics/phpmetrics) to make some code analysis.
+Use next local shell command in order to run it:
+```bash
+make phpmetrics
+```
+Note: You need run tests before this local shell command.
+
+After execution above local shell command please open `reports/phpmetrics/index.html` with your browser.
+
+## Rector
+Rector instantly upgrades and refactors the PHP code of your application. It can help you in 2 major areas:
+- Instant upgrades
+- Automated refactoring
+
+Rector now supports upgrades of your code from PHP 5.3 to 8.1 or upgrades your code for new framework version. This tool supports major open-source projects like Symfony, PHPUnit, Nette, Laravel, CakePHP and Doctrine.
+You can find live demo [here](https://symfonycasts.com/screencast/symfony6-upgrade/rector) or more info [here](https://packagist.org/packages/rector/rector).
+
+Rector is available for test/dev environment. If you need to run this tool, please use next local shell command in order to enter inside laravel container shell and then run rector:
+```bash
+make ssh
+```
+```bash
+vendor/bin/rector process app/your_folder_with_code_for_refactoring
+```
+Note: You can process rector without specifying folder, in such case it will process app and tests folder.
