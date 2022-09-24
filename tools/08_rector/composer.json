@@ -3,7 +3,7 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"rector/rector": "0.13.*",
+		"rector/rector": "0.14.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

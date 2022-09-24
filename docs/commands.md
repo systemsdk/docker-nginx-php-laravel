@@ -73,6 +73,11 @@ make phpcpd                   # Run php copy/paste detector
 make phpmd                    # Run php mess detector
 make phpstan                  # Run php static analysis tool
 make phpinsights              # Run phpinsights PHP quality checks
+
+make composer-normalize       # Normalizes composer.json file content
+make composer-validate        # Validate composer.json file content
+make composer-require-checker # Check the defined dependencies against your code
+make composer-unused          # Show unused packages by scanning and comparing package namespaces against your code
 ```
 
 ## Laravel container shell

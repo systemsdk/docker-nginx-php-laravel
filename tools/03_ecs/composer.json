@@ -3,7 +3,8 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"symplify/easy-coding-standard": "11.0.*",
+		"friendsofphp/php-cs-fixer": "3.11.*",
+		"symplify/easy-coding-standard": "11.1.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

@@ -3,7 +3,7 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"phpmd/phpmd": "2.12.*",
+		"phpmd/phpmd": "2.13.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

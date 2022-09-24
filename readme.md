@@ -19,17 +19,15 @@ Docker environment required to run Laravel (based on official php and mysql dock
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
-1. Nginx 1.21
-2. PHP 8 fpm
+1. Nginx 1.23
+2. PHP 8.1 fpm
 3. MySQL 8
 4. Laravel 9
 
 ## Setting up Docker and docker-compose
-1.For installing Docker please follow steps mentioned on page [install on Ubuntu linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-   or [install on Mac/Windows](https://docs.docker.com/engine/install/).
+1.For installing Docker please follow steps mentioned on page [install on Ubuntu linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or [install on Mac/Windows](https://docs.docker.com/engine/install/).
 
-2.For installing docker-compose please follow steps on page [install compose](https://docs.docker.com/compose/install/#install-compose)
-   and select `Linux Standalone binary` tab if you are using Linux OS.
+2.For installing docker-compose as `Linux Standalone binary` please follow steps on the page [install compose](https://docs.docker.com/compose/install/other/#install-compose-standalone) if you are using Linux OS.
 
 Note: Please run next cmd after above step 2 if you are using Linux OS: `sudo usermod -aG docker $USER`
 
@@ -242,6 +240,8 @@ Notes: Please see more commands in Makefile
 * [scriptsdev](https://github.com/neronmoon/scriptsdev)
 * [composer-bin-plugin](https://github.com/bamarni/composer-bin-plugin)
 * [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
+* [composer-unused](https://packagist.org/packages/icanhazstring/composer-unused)
+* [composer-require-checker](https://packagist.org/packages/maglnet/composer-require-checker)
 * [security-advisories](https://github.com/Roave/SecurityAdvisories)
 * [php-coveralls](https://github.com/php-coveralls/php-coveralls)
 * [easy-coding-standard](https://github.com/Symplify/EasyCodingStandard)

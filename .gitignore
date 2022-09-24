@@ -2,6 +2,7 @@
 /.vscode
 /.vagrant
 /node_modules
+/public/build
 /public/hot
 /public/storage
 /storage/*.key
@@ -10,6 +11,7 @@
 /tools/**/vendor
 Homestead.yaml
 Homestead.json
+auth.json
 .env
 _ide_helper.php
 .phpstorm.meta.php

@@ -30,15 +30,15 @@
 		"ext-pdo_mysql": "*",
 		"guzzlehttp/guzzle": "^7.4",
 		"jaybizzle/laravel-migrations-organiser": "^6.2",
-		"laravel/framework": "^9.17",
-		"laravel/sanctum": "^2.15",
+		"laravel/framework": "^9.19",
+		"laravel/sanctum": "^3.0",
 		"laravel/tinker": "^2.7"
 	},
 	"require-dev": {
-		"bamarni/composer-bin-plugin": "^1.5",
+		"bamarni/composer-bin-plugin": "^1.8",
 		"barryvdh/laravel-ide-helper": "^2.12",
-		"ergebnis/composer-normalize": "^2.28",
 		"fakerphp/faker": "^1.9",
+		"laravel/pint": "^1.0",
 		"laravel/sail": "^1.0",
 		"mockery/mockery": "^1.4",
 		"neronmoon/scriptsdev": "^0.1",
@@ -53,12 +53,7 @@
 		},
 		"preferred-install": "dist",
 		"sort-packages": true,
-		"allow-plugins": {
-			"bamarni/composer-bin-plugin": true,
-			"composer/package-versions-deprecated": true,
-			"ergebnis/composer-normalize": true,
-			"neronmoon/scriptsdev": true
-		}
+		"allow-plugins": true
 	},
 	"extra": {
 		"bamarni-bin": {
@@ -107,7 +102,7 @@
 		],
 		"post-update-cmd": [
 			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi",
-			 "@php artisan vendor:publish --tag=laravel-assets --ansi"
+			 "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
 		],
 		"post-autoload-dump": [
 			"Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

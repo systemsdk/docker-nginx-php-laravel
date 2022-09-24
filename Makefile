@@ -296,3 +296,15 @@ ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
 else
 	@make exec cmd="make phpinsights"
 endif
+
+composer-normalize: ## Normalizes composer.json file content
+	@make exec cmd="composer normalize"
+
+composer-validate: ## Validate composer.json file content
+	@make exec cmd="composer validate --no-check-version"
+
+composer-require-checker: ## Check the defined dependencies against your code
+	@make exec-bash cmd="XDEBUG_MODE=off php ./vendor/bin/composer-require-checker"
+
+composer-unused: ## Show unused packages by scanning and comparing package namespaces against your code
+	@make exec-bash cmd="XDEBUG_MODE=off php ./vendor/bin/composer-unused"
