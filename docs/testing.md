@@ -15,6 +15,8 @@ You can run tests using following local shell command(s):
 make phpunit    # Run all tests
 ```
 
+After execution above local shell command you are able to check code coverage report. Please open `reports/coverage/index.html` with your browser.
+
 If you want to run single test or all tests in specified directory you can use next steps:
 
 1.Use next local shell command in order to enter into laravel container shell:

@@ -6,6 +6,8 @@ This environment comes with "Makefile" and it allow to simplify using some funct
 In order to use command listed bellow just use next syntax in your local shell: `make {command name}`.
 Next commands available for this environment:
 ```bash
+make help                     # Shows available commands with description
+
 make build                    # Build dev environment
 make build-test               # Build test or continuous integration environment
 make build-staging            # Build staging environment
@@ -26,58 +28,59 @@ make restart-test             # Stop and start test or continuous integration en
 make restart-staging          # Stop and start staging environment
 make restart-prod             # Stop and start prod environment
 
-make env-dev                  # Create config for dev environment
-make env-test-ci              # Create config for test/ci environment
+make env-dev                  # Creates config for dev environment
+make env-test-ci              # Creates config for test/ci environment
 
-make ssh                      # Enter laravel container shell
-make ssh-root                 # Enter laravel container shell under root user
-make ssh-nginx                # Enter nginx container shell
-make ssh-supervisord          # Enter supervisord container shell (cron jobs running there, etc...)
-make ssh-mysql                # Enter mysql container shell
+make ssh                      # Get bash inside laravel docker container
+make ssh-root                 # Get bash as root user inside laravel docker container
+make ssh-nginx                # Get bash inside nginx docker container
+make ssh-supervisord          # Get bash inside supervisord docker container (cron jobs running there, etc...)
+make ssh-mysql                # Get bash inside mysql docker container
 
-make exec                     # Exucute some command defined in cmd="..." variable inside laravel container shell
-make exec-bash                # Execute several commands defined in cmd="..." variable inside laravel container shell
+make exec                     # Exucutes some command, under the www-data user, defined in cmd="..." variable inside laravel container shell
+make exec-bash                # Executes several commands, under the www-data user, defined in cmd="..." variable inside laravel container shell
+make exec-by-root             # Executes some command, under the root user, defined in cmd="..." variable inside laravel container shell
 
-make report-prepare           # Create /reports/coverage folder, will be used for report after running tests
-make report-clean             # Delete all reports in /reports/ folder
+make report-prepare           # Creates /reports/coverage folder, will be used for report after running tests
+make report-clean             # Removes all reports in /reports/ folder
 
-make wait-for-db              # Checking MySQL database availability, currently using for CircleCI (see /.circleci folder)
+make wait-for-db              # Checks MySQL database availability, currently using for CI (f.e. /.circleci folder)
 
-make composer-install-no-dev  # Installing composer dependencies for prod/staging environment (without dev tools)
-make composer-install         # Installing composer dependencies for dev environment
-make composer-update          # Update composer dependencies
+make composer-install-no-dev  # Installs composer no-dev dependencies
+make composer-install         # Installs composer dependencies
+make composer-update          # Updates composer dependencies
 
-make key-generate             # Set the application key
+make key-generate             # Sets the application key
 
-make info                     # Display information about laravel version and php version
+make info                     # Shows information about Php and Laravel version
 
-make logs                     # Display logs for laravel container. Use ctrl+c in order to exit
-make logs-nginx               # Display logs for nginx container. Use ctrl+c in order to exit
-make logs-supervisord         # Display logs for supervisord container. Use ctrl+c in order to exit
-make logs-mysql               # Display logs for mysql container. Use ctrl+c in order to exit
+make logs                     # Shows logs for laravel container. Use ctrl+c in order to exit
+make logs-nginx               # Shows logs for nginx container. Use ctrl+c in order to exit
+make logs-supervisord         # Shows logs for supervisord container. Use ctrl+c in order to exit
+make logs-mysql               # Shows logs for mysql container. Use ctrl+c in order to exit
 
-make drop-migrate             # Drop databases (main and for tests) and run all migrations
-make migrate                  # Run all migrations for databases (main and for tests)
-make migrate-no-test          # Run all migrations for main database
+make drop-migrate             # Drops databases and runs all migrations for the main/test databases
+make migrate                  # Runs all migrations for the main/test databases
+make migrate-no-test          # Runs all migrations for the main database
 
-make seed                     # Run all seeds for test database
+make seed                     # Runs all seeds for test database
 
-make phpunit                  # Run all tests
-make report-code-coverage     # Update code coverage report on https://coveralls.io (COVERALLS_REPO_TOKEN should be set on CI side)
+make phpunit                  # Runs PhpUnit tests
+make report-code-coverage     # Updates code coverage report on https://coveralls.io (COVERALLS_REPO_TOKEN should be set on CI side)
 
-make ecs                      # Run The Easiest Way to Use Any Coding Standard
-make ecs-fix                  # Run The Easiest Way to Use Any Coding Standard to fix issues
-make phpcs                    # Run PHP CodeSniffer
-make phpmetrics               # Generates PhpMetrics static analysis
-make phpcpd                   # Run php copy/paste detector
-make phpmd                    # Run php mess detector
-make phpstan                  # Run php static analysis tool
-make phpinsights              # Run phpinsights PHP quality checks
+make ecs                      # Runs Easy Coding Standard tool
+make ecs-fix                  # Runs Easy Coding Standard tool to fix issues
+make phpcs                    # Runs PHP CodeSniffer
+make phpmetrics               # Generates PhpMetrics static analysis report
+make phpcpd                   # Runs php copy/paste detector
+make phpmd                    # Runs php mess detector
+make phpstan                  # Runs PhpStan static analysis tool
+make phpinsights              # Runs Php Insights analysis tool
 
 make composer-normalize       # Normalizes composer.json file content
-make composer-validate        # Validate composer.json file content
-make composer-require-checker # Check the defined dependencies against your code
-make composer-unused          # Show unused packages by scanning and comparing package namespaces against your code
+make composer-validate        # Validates composer.json file content
+make composer-require-checker # Checks the defined dependencies against your code
+make composer-unused          # Shows unused packages by scanning and comparing package namespaces against your code
 ```
 
 ## Laravel container shell

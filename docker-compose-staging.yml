@@ -3,17 +3,17 @@ version: '3.5'
 services:
 
     nginx:
-      image: ${COMPOSE_PROJECT_NAME}_nginx:latest
+      image: ${COMPOSE_PROJECT_NAME}-nginx:latest
       build:
         context: ./docker/
         args:
           BUILD_ARGUMENT_ENV: staging
         dockerfile: ./nginx/Dockerfile
-      container_name: ${COMPOSE_PROJECT_NAME}_nginx
+      container_name: ${COMPOSE_PROJECT_NAME}-nginx
       restart: always
       ports:
-        - "80:80"
-        - "443:443"
+        - "${WEB_PORT_HTTP}:80"
+        - "${WEB_PORT_SSL}:443"
       volumes:
         - .:/var/www/html:ro,cached
       depends_on:
@@ -22,7 +22,7 @@ services:
         - laravel
 
     laravel: &laravel-template
-      image: ${COMPOSE_PROJECT_NAME}_laravel:latest
+      image: ${COMPOSE_PROJECT_NAME}-laravel:latest
       build:
         context: .
         args:
@@ -30,7 +30,7 @@ services:
           HOST_UID: ${HOST_UID}
           HOST_GID: ${HOST_GID}
         dockerfile: ./Dockerfile
-      container_name: ${COMPOSE_PROJECT_NAME}_laravel
+      container_name: ${COMPOSE_PROJECT_NAME}-laravel
       restart: always
       depends_on:
         - mysql
@@ -40,15 +40,16 @@ services:
     ### Cron tasks
     supervisord:
       <<: *laravel-template
-      container_name: ${COMPOSE_PROJECT_NAME}_supervisord
+      container_name: ${COMPOSE_PROJECT_NAME}-supervisord
       expose: []
       command: ["/usr/bin/supervisord"]
 
     mysql:
       image: mysql:8.0
-      container_name: ${COMPOSE_PROJECT_NAME}_mysql
+      platform: linux/x86_64
+      container_name: ${COMPOSE_PROJECT_NAME}-mysql
       restart: always
-      command: --default-authentication-plugin=mysql_native_password
+      command: --default-authentication-plugin=mysql_native_password --innodb-use-native-aio=${INNODB_USE_NATIVE_AIO:-1}
       environment:
         MYSQL_ROOT_PASSWORD: secret
         MYSQL_DATABASE: laravel

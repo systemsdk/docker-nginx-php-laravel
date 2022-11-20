@@ -5,7 +5,7 @@ This document describing how you can use [Xdebug](https://xdebug.org/) and [PhpS
 Please follow [PhpStorm](phpstorm.md) documentation before actions described bellow.
 
 ### PhpStorm basic configuration
-1.Check /docker/dev/xdebug.ini (optional)
+1.Check /docker/dev/xdebug-main.ini or /docker/dev/xdebug-osx.ini (optional)
 
 - In case you need debug only requests with IDE KEY: PHPSTORM from frontend in your browser:
 ```bash
@@ -45,7 +45,7 @@ If you're using [Postman](https://www.getpostman.com/) to test/debug your applic
 that you use with Postman. If you have default configuration (`xdebug.start_with_request = yes`) - nothing to do and your Xdebug should work out of the box.
 
 ## Debug Console commands
-If you want to debug console commands you just need to uncomment/edit option `xdebug.client_host` in config `docker/dev/xdebug.ini`:
+If you want to debug console commands you just need to uncomment/edit (nothing to do in case MacOS and `XDEBUG_CONFIG=osx`) option `xdebug.client_host` in config `docker/dev/xdebug-main.ini`:
 ```bash
 xdebug.client_host=172.17.0.1
 ```

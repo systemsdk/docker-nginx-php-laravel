@@ -9,6 +9,8 @@ ARG HOST_GID=1000
 ENV USERNAME=www-data
 ARG INSIDE_DOCKER_CONTAINER=1
 ENV INSIDE_DOCKER_CONTAINER=$INSIDE_DOCKER_CONTAINER
+ARG XDEBUG_CONFIG=main
+ENV XDEBUG_CONFIG=$XDEBUG_CONFIG
 
 # check environment
 RUN if [ "$BUILD_ARGUMENT_ENV" = "default" ]; then echo "Set BUILD_ARGUMENT_ENV in docker build-args like --build-arg BUILD_ARGUMENT_ENV=dev" && exit 2; \
@@ -60,7 +62,7 @@ COPY ./docker/$BUILD_ARGUMENT_ENV/php.ini /usr/local/etc/php/php.ini
 
 # install Xdebug in case dev/test environment
 COPY ./docker/general/do_we_need_xdebug.sh /tmp/
-COPY ./docker/dev/xdebug.ini /tmp/
+COPY ./docker/dev/xdebug-${XDEBUG_CONFIG}.ini /tmp/xdebug.ini
 RUN chmod u+x /tmp/do_we_need_xdebug.sh && /tmp/do_we_need_xdebug.sh
 
 # install composer
