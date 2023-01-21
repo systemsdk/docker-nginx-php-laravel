@@ -132,7 +132,7 @@ Rector instantly upgrades and refactors the PHP code of your application. It can
 - Instant upgrades
 - Automated refactoring
 
-Rector now supports upgrades of your code from PHP 5.3 to 8.1 or upgrades your code for new framework version. This tool supports major open-source projects like Symfony, PHPUnit, Nette, Laravel, CakePHP and Doctrine.
+Rector now supports upgrades of your code from PHP 5.3 to 8.2 or upgrades your code for new framework version. This tool supports major open-source projects like Symfony, PHPUnit, Nette, Laravel, CakePHP and Doctrine.
 You can find live demo [here](https://symfonycasts.com/screencast/symfony6-upgrade/rector) or more info [here](https://packagist.org/packages/rector/rector).
 
 Rector is available for test/dev environment. If you need to run this tool, please use next local shell command in order to enter inside laravel container shell and then run rector:

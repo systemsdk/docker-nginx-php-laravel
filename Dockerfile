@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 # set main params
 ARG BUILD_ARGUMENT_ENV=dev

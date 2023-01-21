@@ -3,15 +3,15 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"ergebnis/composer-normalize": "^2.28",
+		"ergebnis/composer-normalize": "^2.29",
 		"icanhazstring/composer-unused": "^0.8",
-		"maglnet/composer-require-checker": "^4.2",
+		"maglnet/composer-require-checker": "^4.5",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"allow-plugins": true,
 		"platform": {
-			"php": "8.1.0"
+			"php": "8.2.0"
 		},
 		"preferred-install": {
 			"*": "dist"
