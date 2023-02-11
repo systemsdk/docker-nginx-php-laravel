@@ -55,9 +55,14 @@ In order to use Xdebug as debugging tool please follow [Using Xdebug](xdebug.md)
 ![Path mappings](images/phpstorm_09.png)
 ![Path mappings](images/phpstorm_10.png)
 
-* Go to `Settings -> Editor -> Inspections` and import profile `Systemsdk` (Inspections.xml) from [docs/phpstorm](phpstorm) and make sure that you have proper path to `phpmd_ruleset.xml`:
+* Set other configurations for code quality tools and make sure that you have proper path for the MessDetector ruleset `phpmd_ruleset.xml`:
 
-![Path mappings](images/phpstorm_11.png)
+![Path mappings](images/phpstorm_11_1.png)
+![Path mappings](images/phpstorm_11_2.png)
+
+* Go to `Settings -> Editor -> Inspections` and import profile `Systemsdk` (Inspections.xml) from [docs/phpstorm](phpstorm):
+
+![Path mappings](images/phpstorm_11_3.png)
 
 * Go to `Settings -> Tools -> External tools` and create ecs tool:
 

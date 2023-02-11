@@ -109,7 +109,6 @@
     <option name="CODING_STANDARD" value="PSR12" />
     <option name="CUSTOM_RULESET_PATH" value=".php-cs-fixer.dist.php" />
     <option name="SHOW_SNIFF_NAMES" value="true" />
-    <option name="EXTENSIONS" value="php,js,css,inc" />
   </inspection_tool>
   <inspection_tool class="PhpDivisionByZeroInspection" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="PhpDocMissingReturnTagInspection" enabled="true" level="WARNING" enabled_by_default="true">
@@ -118,18 +117,12 @@
   <inspection_tool class="PhpDocMissingThrowsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
     <option name="SKIP_ON_EMPTY_PHPDOC" value="false" />
   </inspection_tool>
-  <inspection_tool class="PhpDocSignatureInspection" enabled="true" level="WARNING" enabled_by_default="true">
-    <option name="ALLOW_MISSING_PARAMETERS" value="true" />
-  </inspection_tool>
+  <inspection_tool class="PhpDocSignatureInspection" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="PhpMethodOrClassCallIsNotCaseSensitiveInspection" enabled="true" level="WARNING" enabled_by_default="true" />
-  <inspection_tool class="PhpMissingDocCommentInspection" enabled="true" level="WARNING" enabled_by_default="true">
-    <option name="SKIP_EMPTY_FUNCTION" value="false" />
-    <option name="SKIP_EMPTY_METHOD" value="false" />
-  </inspection_tool>
+  <inspection_tool class="PhpMissingDocCommentInspection" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="PhpMissingParentCallCommonInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
   <inspection_tool class="PhpMissingParentCallMagicInspection" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="PhpMissingStrictTypesDeclarationInspection" enabled="true" level="WARNING" enabled_by_default="true" />
-  <inspection_tool class="PhpShortOpenTagInspection" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="PhpStanGlobal" enabled="true" level="WEAK WARNING" enabled_by_default="true">
     <option name="level" value="8" />
     <option name="config" value="phpstan.neon.dist" />
