@@ -87,7 +87,7 @@
 			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
 			"Symplify\\EasyCodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/src",
 			"ECSPrefix20210928\\Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
-			"Rector\\": "tools/08_rector/vendor/rector/"
+			"Rector\\": "tools/08_rector/vendor/rector"
 		}
 	},
 	"minimum-stability": "dev",
