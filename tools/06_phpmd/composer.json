@@ -1,7 +1,9 @@
 {
 	"name": "systemsdk/docker-nginx-php-laravel-tools",
 	"description": "",
-	"require": {},
+	"require": {
+		"php": "^8.2.0"
+	},
 	"require-dev": {
 		"phpmd/phpmd": "2.13.*",
 		"roave/security-advisories": "dev-latest"

@@ -1,9 +1,11 @@
 {
 	"name": "systemsdk/docker-nginx-php-laravel-tools",
 	"description": "",
-	"require": {},
+	"require": {
+		"php": "^8.2.0"
+	},
 	"require-dev": {
-		"phpunit/phpunit": "9.6.*",
+		"phpunit/phpunit": "10.0.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

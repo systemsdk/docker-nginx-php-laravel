@@ -13,13 +13,16 @@ This document describing how you can configure your IDE [PhpStorm](https://www.j
     - String Manipulation
     - Extra ToolWindow Colorful Icons
 * Go to `Settings -> Php -> Laravel` and check `Enable plugin for this project`.
-* Go to `Settings -> Php -> Composer` and set path to composer.json, check other settings:
-
-![Path mappings](images/phpstorm_01.png)
 
 ### CLI Interpreter
 You need to set correct CLI interpreter for your PhpStorm. 
 In order to do it please open `Settings -> PHP` section and follow recommendations [configuring remote PHP interpreters](https://www.jetbrains.com/help/phpstorm/configuring-remote-interpreters.html).
+
+![Path mappings](images/phpstorm_00.png)
+![Path mappings](images/phpstorm_01.png)
+
+### Composer
+Go to `Settings -> Php -> Composer` and set path to composer.json, check other settings:
 
 ![Path mappings](images/phpstorm_02.png)
 

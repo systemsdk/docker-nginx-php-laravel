@@ -1,7 +1,9 @@
 {
 	"name": "systemsdk/docker-nginx-php-laravel-tools",
 	"description": "",
-	"require": {},
+	"require": {
+		"php": "^8.2.0"
+	},
 	"require-dev": {
 		"friendsofphp/php-cs-fixer": "3.14.*",
 		"symplify/easy-coding-standard": "11.2.*",

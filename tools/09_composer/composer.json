@@ -1,7 +1,9 @@
 {
 	"name": "systemsdk/docker-nginx-php-laravel-tools",
 	"description": "",
-	"require": {},
+	"require": {
+		"php": "^8.2.0"
+	},
 	"require-dev": {
 		"ergebnis/composer-normalize": "^2.29",
 		"icanhazstring/composer-unused": "^0.8",
