@@ -15,7 +15,7 @@ services:
         - "${WEB_PORT_HTTP}:80"
         - "${WEB_PORT_SSL}:443"
       volumes:
-        - .:/var/www/html:ro,cached
+        - ./:/var/www/html:ro,cached
       depends_on:
         - laravel
       networks:
