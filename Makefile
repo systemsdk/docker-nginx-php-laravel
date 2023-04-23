@@ -291,7 +291,7 @@ ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
 	@echo "\033[32mRunning PHPStan - PHP Static Analysis Tool\033[39m"
 	@php artisan cache:clear --env=test
 	@./vendor/bin/phpstan --version
-	@./vendor/bin/phpstan analyze app tests --xdebug
+	@./vendor/bin/phpstan analyze app tests
 else
 	@make exec cmd="make phpstan"
 endif

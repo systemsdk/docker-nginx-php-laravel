@@ -4,40 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9587cc30f8a661dd4ceaa9fb365e496",
+    "content-hash": "f7c1747e619a33c6e07736170b43af9f",
     "packages": [],
     "packages-dev": [
         {
             "name": "driftingly/rector-laravel",
-            "version": "0.15.0",
+            "version": "0.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/driftingly/rector-laravel.git",
-                "reference": "280fb5f13645ffc291f571b0144bcc0769d5e31e"
+                "reference": "5eb5c21eb74cd11413ae2cd8022365edf18e0f7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/280fb5f13645ffc291f571b0144bcc0769d5e31e",
-                "reference": "280fb5f13645ffc291f571b0144bcc0769d5e31e",
+                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/5eb5c21eb74cd11413ae2cd8022365edf18e0f7d",
+                "reference": "5eb5c21eb74cd11413ae2cd8022365edf18e0f7d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1"
-            },
-            "require-dev": {
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "^1.8.2",
-                "phpstan/phpstan-strict-rules": "^1.2",
-                "phpstan/phpstan-webmozart-assert": "^1.1",
-                "phpunit/phpunit": "^9.5",
-                "rector/phpstan-rules": "^0.6",
-                "rector/rector": "^0.14.7",
-                "rector/rector-debugging": "dev-main",
-                "symplify/easy-coding-standard": "^11.0",
-                "symplify/phpstan-extensions": "^11.0",
-                "symplify/phpstan-rules": "^11.0",
-                "symplify/rule-doc-generator": "^11.0",
-                "symplify/vendor-patches": "^11.0"
+                "php": "^7.2 || ^8.0"
             },
             "type": "rector-extension",
             "autoload": {
@@ -52,22 +37,22 @@
             "description": "Rector upgrades rules for Laravel Framework",
             "support": {
                 "issues": "https://github.com/driftingly/rector-laravel/issues",
-                "source": "https://github.com/driftingly/rector-laravel/tree/0.15.0"
+                "source": "https://github.com/driftingly/rector-laravel/tree/0.17.0"
             },
-            "time": "2023-02-07T18:23:27+00:00"
+            "time": "2023-03-17T00:08:57+00:00"
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.3",
+            "version": "1.10.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "5419375b5891add97dc74be71e6c1c34baaddf64"
+                "reference": "d232901b09e67538e5c86a724be841bea5768a7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/5419375b5891add97dc74be71e6c1c34baaddf64",
-                "reference": "5419375b5891add97dc74be71e6c1c34baaddf64",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d232901b09e67538e5c86a724be841bea5768a7c",
+                "reference": "d232901b09e67538e5c86a724be841bea5768a7c",
                 "shasum": ""
             },
             "require": {
@@ -96,8 +81,11 @@
                 "static analysis"
             ],
             "support": {
+                "docs": "https://phpstan.org/user-guide/getting-started",
+                "forum": "https://github.com/phpstan/phpstan/discussions",
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.10.3"
+                "security": "https://github.com/phpstan/phpstan/security/policy",
+                "source": "https://github.com/phpstan/phpstan-src"
             },
             "funding": [
                 {
@@ -113,25 +101,25 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-25T14:47:13+00:00"
+            "time": "2023-04-19T13:47:27+00:00"
         },
         {
             "name": "rector/rector",
-            "version": "0.15.18",
+            "version": "0.15.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "2c4708affb035af01f6b4a3b4a82f75cc306b039"
+                "reference": "015935c7ed9e48a4f5895ba974f337e20a263841"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/2c4708affb035af01f6b4a3b4a82f75cc306b039",
-                "reference": "2c4708affb035af01f6b4a3b4a82f75cc306b039",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/015935c7ed9e48a4f5895ba974f337e20a263841",
+                "reference": "015935c7ed9e48a4f5895ba974f337e20a263841",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2|^8.0",
-                "phpstan/phpstan": "^1.10.1"
+                "phpstan/phpstan": "^1.10.14"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -158,9 +146,15 @@
                 "MIT"
             ],
             "description": "Instant Upgrade and Automated Refactoring of any PHP code",
+            "keywords": [
+                "automation",
+                "dev",
+                "migration",
+                "refactoring"
+            ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.15.18"
+                "source": "https://github.com/rectorphp/rector/tree/0.15.25"
             },
             "funding": [
                 {
@@ -168,7 +162,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-22T12:06:55+00:00"
+            "time": "2023-04-20T16:07:39+00:00"
         },
         {
             "name": "roave/security-advisories",
@@ -176,12 +170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "6bd8aa4cc5a5871008d89e503ac4ae7b69b5ac33"
+                "reference": "6b458abe955f78a76ebe1ab22c8739ae625221f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/6bd8aa4cc5a5871008d89e503ac4ae7b69b5ac33",
-                "reference": "6bd8aa4cc5a5871008d89e503ac4ae7b69b5ac33",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/6b458abe955f78a76ebe1ab22c8739ae625221f8",
+                "reference": "6b458abe955f78a76ebe1ab22c8739ae625221f8",
                 "shasum": ""
             },
             "conflict": {
@@ -191,7 +185,7 @@
                 "aheinze/cockpit": "<=2.2.1",
                 "akaunting/akaunting": "<2.1.13",
                 "akeneo/pim-community-dev": "<5.0.119|>=6,<6.0.53",
-                "alextselegidis/easyappointments": "<=1.4.3",
+                "alextselegidis/easyappointments": "<1.5",
                 "alterphp/easyadmin-extension-bundle": ">=1.2,<1.2.11|>=1.3,<1.3.1",
                 "amazing/media2click": ">=1,<1.3.3",
                 "amphp/artax": "<1.0.6|>=2,<2.0.6",
@@ -199,15 +193,17 @@
                 "amphp/http-client": ">=4,<4.4",
                 "anchorcms/anchor-cms": "<=0.12.7",
                 "andreapollastri/cipi": "<=3.1.15",
+                "andrewhaine/silverstripe-form-capture": ">=0.2,<=0.2.3|>=1,<=1.0.1|>=2,<=2.2.4",
                 "apereo/phpcas": "<1.6",
-                "api-platform/core": ">=2.2,<2.2.10|>=2.3,<2.3.6",
-                "appwrite/server-ce": "<0.11.1|>=0.12,<0.12.2",
+                "api-platform/core": ">=2.2,<2.2.10|>=2.3,<2.3.6|>=2.6,<2.7.10|>=3,<3.0.12|>=3.1,<3.1.3",
+                "appwrite/server-ce": "<=1.2.1",
                 "arc/web": "<3",
                 "area17/twill": "<1.2.5|>=2,<2.5.3",
                 "asymmetricrypt/asymmetricrypt": ">=0,<9.9.99",
                 "automad/automad": "<1.8",
                 "awesome-support/awesome-support": "<=6.0.7",
                 "aws/aws-sdk-php": ">=3,<3.2.1",
+                "azuracast/azuracast": "<0.18",
                 "backdrop/backdrop": "<=1.23",
                 "badaso/core": "<2.7",
                 "bagisto/bagisto": "<0.1.5",
@@ -215,8 +211,9 @@
                 "barrelstrength/sprout-forms": "<3.9",
                 "barryvdh/laravel-translation-manager": "<0.6.2",
                 "barzahlen/barzahlen-php": "<2.0.1",
-                "baserproject/basercms": "<4.7.2",
+                "baserproject/basercms": "<4.7.5",
                 "bassjobsen/bootstrap-3-typeahead": ">4.0.2",
+                "bigfork/silverstripe-form-capture": ">=3,<=3.1",
                 "billz/raspap-webgui": "<=2.6.6",
                 "bk2k/bootstrap-package": ">=7.1,<7.1.2|>=8,<8.0.8|>=9,<9.0.4|>=9.1,<9.1.3|>=10,<10.0.10|>=11,<11.0.3",
                 "bmarshall511/wordpress_zero_spam": "<5.2.13",
@@ -239,11 +236,11 @@
                 "catfan/medoo": "<1.7.5",
                 "centreon/centreon": "<22.10-beta.1",
                 "cesnet/simplesamlphp-module-proxystatistics": "<3.1",
-                "cockpit-hq/cockpit": "<2.3.9",
+                "cockpit-hq/cockpit": "<2.4.1",
                 "codeception/codeception": "<3.1.3|>=4,<4.1.22",
                 "codeigniter/framework": "<=3.0.6",
                 "codeigniter4/framework": "<4.2.11",
-                "codeigniter4/shield": "= 1.0.0-beta",
+                "codeigniter4/shield": "<1-beta.4|= 1.0.0-beta",
                 "codiad/codiad": "<=2.8.4",
                 "composer/composer": "<1.10.26|>=2-alpha.1,<2.2.12|>=2.3,<2.3.5",
                 "concrete5/concrete5": "<=9.1.3|>= 9.0.0RC1, < 9.1.3",
@@ -254,7 +251,7 @@
                 "contao/core-bundle": "<4.9.18|>=4.10,<4.11.7|>=4.13,<4.13.3|= 4.10.0",
                 "contao/listing-bundle": ">=4,<4.4.8",
                 "contao/managed-edition": "<=1.5",
-                "craftcms/cms": "<3.7.55.2|>= 4.0.0-RC1, < 4.2.1",
+                "craftcms/cms": "<3.7.64|>= 4.0.0-RC1, < 4.3.7|>= 4.0.0-RC1, < 4.2.1",
                 "croogo/croogo": "<3.0.7",
                 "cuyz/valinor": "<0.12",
                 "czproject/git-php": "<4.0.3",
@@ -283,6 +280,7 @@
                 "ectouch/ectouch": "<=2.7.2",
                 "elefant/cms": "<1.3.13",
                 "elgg/elgg": "<3.3.24|>=4,<4.0.5",
+                "encore/laravel-admin": "<=1.8.19",
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.15",
                 "erusev/parsedown": "<1.7.2",
@@ -297,11 +295,11 @@
                 "ezsystems/ezplatform-admin-ui": ">=1.3,<1.3.5|>=1.4,<1.4.6|>=1.5,<1.5.29|>=2.3,<2.3.26",
                 "ezsystems/ezplatform-admin-ui-assets": ">=4,<4.2.1|>=5,<5.0.1|>=5.1,<5.1.1",
                 "ezsystems/ezplatform-graphql": ">=1-rc.1,<1.0.13|>=2-beta.1,<2.3.12",
-                "ezsystems/ezplatform-kernel": "<=1.2.5|>=1.3,<1.3.26",
+                "ezsystems/ezplatform-kernel": "<1.2.5.1|>=1.3,<1.3.26",
                 "ezsystems/ezplatform-rest": ">=1.2,<=1.2.2|>=1.3,<1.3.8",
-                "ezsystems/ezplatform-richtext": ">=2.3,<=2.3.7",
+                "ezsystems/ezplatform-richtext": ">=2.3,<2.3.7.1",
                 "ezsystems/ezplatform-user": ">=1,<1.0.1",
-                "ezsystems/ezpublish-kernel": "<=6.13.8.1|>=7,<7.5.30",
+                "ezsystems/ezpublish-kernel": "<6.13.8.2|>=7,<7.5.30",
                 "ezsystems/ezpublish-legacy": "<=2017.12.7.3|>=2018.6,<=2019.3.5.1",
                 "ezsystems/platform-ui-assets-bundle": ">=4.2,<4.2.3",
                 "ezsystems/repository-forms": ">=2.3,<2.3.2.1|>=2.5,<2.5.15",
@@ -315,7 +313,7 @@
                 "firebase/php-jwt": "<6",
                 "fixpunkt/fp-masterquiz": "<2.2.1|>=3,<3.5.2",
                 "fixpunkt/fp-newsletter": "<1.1.1|>=2,<2.1.2|>=2.2,<3.2.6",
-                "flarum/core": "<1.6.3",
+                "flarum/core": "<1.7",
                 "flarum/mentions": "<1.6.3",
                 "flarum/sticky": ">=0.1-beta.14,<=0.1-beta.15",
                 "flarum/tags": "<=0.1-beta.13",
@@ -326,13 +324,15 @@
                 "forkcms/forkcms": "<5.11.1",
                 "fossar/tcpdf-parser": "<6.2.22",
                 "francoisjacquet/rosariosis": "<10.8.2",
+                "frappant/frp-form-answers": "<3.1.2|>=4,<4.0.2",
                 "friendsofsymfony/oauth2-php": "<1.3",
                 "friendsofsymfony/rest-bundle": ">=1.2,<1.2.2",
                 "friendsofsymfony/user-bundle": ">=1.2,<1.3.5",
                 "friendsoftypo3/mediace": ">=7.6.2,<7.6.5",
                 "froala/wysiwyg-editor": "<3.2.7",
-                "froxlor/froxlor": "<2.0.11",
+                "froxlor/froxlor": "<2.0.14",
                 "fuel/core": "<1.8.1",
+                "funadmin/funadmin": "<=3.2",
                 "gaoming13/wechat-php-sdk": "<=1.10.2",
                 "genix/cms": "<=1.1.11",
                 "getgrav/grav": "<1.7.34",
@@ -343,17 +343,18 @@
                 "globalpayments/php-sdk": "<2",
                 "google/protobuf": "<3.15",
                 "gos/web-socket-bundle": "<1.10.4|>=2,<2.6.1|>=3,<3.3",
-                "gree/jose": "<=2.2",
+                "gree/jose": "<2.2.1",
                 "gregwar/rst": "<1.0.3",
-                "grumpydictator/firefly-iii": "<5.8",
+                "grumpydictator/firefly-iii": "<6",
                 "guzzlehttp/guzzle": "<6.5.8|>=7,<7.4.5",
-                "guzzlehttp/psr7": "<1.8.4|>=2,<2.1.1",
+                "guzzlehttp/psr7": "<1.9.1|>=2,<2.4.5",
                 "harvesthq/chosen": "<1.8.7",
                 "helloxz/imgurl": "= 2.31|<=2.31",
                 "hillelcoren/invoice-ninja": "<5.3.35",
                 "himiklab/yii2-jqgrid-widget": "<1.0.8",
                 "hjue/justwriting": "<=1",
                 "hov/jobfair": "<1.0.13|>=2,<2.0.2",
+                "httpsoft/http-message": "<1.0.12",
                 "hyn/multi-tenant": ">=5.6,<5.7.2",
                 "ibexa/admin-ui": ">=4.2,<4.2.3",
                 "ibexa/core": ">=4,<4.0.7|>=4.1,<4.1.4|>=4.2,<4.2.3",
@@ -390,6 +391,7 @@
                 "kimai/kimai": "<1.1",
                 "kitodo/presentation": "<3.1.2",
                 "klaviyo/magento2-extension": ">=1,<3",
+                "knplabs/knp-snappy": "<1.4.2",
                 "krayin/laravel-crm": "<1.2.2",
                 "kreait/firebase-php": ">=3.2,<3.8.1",
                 "la-haute-societe/tcpdf": "<6.2.22",
@@ -429,14 +431,14 @@
                 "melisplatform/melis-front": "<5.0.1",
                 "mezzio/mezzio-swoole": "<3.7|>=4,<4.3",
                 "mgallegos/laravel-jqgrid": "<=1.3",
-                "microweber/microweber": "<1.3.2",
+                "microweber/microweber": "<1.3.3",
                 "miniorange/miniorange-saml": "<1.4.3",
                 "mittwald/typo3_forum": "<1.2.1",
                 "mobiledetect/mobiledetectlib": "<2.8.32",
                 "modx/revolution": "<= 2.8.3-pl|<2.8",
                 "mojo42/jirafeau": "<4.4",
                 "monolog/monolog": ">=1.8,<1.12",
-                "moodle/moodle": "<4.0.5",
+                "moodle/moodle": "<4.0.7|>=4.1-beta,<4.1.2|= 3.11",
                 "mustache/mustache": ">=2,<2.14.1",
                 "namshi/jose": "<2.2",
                 "neoan3-apps/template": "<1.1.1",
@@ -448,10 +450,11 @@
                 "netgen/tagsbundle": ">=3.4,<3.4.11|>=4,<4.0.15",
                 "nette/application": ">=2,<2.0.19|>=2.1,<2.1.13|>=2.2,<2.2.10|>=2.3,<2.3.14|>=2.4,<2.4.16|>=3,<3.0.6",
                 "nette/nette": ">=2,<2.0.19|>=2.1,<2.1.13",
-                "nilsteampassnet/teampass": "<=2.1.27.36",
+                "nilsteampassnet/teampass": "<3.0.3",
                 "notrinos/notrinos-erp": "<=0.7",
                 "noumo/easyii": "<=0.9",
                 "nukeviet/nukeviet": "<4.5.2",
+                "nyholm/psr7": "<1.6.1",
                 "nystudio107/craft-seomatic": "<3.4.12",
                 "nzo/url-encryptor-bundle": ">=4,<4.3.2|>=5,<5.0.1",
                 "october/backend": "<1.1.2",
@@ -482,6 +485,7 @@
                 "personnummer/personnummer": "<3.0.2",
                 "phanan/koel": "<5.1.4",
                 "php-mod/curl": "<2.3.2",
+                "phpbb/phpbb": ">=3.2,<3.2.10|>=3.3,<3.3.1",
                 "phpfastcache/phpfastcache": "<6.1.5|>=7,<7.1.2|>=8,<8.0.7",
                 "phpmailer/phpmailer": "<6.5",
                 "phpmussel/phpmussel": ">=1,<1.6",
@@ -489,14 +493,16 @@
                 "phpmyfaq/phpmyfaq": "<=3.1.7",
                 "phpoffice/phpexcel": "<1.8",
                 "phpoffice/phpspreadsheet": "<1.16",
-                "phpseclib/phpseclib": "<2.0.31|>=3,<3.0.7",
+                "phpseclib/phpseclib": "<2.0.31|>=3,<3.0.19",
                 "phpservermon/phpservermon": "<=3.5.2",
+                "phpsysinfo/phpsysinfo": "<3.2.5",
                 "phpunit/phpunit": ">=4.8.19,<4.8.28|>=5,<5.6.3",
                 "phpwhois/phpwhois": "<=4.2.5",
                 "phpxmlrpc/extras": "<0.6.1",
                 "phpxmlrpc/phpxmlrpc": "<4.9.2",
                 "pimcore/data-hub": "<1.2.4",
-                "pimcore/pimcore": "<10.5.17",
+                "pimcore/perspective-editor": "<1.5.1",
+                "pimcore/pimcore": "<10.5.20",
                 "pixelfed/pixelfed": "<=0.11.4",
                 "pocketmine/bedrock-protocol": "<8.0.2",
                 "pocketmine/pocketmine-mp": "<4.12.5|>= 4.0.0-BETA5, < 4.4.2",
@@ -505,7 +511,7 @@
                 "prestashop/blockwishlist": ">=2,<2.1.1",
                 "prestashop/contactform": ">=1.0.1,<4.3",
                 "prestashop/gamification": "<2.3.2",
-                "prestashop/prestashop": "<1.7.8.8",
+                "prestashop/prestashop": "<8.0.1",
                 "prestashop/productcomments": "<5.0.2",
                 "prestashop/ps_emailsubscription": "<2.6.1",
                 "prestashop/ps_facetedsearch": "<3.4.1",
@@ -522,6 +528,7 @@
                 "rainlab/debugbar-plugin": "<3.1",
                 "rankmath/seo-by-rank-math": "<=1.0.95",
                 "react/http": ">=0.7,<1.7",
+                "really-simple-plugins/complianz-gdpr": "<6.4.2",
                 "remdex/livehelperchat": "<3.99",
                 "rmccue/requests": ">=1.6,<1.8",
                 "robrichards/xmlseclibs": "<3.0.4",
@@ -534,8 +541,8 @@
                 "scheb/two-factor-bundle": ">=0,<3.26|>=4,<4.11",
                 "sensiolabs/connect": "<4.2.3",
                 "serluck/phpwhois": "<=4.2.6",
-                "shopware/core": "<=6.4.18",
-                "shopware/platform": "<=6.4.18",
+                "shopware/core": "<=6.4.20",
+                "shopware/platform": "<=6.4.20",
                 "shopware/production": "<=6.3.5.2",
                 "shopware/shopware": "<=5.7.14",
                 "shopware/storefront": "<=6.4.8.1",
@@ -547,7 +554,7 @@
                 "silverstripe/comments": ">=1.3,<1.9.99|>=2,<2.9.99|>=3,<3.1.1",
                 "silverstripe/forum": "<=0.6.1|>=0.7,<=0.7.3",
                 "silverstripe/framework": "<4.11.14",
-                "silverstripe/graphql": "<3.5.2|>=4-alpha.1,<4-alpha.2|= 4.0.0-alpha1",
+                "silverstripe/graphql": "<3.5.2|>=4-alpha.1,<4-alpha.2|>=4.1.1,<4.1.2|>=4.2.2,<4.2.3|= 4.0.0-alpha1",
                 "silverstripe/hybridsessions": ">=1,<2.4.1|>=2.5,<2.5.1",
                 "silverstripe/registry": ">=2.1,<2.1.2|>=2.2,<2.2.1",
                 "silverstripe/restfulserver": ">=1,<1.0.9|>=2,<2.0.4",
@@ -563,8 +570,10 @@
                 "simplesamlphp/simplesamlphp-module-openid": "<1",
                 "simplesamlphp/simplesamlphp-module-openidprovider": "<0.9",
                 "simplito/elliptic-php": "<1.0.6",
+                "sitegeist/fluid-components": "<3.5",
+                "slim/psr7": "<1.6.1",
                 "slim/slim": "<2.6",
-                "smarty/smarty": "<3.1.47|>=4,<4.2.1",
+                "smarty/smarty": "<3.1.48|>=4,<4.3.1",
                 "snipe/snipe-it": "<=6.0.14|>= 6.0.0-RC-1, <= 6.0.0-RC-5",
                 "socalnick/scn-social-auth": "<1.15.2",
                 "socialiteproviders/steam": "<1.1",
@@ -630,7 +639,7 @@
                 "thelia/thelia": ">=2.1-beta.1,<2.1.3",
                 "theonedemon/phpwhois": "<=4.2.5",
                 "thinkcmf/thinkcmf": "<=5.1.7",
-                "thorsten/phpmyfaq": "<3.1.11",
+                "thorsten/phpmyfaq": "<3.1.12",
                 "tinymce/tinymce": "<5.10.7|>=6,<6.3.1",
                 "tinymighty/wiki-seo": "<1.2.2",
                 "titon/framework": ">=0,<9.9.99",
@@ -656,6 +665,7 @@
                 "unisharp/laravel-filemanager": "<=2.5.1",
                 "userfrosting/userfrosting": ">=0.3.1,<4.6.3",
                 "usmanhalalit/pixie": "<1.0.3|>=2,<2.0.2",
+                "uvdesk/community-skeleton": "<=1.1.1",
                 "vanilla/safecurl": "<0.9.2",
                 "verot/class.upload.php": "<=1.0.3|>=2,<=2.0.4",
                 "vova07/yii2-fileapi-widget": "<0.1.9",
@@ -740,6 +750,9 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
+            "keywords": [
+                "dev"
+            ],
             "support": {
                 "issues": "https://github.com/Roave/SecurityAdvisories/issues",
                 "source": "https://github.com/Roave/SecurityAdvisories/tree/latest"
@@ -754,7 +767,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-24T17:04:25+00:00"
+            "time": "2023-04-21T22:04:02+00:00"
         }
     ],
     "aliases": [],

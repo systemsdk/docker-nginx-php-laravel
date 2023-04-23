@@ -6,7 +6,7 @@
 	},
 	"require-dev": {
 		"laravel/framework": "^10.0",
-		"nunomaduro/larastan":  "2.4.*",
+		"nunomaduro/larastan":  "2.6.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

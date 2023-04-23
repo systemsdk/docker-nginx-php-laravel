@@ -5,8 +5,8 @@
 		"php": "^8.2.0"
 	},
 	"require-dev": {
-		"friendsofphp/php-cs-fixer": "3.14.*",
-		"symplify/easy-coding-standard": "11.2.*",
+		"friendsofphp/php-cs-fixer": "3.16.*",
+		"symplify/easy-coding-standard": "11.3.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
