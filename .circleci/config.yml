@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/html
     machine:
-        image: ubuntu-2004:202101-01
+        image: ubuntu-2204:2023.04.2
     branches:
         ignore:
           - develop

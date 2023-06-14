@@ -5,7 +5,7 @@
 		"php": "^8.2.0"
 	},
 	"require-dev": {
-		"ergebnis/composer-normalize": "^2.30",
+		"ergebnis/composer-normalize": "^2.31",
 		"icanhazstring/composer-unused": "^0.8",
 		"maglnet/composer-require-checker": "^4.6",
 		"roave/security-advisories": "dev-latest"
