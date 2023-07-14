@@ -19,15 +19,16 @@ Docker environment required to run Laravel (based on official php and mysql dock
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
-1. Nginx 1.23
+1. Nginx 1.25
 2. PHP 8.2 fpm
 3. MySQL 8
 4. Laravel 10
+5. Mailpit (only for debug emails on dev environment)
 
 ## Setting up Docker and docker-compose
 1.For installing Docker please follow steps mentioned on page [install on Ubuntu linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or [install on Mac/Windows](https://docs.docker.com/engine/install/).
 
-2.For installing docker-compose as `Linux Standalone binary` please follow steps on the page [install compose](https://docs.docker.com/compose/install/other/#install-compose-standalone) if you are using Linux OS.
+2.For installing docker-compose as `Linux Standalone binary` please follow steps on the page [install compose](https://docs.docker.com/compose/install/standalone/) if you are using Linux OS.
 
 Note 1: Please run next cmd after above step 2 if you are using Linux OS: `sudo usermod -aG docker $USER`
 
@@ -81,7 +82,9 @@ make seed
 make key-generate
 ```
 
-7.Check and open in your browser next url: [http://localhost](http://localhost).
+7.In order to use this application, please open in your browser next urls:
+- [http://localhost](http://localhost)
+- [http://localhost:8025 (Mailpit)](http://localhost:8025)
 
 ## Setting up STAGING environment locally
 1.You can clone this repository from GitHub or install via composer.

@@ -6,7 +6,7 @@
 	},
 	"require-dev": {
 		"rector/rector": "0.17.*",
-		"driftingly/rector-laravel": "0.20.*",
+		"driftingly/rector-laravel": "0.21.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
