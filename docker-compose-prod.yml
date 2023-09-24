@@ -45,7 +45,7 @@ services:
       command: ["/usr/bin/supervisord"]
 
     mysql:
-      image: mysql:8.0
+      image: mysql:${MYSQL_VERSION}
       platform: linux/x86_64
       container_name: ${COMPOSE_PROJECT_NAME}-mysql
       restart: always

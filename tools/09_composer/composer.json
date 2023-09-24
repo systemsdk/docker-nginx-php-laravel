@@ -5,9 +5,9 @@
 		"php": "^8.2.0"
 	},
 	"require-dev": {
-		"ergebnis/composer-normalize": "^2.33",
+		"ergebnis/composer-normalize": "^2.37",
 		"icanhazstring/composer-unused": "^0.8",
-		"maglnet/composer-require-checker": "^4.6",
+		"maglnet/composer-require-checker": "^4.7",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

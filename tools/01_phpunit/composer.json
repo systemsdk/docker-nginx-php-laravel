@@ -5,7 +5,7 @@
 		"php": "^8.2.0"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "10.2.*",
+		"phpunit/phpunit": "10.3.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

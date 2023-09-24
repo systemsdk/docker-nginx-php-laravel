@@ -44,7 +44,7 @@
 		"neronmoon/scriptsdev": "^0.1",
 		"nunomaduro/collision": "^7.0",
 		"spatie/laravel-ignition": "^2.0",
-		"phpunit/phpunit": "^10.2",
+		"phpunit/phpunit": "^10.3",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
