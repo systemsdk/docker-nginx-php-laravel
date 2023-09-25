@@ -23,6 +23,11 @@ jobs:
             make seed
 
       - run:
+          name: Show framework version and additional info, php & composer version
+          command: |
+            make info
+
+      - run:
           name: Run unit/functional tests
           command: |
             make phpunit

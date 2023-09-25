@@ -238,6 +238,7 @@ info: ## Shows Php and Laravel version
 	@make exec cmd="php artisan --version"
 	@make exec cmd="php artisan env"
 	@make exec cmd="php --version"
+	@make exec cmd="composer --version"
 
 logs: ## Shows logs from the laravel container. Use ctrl+c in order to exit
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
