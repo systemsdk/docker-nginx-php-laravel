@@ -143,3 +143,10 @@ make ssh
 vendor/bin/rector process app/your_folder_with_code_for_refactoring
 ```
 Note: You can process rector without specifying folder, in such case it will process app and tests folder.
+
+## Qodana (trial)
+Qodana is a smart code quality platform by JetBrains. This powerful static analysis engine enables development teams to automate code reviews, build quality gates, and enforce code quality guidelines enterprise-wide – all within their JetBrains ecosystems.
+The platform can be integrated into any CI/CD pipeline and can analyze code.
+
+If you are using IDE PHPStorm, you can use it via menu `Tools` -> `Qodana` -> `Try Code Analysis with Qodana` -> `Try Locally` -> `Run`.
+You can find some video [here](https://blog.jetbrains.com/qodana/2023/09/code-quality-under-pressure-supporting-developers-with-qodana-integration-in-intellij-based-ides/) or more info [here](https://www.jetbrains.com/help/qodana/getting-started.html).
