@@ -17,7 +17,6 @@ exclude:
   - name: All
     paths:
       - reports
-      - tools
 
 php:
   version: 8.2 #(Applied in CI/CD pipeline)

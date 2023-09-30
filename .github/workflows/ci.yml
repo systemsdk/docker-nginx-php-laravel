@@ -29,6 +29,8 @@ jobs:
               run: make drop-migrate
             - name: Run seeds
               run: make seed
+            - name: Show framework version and additional info, php & composer version
+              run: make info
             - name: Run test suite
               run: make phpunit
             - name: Run PHP coding standard
