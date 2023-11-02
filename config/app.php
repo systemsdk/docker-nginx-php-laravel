@@ -212,4 +212,10 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+
+    'available_locales' => [
+        'English' => 'en',
+        'Українська' => 'uk',
+    ],
+
 ];

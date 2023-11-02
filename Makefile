@@ -1,4 +1,4 @@
-export COMPOSE_PROJECT_NAME=environment3
+export COMPOSE_PROJECT_NAME=resume_back
 export WEB_PORT_HTTP=80
 export WEB_PORT_SSL=443
 export XDEBUG_CONFIG=main
