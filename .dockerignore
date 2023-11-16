@@ -1,15 +1,23 @@
+### User-specific stuff:
 /.git*
-/.idea*
+/.idea/workspace.xml
 .dockerignore
-.editorconfig
+
+### Other data
 storage/mysql-data
 vendor/
-/tools/*/vendor/
 bootstrap/cache
 !bootstrap/cache/.gitignore
 .phpstorm.meta.php
-Dockerfile
 _ide_helper.php
+
+### Vendor bin dependencies
+/tools/*/vendor/
+.phpunit.cache
+.phpunit.result.cache
+
+### Docker
+Dockerfile
 docker-compose.yml
 docker-compose-test-ci.yml
 docker-compose-staging.yml

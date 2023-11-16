@@ -16,7 +16,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v1
+            - uses: actions/checkout@v4
             - name: Build the docker images
               run: make build-test
             - name: Start the docker images
@@ -33,33 +33,48 @@ jobs:
               run: make info
             - name: Run test suite
               run: make phpunit
-            - name: Run PHP coding standard
+            - name: Archive coverage data for Qodana
+              uses: actions/upload-artifact@v3
+              with:
+                  name: php-coverage-data
+                  path: reports/clover.xml
+            - name: Run coding standard
               run: make ecs
-            - name: Run PHP codeSniffer
+            - name: Run codeSniffer
               run: make phpcs
-            - name: Run PHP copy/paste detector
-              run: make phpcpd
-            - name: Run PHP mess detector
-              run: make phpmd
-            - name: Run PHPStan static analysis tool
+            - name: Run PHPStan
               run: make phpstan
-            - name: Run Phpinsights PHP quality checks
+            - name: Run PHPInsights
               run: make phpinsights
+            - name: Run php mess detector
+              run: make phpmd
+            - name: Run php copy past detector
+              run: make phpcpd
             - name: Stop the docker images
               run: make stop-test
-    qodana:
-        runs-on: ubuntu-latest
-        needs: build
-        permissions:
-            contents: write
-            pull-requests: write
-            checks: write
-        steps:
-            - uses: actions/checkout@v3
-              with:
-                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                  fetch-depth: 0  # a full history is required for pull request analysis
-            - name: 'Qodana Scan'
-              uses: JetBrains/qodana-action@v2023.2
-              env:
-                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+
+# Currently local Qodana report differ from CI Qodana report due to some issues https://youtrack.jetbrains.com/issue/QD-7379
+#    qodana:
+#        runs-on: ubuntu-20.04
+#        needs: build
+#        permissions:
+#            contents: write
+#            pull-requests: write
+#            checks: write
+#        steps:
+#            - uses: actions/checkout@v4
+#              with:
+#                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+#                  fetch-depth: 0  # a full history is required for pull request analysis
+#                  php-version: '8.2'
+#            - name: 'Install dependencies'
+#              run: COMPOSER_MEMORY_LIMIT=-1 composer install
+#            - name: 'Download coverage data for Qodana'
+#              uses: actions/download-artifact@v3
+#              with:
+#                  name: php-coverage-data
+#                  path: .qodana/code-coverage
+#            - name: 'Qodana Scan'
+#              uses: JetBrains/qodana-action@v2023.2
+#              env:
+#                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}

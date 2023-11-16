@@ -2,31 +2,60 @@
 #               Qodana analysis is configured by qodana.yaml file               #
 #             https://www.jetbrains.com/help/qodana/qodana-yaml.html            #
 #-------------------------------------------------------------------------------#
+# Currently local Qodana report differ from CI Qodana report due to some issues https://youtrack.jetbrains.com/issue/QD-7379
 version: "1.0"
 
-#Specify inspection profile for code analysis
+# Specify inspection profile for code analysis, see .idea/inspectionProfiles/ or you can use qodana.recommended when .idea folder missing
 profile:
-  name: qodana.recommended
+    #name: qodana.recommended
+    name: Project Default
 
-#Enable inspections
+# Enable inspections
 #include:
-#  - name: <SomeEnabledInspectionId>
+#    - name: PhpCoverageInspection
 
-#Disable inspections
+# Disable inspections
 exclude:
-  - name: All
-    paths:
-      - reports
+    - name: All
+      paths:
+          - .phpunit.cache
+          - .phpunit.result.cache
+          - .qodana
+          - bootstrap
+          - config
+          - database
+          - docker
+          - docs
+          - lang
+          - reports
+          - resources
+          - routes
+          - storage
+          - tools
+          - vendor
+    # phpcs do not support readonly class yet
+    - name: PhpClassCanBeReadonlyInspection
+    # if you need coverage report inside github actions, delete bellow row
+    - name: PhpCoverageInspection
+    # Waiting https://youtrack.jetbrains.com/issue/QD-7397/It-is-not-a-problem-Can-be-replaced-with-array
+    - name: PhpPluralMixedCanBeReplacedWithArrayInspection
+    - name: SpellCheckingInspection
+    - name: CheckDependencyLicenses
+    - name: PhpMultipleClassDeclarationsInspection
 
+# PHP Language level inspections (version can differ from installed php), jetbrains/qodana-php:latest coming currently with php 8.1 (https://youtrack.jetbrains.com/issue/QD-7379)
 php:
-  version: 8.2 #(Applied in CI/CD pipeline)
+    version: 8.2 #(Applied in CI/CD pipeline)
 
-#Execute shell command before Qodana execution (Applied in CI/CD pipeline)
-#bootstrap: sh ./prepare-qodana.sh
+# Execute shell command before Qodana execution (Applied in CI/CD pipeline)
+# Due to the issue with installing plugins you can create folder .qodana/plugins/ and put there plugins source code (https://youtrack.jetbrains.com/issue/QD-7379)
+#bootstrap: |
+#    cp -r .qodana/plugins/. /opt/idea/plugins/
 
-#Install IDE plugins before Qodana execution (Applied in CI/CD pipeline)
+# Install IDE plugins before Qodana execution (Applied in CI/CD), id can be found at https://plugins.jetbrains.com
+# Waiting fix for https://youtrack.jetbrains.com/issue/QD-6891/Plugins-cannot-be-installed-with-qodana.yaml
 #plugins:
-#  - id: <plugin.id> #(plugin id can be found at https://plugins.jetbrains.com)
+#    - id: com.kalessil.phpStorm.phpInspectionsEA
 
-#Specify Qodana linter for analysis (Applied in CI/CD pipeline)
+# Specify Qodana linter for analysis (Applied in CI/CD), currently installed only php 8.1
 linter: jetbrains/qodana-php:latest

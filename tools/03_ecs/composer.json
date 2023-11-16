@@ -5,7 +5,7 @@
 		"php": "^8.2.0"
 	},
 	"require-dev": {
-		"friendsofphp/php-cs-fixer": "3.28.*",
+		"friendsofphp/php-cs-fixer": "3.37.*",
 		"symplify/easy-coding-standard": "12.0.*",
 		"roave/security-advisories": "dev-latest"
 	},

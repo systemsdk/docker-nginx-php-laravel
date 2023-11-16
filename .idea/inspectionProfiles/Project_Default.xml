@@ -84,6 +84,7 @@
       <option name="migratedIntoUserSpace" value="true" />
     </inspection_tool>
     <inspection_tool class="InvertedIfElseConstructsInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="LaravelPintValidationInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="MessDetectorValidationInspection" enabled="true" level="WARNING" enabled_by_default="true" editorAttributes="WARNING_ATTRIBUTES">
       <option name="customRulesets">
         <list>

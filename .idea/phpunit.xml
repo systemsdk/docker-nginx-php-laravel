@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PHPUnit">
+    <option name="directories">
+      <list>
+        <option value="$PROJECT_DIR$/tools/01_phpunit/tests" />
+        <option value="$PROJECT_DIR$/tools/05_phpinsights/tests" />
+        <option value="$PROJECT_DIR$/tools/06_phpmd/tests" />
+        <option value="$PROJECT_DIR$/tools/03_ecs/tests" />
+        <option value="$PROJECT_DIR$/tests" />
+      </list>
+    </option>
+  </component>
+</project>

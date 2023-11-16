@@ -5,7 +5,7 @@
 		"php": "^8.2.0"
 	},
 	"require-dev": {
-		"nunomaduro/phpinsights": "2.8.*",
+		"nunomaduro/phpinsights": "2.9.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

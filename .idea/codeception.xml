@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Codeception">
+    <option name="configurations">
+      <list>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tools/05_phpinsights/tests" />
+        </Configuration>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tools/06_phpmd/tests" />
+        </Configuration>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tools/03_ecs/tests" />
+        </Configuration>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tests" />
+        </Configuration>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tools/06_phpmd/tests" />
+        </Configuration>
+      </list>
+    </option>
+  </component>
+</project>
