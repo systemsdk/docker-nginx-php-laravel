@@ -2,18 +2,18 @@
 	"name": "systemsdk/docker-nginx-php-laravel-tools",
 	"description": "",
 	"require": {
-		"php": "^8.2.0"
+		"php": "^8.3.0"
 	},
 	"require-dev": {
-		"ergebnis/composer-normalize": "^2.39",
+		"ergebnis/composer-normalize": "^2.42",
 		"icanhazstring/composer-unused": "^0.8",
-		"maglnet/composer-require-checker": "^4.7",
+		"maglnet/composer-require-checker": "^4.8",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"allow-plugins": true,
 		"platform": {
-			"php": "8.2.0"
+			"php": "8.3.0"
 		},
 		"preferred-install": {
 			"*": "dist"

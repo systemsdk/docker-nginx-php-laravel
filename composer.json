@@ -21,7 +21,7 @@
 		}
 	],
 	"require": {
-		"php": "^8.2",
+		"php": "^8.3",
 		"ext-ctype": "*",
 		"ext-iconv": "*",
 		"ext-json": "*",
@@ -44,13 +44,13 @@
 		"neronmoon/scriptsdev": "^0.1",
 		"nunomaduro/collision": "^7.0",
 		"spatie/laravel-ignition": "^2.0",
-		"phpunit/phpunit": "^10.4",
+		"phpunit/phpunit": "^10.5",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"optimize-autoloader": true,
 		"platform": {
-			"php": "8.2.0"
+			"php": "8.3.0"
 		},
 		"preferred-install": "dist",
 		"sort-packages": true,

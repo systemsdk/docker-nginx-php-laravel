@@ -45,7 +45,7 @@ exclude:
 
 # PHP Language level inspections (version can differ from installed php), jetbrains/qodana-php:latest coming currently with php 8.1 (https://youtrack.jetbrains.com/issue/QD-7379)
 php:
-    version: 8.2 #(Applied in CI/CD pipeline)
+    version: 8.3 #(Applied in CI/CD pipeline)
 
 # Execute shell command before Qodana execution (Applied in CI/CD pipeline)
 # Due to the issue with installing plugins you can create folder .qodana/plugins/ and put there plugins source code (https://youtrack.jetbrains.com/issue/QD-7379)

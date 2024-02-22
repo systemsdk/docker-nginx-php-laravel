@@ -9,4 +9,4 @@ parameters:
     checkGenericClassInNonGenericObjectType: false
     checkExplicitMixed: false
 includes:
-    - tools/02_phpstan/vendor/nunomaduro/larastan/extension.neon
+    - tools/02_phpstan/vendor/larastan/larastan/extension.neon

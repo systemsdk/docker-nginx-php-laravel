@@ -13,10 +13,13 @@
           <option name="path" value="$PROJECT_DIR$/tools/03_ecs/tests" />
         </Configuration>
         <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tools/06_phpmd/tests" />
+        </Configuration>
+        <Configuration>
           <option name="path" value="$PROJECT_DIR$/tests" />
         </Configuration>
         <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tools/06_phpmd/tests" />
+          <option name="path" value="$PROJECT_DIR$/tools/09_composer/tests" />
         </Configuration>
       </list>
     </option>

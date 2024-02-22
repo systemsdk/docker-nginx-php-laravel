@@ -30,6 +30,7 @@ services:
           HOST_UID: ${HOST_UID}
           HOST_GID: ${HOST_GID}
           XDEBUG_CONFIG: ${XDEBUG_CONFIG}
+          XDEBUG_VERSION: ${XDEBUG_VERSION}
         dockerfile: ./Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}-laravel
       volumes:
