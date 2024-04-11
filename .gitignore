@@ -1,4 +1,7 @@
-/.idea
+reports/*
+!reports/.gitkeep
+
+###> laravel ###
 /.vscode
 /.vagrant
 /node_modules
@@ -16,12 +19,15 @@ auth.json
 _ide_helper.php
 .phpstorm.meta.php
 _ide_helper_models.php
-reports/*
-!reports/.gitkeep
 npm-debug.log
 yarn-error.log
+###< laravel ###
+
+###> phpunit ###
 .phpunit.result.cache
 .phpunit.cache
+###< phpunit ###
+
 ###> friendsofphp/php-cs-fixer ###
 .php-cs-fixer.cache
 .php_cs

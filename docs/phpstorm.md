@@ -7,16 +7,19 @@ This document describing how you can configure your IDE [PhpStorm](https://www.j
     - .env files support
     - .ignore
     - Makefile Language
-    - Laravel
     - Php Inspections (EA Extended)
+    - Laravel Idea (trial)
+    - Laravel Query
+    - Laravel Tinker
+    - Laravel Generator
     - Rainbow brackets
     - String Manipulation
     - Extra ToolWindow Colorful Icons
-* Go to `Settings -> Php -> Laravel` and check `Enable plugin for this project`.
-* If you want control quality of your project - pay your attention to tools, described [here](development.md) and `Qodana` tool.
+* Go to `Settings -> Php -> Frameworks -> Laravel Idea` and check settings for `Laravel Idea` plugin.
+* If you want control quality of your PHP project - pay your attention to the tools, described [here](development.md).
 
 ### CLI Interpreter
-You need to set correct CLI interpreter for your PhpStorm. 
+You need to set correct CLI interpreter for your PhpStorm.
 In order to do it please open `Settings -> PHP` section and follow recommendations [configuring remote PHP interpreters](https://www.jetbrains.com/help/phpstorm/configuring-remote-interpreters.html).
 
 ![Path mappings](images/phpstorm_00.png)
@@ -46,7 +49,9 @@ Next you need to add Run/Debug configuration for PHP Remote Debug. It needs to b
 In order to use Xdebug as debugging tool please follow [Using Xdebug](xdebug.md) documentation.
 
 ### Code Style
-* Go to `Settings -> Editor -> Code Style` and import scheme `Systemsdk` (CodeStyle.xml) from [docs/phpstorm](phpstorm):
+This environment has committed `.idea/` catalog, so most IDE configs should be available out of the box. But if you want to have own configs, you can put `./idea` in gitignore and delete folder from the git repository.
+Anyway you can always import our recommended code style if you don't have committed `./idea` folder inside your repository: 
+* Go to `Settings -> Editor -> Code Style -> PHP` and import scheme `Project` (CodeStyle.xml) from [docs/phpstorm](phpstorm):
 
 ![Path mappings](images/phpstorm_code_style.png)
 
@@ -64,9 +69,9 @@ In order to use Xdebug as debugging tool please follow [Using Xdebug](xdebug.md)
 ![Path mappings](images/phpstorm_11_1.png)
 ![Path mappings](images/phpstorm_11_2.png)
 
-* Go to `Settings -> Editor -> Inspections` and import profile `Systemsdk` (Inspections.xml) from [docs/phpstorm](phpstorm):
+* If you don't have committed folder `.idea/`, go to `Settings -> Editor -> Inspections` and import profile `Project Default` (Inspections.xml) from [docs/phpstorm](phpstorm):
 
-![Path mappings](images/phpstorm_11_3.png)
+![Path mappings](images/phpstorm_inspections.png)
 
 * Go to `Settings -> Tools -> External tools` and create ecs tool:
 

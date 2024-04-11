@@ -10,7 +10,6 @@ use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
 use PhpCsFixer\Fixer\FunctionNotation\SingleLineThrowFixer;
 use PhpCsFixer\Fixer\Import\OrderedImportsFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer;
-use PhpCsFixer\Fixer\NamespaceNotation\NoBlankLinesBeforeNamespaceFixer;
 use PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\Operator\ConcatSpaceFixer;
 use PhpCsFixer\Fixer\Operator\IncrementStyleFixer;
@@ -114,7 +113,6 @@ return static function (ECSConfig $ecsConfig): void {
         PhpdocSeparationFixer::class => null,
         BlankLineAfterOpeningTagFixer::class => null,
         ClassAttributesSeparationFixer::class => null,
-        NoBlankLinesBeforeNamespaceFixer::class => null,
         NotOperatorWithSuccessorSpaceFixer::class => null,
         SingleLineThrowFixer::class => null,
         PhpdocAlignFixer::class => null,

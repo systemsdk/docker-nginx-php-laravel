@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpDockerContainerSettings">
+    <list>
+      <map>
+        <entry key="28c364dc-9ec2-41a9-a166-b1548a3da021">
+          <value>
+            <DockerContainerSettings>
+              <option name="version" value="1" />
+              <option name="volumeBindings">
+                <list>
+                  <DockerVolumeBindingImpl>
+                    <option name="containerPath" value="/opt/project" />
+                    <option name="hostPath" value="$PROJECT_DIR$" />
+                  </DockerVolumeBindingImpl>
+                </list>
+              </option>
+            </DockerContainerSettings>
+          </value>
+        </entry>
+        <entry key="3b6c44b2-cebd-4c6b-b5f9-6154ba1c7652">
+          <value>
+            <DockerContainerSettings>
+              <option name="runCliOptions" value="" />
+              <option name="version" value="1" />
+              <option name="volumeBindings">
+                <list>
+                  <DockerVolumeBindingImpl>
+                    <option name="containerPath" value="$PROJECT_DIR$/../../html" />
+                    <option name="hostPath" value="$PROJECT_DIR$" />
+                  </DockerVolumeBindingImpl>
+                </list>
+              </option>
+            </DockerContainerSettings>
+          </value>
+        </entry>
+        <entry key="7e007329-6b91-4934-80d5-534d14e79337">
+          <value>
+            <DockerContainerSettings>
+              <option name="version" value="1" />
+              <option name="volumeBindings">
+                <list>
+                  <DockerVolumeBindingImpl>
+                    <option name="containerPath" value="/opt/project" />
+                    <option name="hostPath" value="$PROJECT_DIR$" />
+                  </DockerVolumeBindingImpl>
+                </list>
+              </option>
+            </DockerContainerSettings>
+          </value>
+        </entry>
+      </map>
+    </list>
+  </component>
+</project>
