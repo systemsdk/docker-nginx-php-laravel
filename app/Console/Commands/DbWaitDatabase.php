@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use DB;
 use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
 
 class DbWaitDatabase extends Command
 {
     /**
      * Wait sleep time for db connection in seconds
      */
-    private const WAIT_SLEEP_TIME = 2;
+    private const int WAIT_SLEEP_TIME = 2;
 
     /**
      * The name and signature of the console command.

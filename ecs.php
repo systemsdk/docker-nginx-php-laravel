@@ -5,6 +5,7 @@ declare(strict_types=1);
 use PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer;
 use PhpCsFixer\Fixer\CastNotation\CastSpacesFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
+use PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer;
 use PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
 use PhpCsFixer\Fixer\FunctionNotation\SingleLineThrowFixer;
@@ -84,22 +85,27 @@ return static function (ECSConfig $ecsConfig): void {
             // https://github.com/nunomaduro/phpinsights/blob/master/docs/insights/style.md#no-extra-blank-lines---
             NoExtraBlankLinesFixer::class,
             [
-                'tokens' =>
-                 [
-                     'break',
-                     'case',
-                     'continue',
-                     'curly_brace_block',
-                     'default',
-                     'extra',
-                     'parenthesis_brace_block',
-                     'return',
-                     'square_brace_block',
-                     'switch',
-                     'throw',
-                     //'use',
-                     'use_trait',
-                 ],
+                'tokens' => [
+                    'break',
+                    'case',
+                    'continue',
+                    'curly_brace_block',
+                    'default',
+                    'extra',
+                    'parenthesis_brace_block',
+                    'return',
+                    'square_brace_block',
+                    'switch',
+                    'throw',
+                    //'use',
+                    'use_trait',
+                ],
+            ],
+        ],
+        [
+            ClassDefinitionFixer::class,
+            [
+                'multi_line_extends_each_single_line' => true,
             ],
         ],
     ];

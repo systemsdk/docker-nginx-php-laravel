@@ -2,8 +2,8 @@ export COMPOSE_PROJECT_NAME=environment3
 export WEB_PORT_HTTP=80
 export WEB_PORT_SSL=443
 export XDEBUG_CONFIG=main
-export XDEBUG_VERSION=3.3.1
-export MYSQL_VERSION=8.2
+export XDEBUG_VERSION=3.3.2
+export MYSQL_VERSION=8.4
 export INNODB_USE_NATIVE_AIO=1
 export SQL_MODE=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
 
@@ -333,7 +333,7 @@ ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
 	@echo "\033[32mRunning PHP Insights\033[39m"
 	@php -d error_reporting=0 ./vendor/bin/phpinsights analyse --no-interaction --min-quality=100 --min-complexity=80 --min-architecture=100 --min-style=100
 else
-	@make exec cmd="make phpinsights"
+	@make exec-by-root cmd="make phpinsights"
 endif
 
 composer-normalize: ## Normalizes composer.json file content

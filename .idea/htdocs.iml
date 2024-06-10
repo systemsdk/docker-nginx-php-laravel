@@ -11,13 +11,13 @@
       <sourceFolder url="file://$MODULE_DIR$/tools/05_phpinsights/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/src" isTestSource="true" packagePrefix="Symplify\EasyCodingStandard\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src" isTestSource="true" packagePrefix="PhpCsFixer\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src" isTestSource="true" packagePrefix="Symplify\CodingStandard\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src" isTestSource="true" packagePrefix="ECSPrefix20210928\Symplify\RuleDocGenerator\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/08_rector/vendor/rector" isTestSource="true" packagePrefix="Rector\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/tests" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/laravel-ignition" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/phpunit/phpunit/src" isTestSource="true" packagePrefix="PHPUnit\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/05_phpinsights/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-file-iterator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
@@ -34,11 +34,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/utils" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/backtrace" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-idn" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/flare-client-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation-contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/ignition" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/mailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
@@ -56,7 +53,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pint" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/sail" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/sanctum" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/schema" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/serializable-closure" />
@@ -65,7 +61,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psy/psysh" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-client" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
@@ -93,7 +88,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/neronmoon/scriptsdev" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/jaybizzle/laravel-migrations-organiser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/complexity" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/diff" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
@@ -107,9 +101,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fakerphp/faker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/cache" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/event-manager" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
@@ -384,6 +375,36 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/validator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/carbonphp/carbon-doctrine-types" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/clue/ndjson-react" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/evenement/evenement" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/fidry/cpu-core-counter" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/react/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/react/child-process" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/react/dns" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/react/event-loop" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/react/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/react/socket" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/react/stream" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/clue/ndjson-react" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/evenement/evenement" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/fidry/cpu-core-counter" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/react/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/react/child-process" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/react/dns" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/react/event-loop" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/react/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/react/socket" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/react/stream" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/type-info" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/clock" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

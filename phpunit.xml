@@ -22,11 +22,13 @@
         <ini name="display_startup_errors" value="On" />
         <ini name="date.timezone" value="UTC" />
         <env name="APP_ENV" value="test"/>
+        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
-        <env name="CACHE_DRIVER" value="array"/>
+        <env name="CACHE_STORE" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="MAIL_MAILER" value="array"/>
+        <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
     </php>
     <testsuites>
@@ -34,8 +36,8 @@
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
 
-        <testsuite name="Feature">
-            <directory suffix="Test.php">./tests/Feature</directory>
+        <testsuite name="Application">
+            <directory suffix="Test.php">./tests/Application</directory>
         </testsuite>
     </testsuites>
     <coverage/>

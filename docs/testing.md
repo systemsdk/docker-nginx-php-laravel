@@ -4,10 +4,12 @@ This document describing how you can run tests within this environment.
 ### General
 This environment contains next types of tests:
 
-* Functional (TODO: Implement it)
+* Application tests (TODO: Implement it)
 * Unit tests (TODO: Implement it)
 
 All tests relies to [PHPUnit](https://phpunit.de/) library.
+
+Note: `Application` test === `Feature` test === `Functional` test, please use symfony's naming convention(`Application`) as described [here](https://symfony.com/doc/current/testing.html#application-tests).
 
 ### Commands to run tests
 You can run tests using following local shell command(s):
@@ -25,8 +27,8 @@ make ssh    # Enter laravel container shell
 ```
 2.Use next laravel container shell command(s) in order to run test(s):
 ```bash
-./vendor/bin/phpunit ./tests/Feature/Controller/ApiKeyControllerTest.php  # Just this single test class
-./vendor/bin/phpunit ./tests/Feature/Controller/                          # All tests in this directory
+./vendor/bin/phpunit ./tests/Application/Controller/ApiKeyControllerTest.php  # Just this single test class
+./vendor/bin/phpunit ./tests/Application/Controller/                          # All tests in this directory
 ```
 
 ### Separate environment for testing

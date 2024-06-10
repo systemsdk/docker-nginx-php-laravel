@@ -4,6 +4,7 @@ reports/*
 ###> laravel ###
 /.vscode
 /.vagrant
+/.fleet
 /node_modules
 /public/build
 /public/hot
@@ -21,6 +22,7 @@ _ide_helper.php
 _ide_helper_models.php
 npm-debug.log
 yarn-error.log
+.phpactor.json
 ###< laravel ###
 
 ###> phpunit ###

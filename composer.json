@@ -15,8 +15,8 @@
 	"authors": [
 		{
 			"name": "Dmitriy Kravtsov",
-			"email": "dmitriy.kravtsov@systemsdk.com",
-			"homepage": "https://github.com/dimadeush",
+			"email": "dmytro.kravtsov@systemsdk.com",
+			"homepage": "https://github.com/systemsdk",
 			"role": "Developer"
 		}
 	],
@@ -28,23 +28,19 @@
 		"ext-mbstring": "*",
 		"ext-pdo": "*",
 		"ext-pdo_mysql": "*",
-		"guzzlehttp/guzzle": "^7.8",
-		"jaybizzle/laravel-migrations-organiser": "^6.3",
-		"laravel/framework": "^10.0",
-		"laravel/sanctum": "^3.2",
-		"laravel/tinker": "^2.8"
+		"laravel/framework": "^11.9",
+		"laravel/tinker": "^2.9"
 	},
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.8",
-		"barryvdh/laravel-ide-helper": "^2.13",
-		"fakerphp/faker": "^1.9",
-		"laravel/pint": "^1.0",
-		"laravel/sail": "^1.18",
-		"mockery/mockery": "^1.4",
+		"barryvdh/laravel-ide-helper": "^3.0",
+		"fakerphp/faker": "^1.23",
+		"laravel/pint": "^1.13",
+		"laravel/sail": "^1.26",
+		"mockery/mockery": "^1.6",
 		"neronmoon/scriptsdev": "^0.1",
-		"nunomaduro/collision": "^7.0",
-		"spatie/laravel-ignition": "^2.0",
-		"phpunit/phpunit": "^10.5",
+		"nunomaduro/collision": "^8.0",
+		"phpunit/phpunit": "11.2.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
@@ -109,7 +105,9 @@
 			"@php -r \"file_exists('.env') || copy('.env.dev', '.env');\""
 		],
 		"post-create-project-cmd": [
-			"@php artisan key:generate --ansi"
+			"@php artisan key:generate --ansi",
+			"@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+			"@php artisan migrate --graceful --ansi"
 		]
 	},
 	"support": {

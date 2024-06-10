@@ -1,12 +1,10 @@
 parameters:
     # The level 8 is the highest level
-    level: 5
+    level: max
     paths:
         - app
         - tests
     editorUrl: '%%file%%:%%line%%'
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
     checkExplicitMixed: false
 includes:
     - tools/02_phpstan/vendor/larastan/larastan/extension.neon

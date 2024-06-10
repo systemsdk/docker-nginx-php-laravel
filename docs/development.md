@@ -10,7 +10,7 @@ This document contains basic information and recommendation for development.
 * Put stuff in the cache when its easy enough to invalidate.
 * Use queue workers to delegate when you don't need to wait for data to return.
 * Write documentation for all things outside of standard MVC functions.
-* Write integration and unit tests for all new features (in that order of priority).
+* Write application and unit tests for all new features (in that order of priority).
 * All functionality needs to be "mockable", so that you can test every part of the app without 3rd party dependencies.
 * Use strict_types, type hinting and return type hinting.
 * Use PHPStorm IDE as currently it is most powerful IDE for PHP development on today's market.
@@ -144,7 +144,7 @@ Rector instantly upgrades and refactors the PHP code of your application. It can
 - Instant upgrades
 - Automated refactoring
 
-Rector now supports upgrades of your code from PHP 5.3 to 8.2 or upgrades your code for new framework version. This tool supports major open-source projects like Symfony, PHPUnit, Nette, Laravel, CakePHP and Doctrine.
+Rector now supports upgrades of your code from PHP 5.3 to 8.3 or upgrades your code for new framework version. This tool supports major open-source projects like Symfony, PHPUnit, Nette, Laravel, CakePHP and Doctrine.
 You can find live demo [here](https://symfonycasts.com/screencast/symfony6-upgrade/rector) or more info [here](https://packagist.org/packages/rector/rector).
 
 Rector is available for test/dev environment. If you need to run this tool, please use next local shell command in order to enter inside laravel container shell and then run rector:

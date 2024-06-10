@@ -3,12 +3,12 @@
   <component name="PHPUnit">
     <option name="directories">
       <list>
+        <option value="$PROJECT_DIR$/tests" />
         <option value="$PROJECT_DIR$/tools/01_phpunit/tests" />
         <option value="$PROJECT_DIR$/tools/05_phpinsights/tests" />
         <option value="$PROJECT_DIR$/tools/06_phpmd/tests" />
         <option value="$PROJECT_DIR$/tools/03_ecs/tests" />
         <option value="$PROJECT_DIR$/tools/09_composer/tests" />
-        <option value="$PROJECT_DIR$/tests" />
       </list>
     </option>
   </component>
