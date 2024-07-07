@@ -51,9 +51,9 @@ push_staging_images:
   stage: deploy
   script:
     - make build-staging
-    # TODO: set necessary image name in docker-compose-staging.yml according to your registry and edit lines bellow
+    # TODO: set necessary image name in compose-staging.yaml according to your registry and edit lines bellow
     #- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    #- docker-compose -f docker-compose-staging.yml push
+    #- docker compose -f compose-staging.yaml push
   only:
     - master
     - develop
@@ -63,9 +63,9 @@ push_prod_images:
   stage: deploy
   script:
     - make build-prod
-    # TODO: set necessary image name in docker-compose-prod.yml according to your registry and edit lines bellow
+    # TODO: set necessary image name in compose-prod.yaml according to your registry and edit lines bellow
     #- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    #- docker-compose -f docker-compose-prod.yml push
+    #- docker compose -f compose-prod.yaml push
   only:
     - master
     - /^release.*$/

@@ -11,8 +11,8 @@ Docker environment required to run Laravel (based on official php and mysql dock
 [Source code](https://github.com/systemsdk/docker-nginx-php-laravel.git)
 
 ## Requirements
-* Docker version 18.06 or later
-* Docker compose version 1.22 or later
+* Docker Engine version 18.06 or later
+* Docker Compose version 1.22 or later
 * An editor or IDE
 * MySQL Workbench
 
@@ -25,12 +25,10 @@ Note: OS recommendation - Linux Ubuntu based.
 4. Laravel 11
 5. Mailpit (only for debug emails on dev environment)
 
-## Setting up Docker and docker-compose
-1.For installing Docker please follow steps mentioned on page [install on Ubuntu linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or [install on Mac/Windows](https://docs.docker.com/engine/install/).
+## Setting up Docker Engine with Docker Compose
+For installing Docker Engine with docker compose please follow steps mentioned on page [Docker Engine](https://docs.docker.com/engine/install/).
 
-2.For installing docker-compose as `Linux Standalone binary` please follow steps on the page [install compose](https://docs.docker.com/compose/install/standalone/) if you are using Linux OS.
-
-Note 1: Please run next cmd after above step 2 if you are using Linux OS: `sudo usermod -aG docker $USER`
+Note 1: Please run next cmd after above step if you are using Linux OS: `sudo usermod -aG docker $USER`
 
 Note 2: If you are using Docker Desktop for MacOS 12.2 or later - please enable [virtiofs](https://www.docker.com/blog/speed-boost-achievement-unlocked-on-docker-desktop-4-6-for-mac/) for performance (enabled by default since Docker Desktop v4.22).
 
@@ -123,7 +121,7 @@ If you have installed composer and want to install environment via composer you 
 composer create-project systemsdk/docker-nginx-php-laravel example-app
 ```
 
-2.Edit `docker-compose-prod.yml` and set necessary user/password for MySQL.
+2.Edit `compose-prod.yaml` and set necessary user/password for MySQL.
 
 3.Edit `env.prod` and set necessary user/password for MySQL.
 
