@@ -25,6 +25,8 @@ RUN if [ "$BUILD_ARGUMENT_ENV" = "default" ]; then echo "Set BUILD_ARGUMENT_ENV 
 
 # install all the dependencies and enable PHP modules
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+      bash-completion \
+      fish \
       procps \
       nano \
       git \
@@ -72,6 +74,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN chmod +x /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+# Enable Composer autocompletion
+RUN composer completion bash > /etc/bash_completion.d/composer
+
 # add supervisor
 RUN mkdir -p /var/log/supervisor
 COPY --chown=root:root ./docker/general/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -82,6 +87,15 @@ RUN chmod 0600 /var/spool/cron/crontabs/root
 WORKDIR $APP_HOME
 
 USER ${USERNAME}
+
+# Add necessary stuff to bash autocomplete
+RUN echo 'source /usr/share/bash-completion/bash_completion' >> /home/${USERNAME}/.bashrc \
+    && echo 'alias artisan="php /var/www/html/artisan"' >> /home/${USERNAME}/.bashrc
+
+# copy fish configs
+COPY --chown=${USERNAME}:${USERNAME} ./docker/fish/completions/ /home/${USERNAME}/.config/fish/completions/
+COPY --chown=${USERNAME}:${USERNAME} ./docker/fish/functions/ /home/${USERNAME}/.config/fish/functions/
+COPY --chown=${USERNAME}:${USERNAME} ./docker/fish/config.fish /home/${USERNAME}/.config/fish/config.fish
 
 # copy source files and config file
 COPY --chown=${USERNAME}:${USERNAME} . $APP_HOME/

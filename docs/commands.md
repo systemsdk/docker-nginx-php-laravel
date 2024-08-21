@@ -38,6 +38,7 @@ make env-test-ci              # Creates config for test/ci environment
 
 make ssh                      # Get bash inside laravel docker container
 make ssh-root                 # Get bash as root user inside laravel docker container
+make fish                     # Get fish shell inside laravel docker container (https://www.youtube.com/watch?v=C2a7jJTh3kU)
 make ssh-nginx                # Get bash inside nginx docker container
 make ssh-supervisord          # Get bash inside supervisord docker container (cron jobs running there, etc...)
 make ssh-mysql                # Get bash inside mysql docker container

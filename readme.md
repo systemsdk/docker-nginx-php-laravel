@@ -210,6 +210,7 @@ make env-test-ci
 
 make ssh
 make ssh-root
+make fish
 make ssh-nginx
 make ssh-supervisord
 make ssh-mysql

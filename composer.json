@@ -33,14 +33,14 @@
 	},
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.8",
-		"barryvdh/laravel-ide-helper": "^3.0",
+		"barryvdh/laravel-ide-helper": "^3.1",
 		"fakerphp/faker": "^1.23",
 		"laravel/pint": "^1.13",
 		"laravel/sail": "^1.26",
 		"mockery/mockery": "^1.6",
 		"neronmoon/scriptsdev": "^0.1",
 		"nunomaduro/collision": "^8.0",
-		"phpunit/phpunit": "11.2.*",
+		"phpunit/phpunit": "11.3.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

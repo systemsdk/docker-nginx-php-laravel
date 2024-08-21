@@ -13,22 +13,7 @@
           <option name="path" value="$PROJECT_DIR$/tools/03_ecs/tests" />
         </Configuration>
         <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tools/06_phpmd/tests" />
-        </Configuration>
-        <Configuration>
           <option name="path" value="$PROJECT_DIR$/tools/09_composer/tests" />
-        </Configuration>
-        <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tools/06_phpmd/tests" />
-        </Configuration>
-        <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tools/05_phpinsights/tests" />
-        </Configuration>
-        <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tools/05_phpinsights/tests" />
-        </Configuration>
-        <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tests" />
         </Configuration>
       </list>
     </option>
