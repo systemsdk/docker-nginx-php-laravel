@@ -15,11 +15,6 @@
       <sourceFolder url="file://$MODULE_DIR$/tools/05_phpinsights/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/phpunit/phpunit/src" isTestSource="true" packagePrefix="PHPUnit\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/src" isTestSource="true" packagePrefix="Symplify\EasyCodingStandard\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src" isTestSource="true" packagePrefix="PhpCsFixer\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src" isTestSource="true" packagePrefix="Symplify\CodingStandard\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src" isTestSource="true" packagePrefix="ECSPrefix20210928\Symplify\RuleDocGenerator\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/08_rector/vendor/rector" isTestSource="true" packagePrefix="Rector\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/tests" isTestSource="true" />
@@ -118,7 +113,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/service-contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/css-selector" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-grapheme" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php80" />
@@ -205,7 +199,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-intl-normalizer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-mbstring" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-php80" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-uuid" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/process" />
@@ -409,6 +402,7 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/react/stream" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/type-info" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/squizlabs/php_codesniffer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

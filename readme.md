@@ -67,7 +67,9 @@ make start
 make composer-install
 make env-dev
 ```
-Note: If you want to change default docker configurations (web_port, etc...) - open `.env` file, edit necessary environment variable value and stop, rebuild, start docker containers.
+Note 1: If you want to change default docker configurations (web_port, etc...) - open `.env` file, edit necessary environment variable value and stop, rebuild, start docker containers.
+
+Note 2: If you are changing `.env` file and such env params like `MYSQL_VERSION`, `MYSQL_ROOT_PASSWORD`, don't forget to stop docker containers and delete `storage/mysql-data` folder before rebuild docker images.
 
 5.Make sure that you have installed migrations/seeds:
 ```bash
