@@ -2,16 +2,16 @@
 	"name": "systemsdk/docker-nginx-php-laravel-tools",
 	"description": "",
 	"require": {
-		"php": "^8.3.0"
+		"php": "^8.4.0"
 	},
 	"require-dev": {
-		"nunomaduro/phpinsights": "2.11.*",
+		"nunomaduro/phpinsights": "2.12.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"allow-plugins": true,
 		"platform": {
-			"php": "8.3.0"
+			"php": "8.4.0"
 		},
 		"preferred-install": {
 			"*": "dist"

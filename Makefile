@@ -2,8 +2,8 @@ export COMPOSE_PROJECT_NAME=environment3
 export WEB_PORT_HTTP=80
 export WEB_PORT_SSL=443
 export XDEBUG_CONFIG=main
-export XDEBUG_VERSION=3.3.2
-export MYSQL_VERSION=8.4.2
+export XDEBUG_VERSION=3.4.0
+export MYSQL_VERSION=8.4.3
 export INNODB_USE_NATIVE_AIO=1
 export SQL_MODE=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
 export MYSQL_ROOT_PASSWORD=secret
@@ -241,6 +241,9 @@ composer-install: ## Installs composer dependencies
 composer-update: ## Updates composer dependencies
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
+composer-audit: ## Checks for security vulnerability advisories for installed packages
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer audit"
+
 key-generate: ## Sets the application key
 	@make exec cmd="php artisan key:generate"
 
@@ -322,7 +325,7 @@ else
 endif
 
 phpcpd: ## Runs php copy/paste detector
-	@make exec cmd="php phpcpd.phar --fuzzy app tests"
+	@make exec cmd="php phpcpd.phar --fuzzy --verbose app tests"
 
 phpmd: ## Runs php mess detector
 	@make exec cmd="php ./vendor/bin/phpmd app,tests text phpmd_ruleset.xml --suffixes php"

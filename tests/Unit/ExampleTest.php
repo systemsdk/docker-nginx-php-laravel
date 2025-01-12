@@ -13,6 +13,6 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest(): void
     {
-        $this->assertTrue(true);
+        $this->assertTrue(true); /** @phpstan-ignore method.alreadyNarrowedType */
     }
 }

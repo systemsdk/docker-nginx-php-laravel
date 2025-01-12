@@ -1,4 +1,4 @@
-FROM php:8.3-fpm
+FROM php:8.4-fpm
 
 # set main params
 ARG BUILD_ARGUMENT_ENV=dev
@@ -11,8 +11,9 @@ ARG INSIDE_DOCKER_CONTAINER=1
 ENV INSIDE_DOCKER_CONTAINER=$INSIDE_DOCKER_CONTAINER
 ARG XDEBUG_CONFIG=main
 ENV XDEBUG_CONFIG=$XDEBUG_CONFIG
-ARG XDEBUG_VERSION=3.3.2
+ARG XDEBUG_VERSION=3.4.0
 ENV XDEBUG_VERSION=$XDEBUG_VERSION
+ENV PHP_CS_FIXER_IGNORE_ENV=1
 
 # check environment
 RUN if [ "$BUILD_ARGUMENT_ENV" = "default" ]; then echo "Set BUILD_ARGUMENT_ENV in docker build-args like --build-arg BUILD_ARGUMENT_ENV=dev" && exit 2; \
@@ -40,6 +41,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       cron \
       sudo \
       libzip-dev \
+      debsecan \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-configure intl \
     && docker-php-ext-install \
@@ -48,6 +50,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       intl \
       opcache \
       zip \
+    && apt-get install --no-install-recommends -y \
+        $(debsecan --suite bookworm --format packages --only-fixed) \
     && rm -rf /tmp/* \
     && rm -rf /var/list/apt/* \
     && rm -rf /var/lib/apt/lists/* \

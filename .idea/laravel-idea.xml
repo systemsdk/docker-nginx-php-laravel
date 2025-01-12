@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LaravelIdeaMainSettings">
+    <option name="codeGeneration">
+      <LaravelCodeGeneration>
+        <option name="generationStringSettings">
+          <map>
+            <entry key="createEloquentScope:namespace" value="Models\Scopes" />
+            <entry key="createModel:namespace" value="Models" />
+          </map>
+        </option>
+      </LaravelCodeGeneration>
+    </option>
+    <option name="frameworkFound" value="true" />
+    <option name="userClassName" value="\App\Models\User" />
+  </component>
+</project>

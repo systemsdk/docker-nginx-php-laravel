@@ -1,5 +1,4 @@
 parameters:
-    # The level 8 is the highest level
     level: max
     paths:
         - app

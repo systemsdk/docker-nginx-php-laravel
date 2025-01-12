@@ -6,10 +6,13 @@
          bootstrap="vendor/autoload.php"
          colors="true"
          testdox="true"
+         testdoxSummary="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutOutputDuringTests="true"
          processIsolation="false"
+         stopOnError="true"
          stopOnFailure="false"
+         stopOnDefect="false"
          displayDetailsOnTestsThatTriggerDeprecations="true"
          displayDetailsOnTestsThatTriggerNotices="true"
          displayDetailsOnTestsThatTriggerWarnings="true"
@@ -31,19 +34,18 @@
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
     </php>
-    <testsuites>
-        <testsuite name="Unit">
-            <directory suffix="Test.php">./tests/Unit</directory>
-        </testsuite>
-
-        <testsuite name="Application">
-            <directory suffix="Test.php">./tests/Application</directory>
-        </testsuite>
-    </testsuites>
     <coverage/>
     <source>
         <include>
             <directory suffix=".php">./app</directory>
         </include>
     </source>
+    <testsuites>
+        <testsuite name="Application">
+            <directory suffix="Test.php">./tests/Application</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

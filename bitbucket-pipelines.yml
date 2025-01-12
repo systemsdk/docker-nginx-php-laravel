@@ -17,6 +17,7 @@ pipelines:
           - make seed
           - make info
           - make phpunit
+          - make composer-audit
           - make ecs
           - make phpcs
           - make phpstan

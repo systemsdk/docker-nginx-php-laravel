@@ -38,6 +38,8 @@ jobs:
               with:
                   name: php-coverage-data
                   path: reports/clover.xml
+            - name: Checks for security vulnerability advisories for installed packages
+              run: make composer-audit
             - name: Run coding standard
               run: make ecs
             - name: Run codeSniffer

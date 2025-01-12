@@ -15,9 +15,14 @@
       <sourceFolder url="file://$MODULE_DIR$/tools/05_phpinsights/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/08_rector/vendor/rector" isTestSource="true" packagePrefix="Rector\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/src" isTestSource="true" packagePrefix="Symplify\EasyCodingStandard\" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src" isTestSource="true" packagePrefix="PhpCsFixer\" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/src" isTestSource="true" packagePrefix="PHP_CodeSniffer\" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src" isTestSource="true" packagePrefix="Symplify\CodingStandard\" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src" isTestSource="true" packagePrefix="ECSPrefix20210928\Symplify\RuleDocGenerator\" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/phpunit/phpunit/src" isTestSource="true" packagePrefix="PHPUnit\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-file-iterator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
@@ -67,8 +72,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/graham-campbell/result-type" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/type" />
@@ -100,7 +103,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/fruitcake/php-cors" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fakerphp/faker" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
@@ -357,7 +359,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/var-exporter" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/webmozart/glob" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpstan/phpdoc-parser" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/flysystem-local" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-php83" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem-local" />
@@ -403,6 +404,15 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/type-info" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/clock" />
       <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/squizlabs/php_codesniffer" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/staabm/side-effects-detector" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/uri" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/uri-interfaces" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/icecave/parity" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/icecave/repr" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/marc-mabe/php-enum" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/uri" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/uri-interfaces" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/staabm/side-effects-detector" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

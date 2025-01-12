@@ -38,6 +38,11 @@ jobs:
             make report-code-coverage
 
       - run:
+          name: Checks for security vulnerability advisories for installed packages
+          command: |
+            make composer-audit
+
+      - run:
           name: Check coding standard & CodeSniffer
           command: |
             make ecs
