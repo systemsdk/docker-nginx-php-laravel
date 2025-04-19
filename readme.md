@@ -11,8 +11,8 @@ Docker environment required to run Laravel (based on official php and mysql dock
 [Source code](https://github.com/systemsdk/docker-nginx-php-laravel.git)
 
 ## Requirements
-* Docker Engine version 18.06 or later
-* Docker Compose version 1.22 or later
+* Docker Engine version 23.0 or later
+* Docker Compose version 2.0 or later
 * An editor or IDE
 * MySQL Workbench
 
@@ -22,7 +22,7 @@ Note: OS recommendation - Linux Ubuntu based.
 1. Nginx 1.27
 2. PHP 8.4 fpm
 3. MySQL 8
-4. Laravel 11
+4. Laravel 12
 5. Mailpit (only for debug emails on dev environment)
 
 ## Setting up Docker Engine with Docker Compose
@@ -255,7 +255,7 @@ etc....
 Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Laravel 11](https://laravel.com)
+* [Laravel](https://laravel.com)
 * [phpunit](https://github.com/sebastianbergmann/phpunit)
 * [laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
 * [scriptsdev](https://github.com/neronmoon/scriptsdev)
@@ -267,7 +267,7 @@ Notes: Please see more commands in Makefile
 * [php-coveralls](https://github.com/php-coveralls/php-coveralls)
 * [easy-coding-standard](https://github.com/Symplify/EasyCodingStandard)
 * [PhpMetrics](https://github.com/phpmetrics/PhpMetrics)
-* [phpcpd](https://github.com/systemsdk/phpcpd)
+* [phpcpd](https://packagist.org/packages/systemsdk/phpcpd)
 * [phpmd](https://packagist.org/packages/phpmd/phpmd)
 * [phpstan](https://packagist.org/packages/nunomaduro/larastan)
 * [phpinsights](https://packagist.org/packages/nunomaduro/phpinsights)

@@ -2,8 +2,8 @@ export COMPOSE_PROJECT_NAME=environment3
 export WEB_PORT_HTTP=80
 export WEB_PORT_SSL=443
 export XDEBUG_CONFIG=main
-export XDEBUG_VERSION=3.4.0
-export MYSQL_VERSION=8.4.3
+export XDEBUG_VERSION=3.4.2
+export MYSQL_VERSION=8.4.4
 export INNODB_USE_NATIVE_AIO=1
 export SQL_MODE=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
 export MYSQL_ROOT_PASSWORD=secret
@@ -325,7 +325,7 @@ else
 endif
 
 phpcpd: ## Runs php copy/paste detector
-	@make exec cmd="php phpcpd.phar --fuzzy --verbose app tests"
+	@make exec cmd="php ./vendor/bin/phpcpd --fuzzy --verbose app tests"
 
 phpmd: ## Runs php mess detector
 	@make exec cmd="php ./vendor/bin/phpmd app,tests text phpmd_ruleset.xml --suffixes php"

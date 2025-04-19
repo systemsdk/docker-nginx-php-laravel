@@ -34,7 +34,7 @@ jobs:
             - name: Run test suite
               run: make phpunit
             - name: Archive coverage data for Qodana
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: php-coverage-data
                   path: reports/clover.xml
@@ -72,7 +72,7 @@ jobs:
 #            - name: 'Install dependencies'
 #              run: COMPOSER_MEMORY_LIMIT=-1 composer install
 #            - name: 'Download coverage data for Qodana'
-#              uses: actions/download-artifact@v3
+#              uses: actions/download-artifact@v4
 #              with:
 #                  name: php-coverage-data
 #                  path: .qodana/code-coverage

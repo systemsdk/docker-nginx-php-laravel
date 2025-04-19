@@ -5,8 +5,8 @@
 		"php": "^8.4.0"
 	},
 	"require-dev": {
-		"laravel/framework": "^11.9",
-		"larastan/larastan":  "3.0.*",
+		"laravel/framework": "^12.0",
+		"larastan/larastan":  "3.3.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
