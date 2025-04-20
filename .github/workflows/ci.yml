@@ -50,7 +50,7 @@ jobs:
               run: make phpinsights
             - name: Run php mess detector
               run: make phpmd
-            - name: Run php copy past detector
+            - name: Run php copy paste detector
               run: make phpcpd
             - name: Stop the docker images
               run: make stop-test

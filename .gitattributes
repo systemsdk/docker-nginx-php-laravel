@@ -9,3 +9,4 @@ CHANGELOG.md export-ignore
 .styleci.yml export-ignore
 tools/**/composer.lock binary
 composer.lock binary
+*.blade.php linguist-detectable=false
