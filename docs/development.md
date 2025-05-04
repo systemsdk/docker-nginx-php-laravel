@@ -107,9 +107,10 @@ make phpmd
 ### PHP copy/paste detector
 This tool is a copy/paste detector for PHP code.
 
-PHP copy/paste detector is available for dev/test environment using next local shell command:
+PHP copy/paste detector is available for dev/test environment using next local shell commands:
 ```bash
 make phpcpd
+make phpcpd-html-report
 ```
 
 ### Composer tools

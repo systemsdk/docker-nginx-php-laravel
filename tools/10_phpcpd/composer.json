@@ -5,7 +5,7 @@
 		"php": "^8.4.0"
 	},
 	"require-dev": {
-		"systemsdk/phpcpd": "8.1.*",
+		"systemsdk/phpcpd": "8.2.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

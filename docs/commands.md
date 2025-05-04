@@ -80,6 +80,7 @@ make ecs-fix                  # Runs Easy Coding Standard tool to fix issues
 make phpcs                    # Runs PHP CodeSniffer
 make phpmetrics               # Generates PhpMetrics static analysis report
 make phpcpd                   # Runs php copy/paste detector
+make phpcpd-html-report       # Generates phpcpd html report
 make phpmd                    # Runs php mess detector
 make phpstan                  # Runs PhpStan static analysis tool
 make phpinsights              # Runs Php Insights analysis tool

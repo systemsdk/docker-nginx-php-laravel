@@ -325,7 +325,19 @@ else
 endif
 
 phpcpd: ## Runs php copy/paste detector
-	@make exec cmd="php ./vendor/bin/phpcpd --fuzzy --verbose app tests"
+	@make exec-bash cmd="mkdir -p reports/phpcpd && php ./vendor/bin/phpcpd --fuzzy --verbose --log-pmd=reports/phpcpd/phpcpd-report-v1.xml app tests"
+
+phpcpd-html-report: ## Generates phpcpd html report
+ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
+	@if [ ! -f reports/phpcpd/phpcpd-report-v1.xml ] ; then \
+		printf "\033[32;49mreports/phpcpd/phpcpd-report-v1.xml not found, please run phpcpd.\033[39m\n" ; \
+	else \
+		printf "\033[32;49mCreating reports/phpcpd/phpcpd-report-v1.html report...\033[39m\n" ; \
+		xalan -in reports/phpcpd/phpcpd-report-v1.xml -xsl https://systemsdk.github.io/phpcpd/report/phpcpd-html-v1_0_0.xslt -out reports/phpcpd/phpcpd-report-v1.html ; \
+	fi;
+else
+	@make exec-bash cmd="make phpcpd-html-report"
+endif
 
 phpmd: ## Runs php mess detector
 	@make exec cmd="php ./vendor/bin/phpmd app,tests text phpmd_ruleset.xml --suffixes php"

@@ -20,6 +20,11 @@
       <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/vendor/phpmd/phpmd/src/bin" isTestSource="true" packagePrefix="PHPMD\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/08_rector/vendor/rector" isTestSource="true" packagePrefix="Rector\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/05_phpinsights/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/10_phpcpd/vendor/systemsdk/phpcpd/src" isTestSource="true" packagePrefix="Systemsdk\PhpCPD\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-file-iterator" />
@@ -406,7 +411,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/iamcal/sql-parser" />
       <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/marc-mabe/php-enum" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pail" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/_laravel_idea" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

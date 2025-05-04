@@ -42,6 +42,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       sudo \
       libzip-dev \
       debsecan \
+      xalan \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-configure intl \
     && docker-php-ext-install \
