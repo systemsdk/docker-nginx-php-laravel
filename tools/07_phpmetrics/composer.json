@@ -5,7 +5,7 @@
 		"php": "^8.4.0"
 	},
 	"require-dev": {
-		"phpmetrics/phpmetrics": "2.8.*",
+		"phpmetrics/phpmetrics": "2.9.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

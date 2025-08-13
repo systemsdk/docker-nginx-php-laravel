@@ -2,44 +2,39 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/01_phpunit/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/05_phpinsights/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/phpunit/phpunit/src" isTestSource="true" packagePrefix="PHPUnit\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/src" isTestSource="true" packagePrefix="Symplify\EasyCodingStandard\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src" isTestSource="true" packagePrefix="PhpCsFixer\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/src" isTestSource="true" packagePrefix="PHP_CodeSniffer\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src" isTestSource="true" packagePrefix="Symplify\CodingStandard\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src" isTestSource="true" packagePrefix="ECSPrefix20210928\Symplify\RuleDocGenerator\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/vendor/phpmd/phpmd/src/bin" isTestSource="true" packagePrefix="PHPMD\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/08_rector/vendor/rector" isTestSource="true" packagePrefix="Rector\" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/05_phpinsights/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/10_phpcpd/vendor/systemsdk/phpcpd/src" isTestSource="true" packagePrefix="Systemsdk\PhpCPD\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/01_phpunit/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/01_phpunit/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/02_phpstan/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/05_phpinsights/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/05_phpinsights/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/07_phpmetrics/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor" isTestSource="true" packagePrefix="PHPUnit\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-file-iterator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-timer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/config" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-code-coverage" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/mime-type-detection" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-text-template" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/commonmark" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/version" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/utils" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-idn" />
@@ -49,8 +44,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/error-handler" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/mime" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-invoker" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/dflydev/dot-access-data" />
@@ -76,11 +69,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/graham-campbell/result-type" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/type" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/cli-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/exporter" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/environment" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nunomaduro/collision" />
@@ -89,24 +77,15 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/global-state" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/neronmoon/scriptsdev" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/complexity" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/diff" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/object-enumerator" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/lines-of-code" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/object-reflector" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fruitcake/php-cors" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fakerphp/faker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/uid" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/routing" />
@@ -156,35 +135,18 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/composer" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/dflydev/dot-access-data" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/doctrine/inflector" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/doctrine/lexer" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/dragonmantank/cron-expression" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/fruitcake/php-cors" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/graham-campbell/result-type" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/guzzlehttp/uri-template" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/laravel/serializable-closure" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/commonmark" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/config" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/flysystem" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/mime-type-detection" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/nesbot/carbon" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/nette/schema" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/nette/utils" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/nunomaduro/termwind" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/phpstan/phpstan" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/psr/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/psr/simple-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/ramsey/collection" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/console" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/css-selector" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/deprecation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/error-handler" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/event-dispatcher" />
@@ -192,7 +154,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/finder" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/http-kernel" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/mailer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/mime" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-intl-grapheme" />
@@ -200,19 +161,13 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-intl-normalizer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-php80" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-uuid" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/process" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/routing" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/service-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/string" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/translation-contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/uid" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/var-dumper" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/tijsverkoyen/css-to-inline-styles" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/voku/portable-ascii" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/friendsofphp/php-cs-fixer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/psr/container" />
@@ -357,7 +312,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/var-exporter" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/webmozart/glob" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/flysystem-local" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/symfony/polyfill-php83" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem-local" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php83" />
@@ -400,17 +354,41 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/clock" />
       <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/squizlabs/php_codesniffer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/staabm/side-effects-detector" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/uri" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/league/uri-interfaces" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/marc-mabe/php-enum" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/uri" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/uri-interfaces" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/staabm/side-effects-detector" />
       <excludeFolder url="file://$MODULE_DIR$/storage/app" />
       <excludeFolder url="file://$MODULE_DIR$/storage/framework" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/iamcal/sql-parser" />
       <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/marc-mabe/php-enum" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pail" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/bus" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/collections" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/conditionable" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/console" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/container" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/database" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/events" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/http" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/macroable" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/pipeline" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/session" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/support" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/illuminate/view" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/mysql-data" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/03_ecs" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/04_php-coveralls" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/06_phpmd" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/07_phpmetrics" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/08_rector" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/10_phpcpd" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php84" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php85" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

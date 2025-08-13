@@ -33,7 +33,7 @@
 	},
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.8",
-		"barryvdh/laravel-ide-helper": "^3.5",
+		"barryvdh/laravel-ide-helper": "^3.6",
 		"fakerphp/faker": "^1.23",
 		"laravel/pail": "^1.2.2",
 		"laravel/pint": "^1.13",
@@ -41,7 +41,6 @@
 		"mockery/mockery": "^1.6",
 		"neronmoon/scriptsdev": "^0.1",
 		"nunomaduro/collision": "^8.6",
-		"phpunit/phpunit": "12.1.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
@@ -79,7 +78,7 @@
 	"autoload-dev": {
 		"psr-4": {
 			"Tests\\": "tests/",
-			"PHPUnit\\": "tools/01_phpunit/vendor/phpunit/phpunit/src",
+			"PHPUnit\\": "tools/01_phpunit/vendor",
 			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/src/bin",
 			"Systemsdk\\PhpCPD\\": "tools/10_phpcpd/vendor/systemsdk/phpcpd/src",
 			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",

@@ -4,22 +4,19 @@ This document describing how you can configure your IDE [PhpStorm](https://www.j
 ## Configuring PhpStorm
 ### General
 * Go to `Settings -> Plugins` and install next plugins:
-    - .env files support
     - .ignore
-    - Makefile Language
     - Php Inspections (EA Extended)
-    - Laravel Idea (trial)
+    - JetBrains AI Assistant
+    - Laravel Idea
     - Laravel Query
     - Laravel Tinker
-    - Laravel Generator
-    - Rainbow brackets
-    - String Manipulation
-    - Extra ToolWindow Colorful Icons
+    - Rainbow Brackets
+    - StringManipulation
 * Go to `Settings -> Php -> Frameworks -> Laravel Idea` and check settings for `Laravel Idea` plugin.
-* If you want control quality of your PHP project - pay your attention to the tools, described [here](development.md).
+* If you want to control quality of your PHP project - pay your attention to the tools, described [here](development.md).
 
 ### CLI Interpreter
-You need to set correct CLI interpreter for your PhpStorm.
+You need to set a correct CLI interpreter for your PhpStorm.
 In order to do it please open `Settings -> PHP` section and follow recommendations [configuring remote PHP interpreters](https://www.jetbrains.com/help/phpstorm/configuring-remote-interpreters.html).
 
 ![Path mappings](images/phpstorm_00.png)
@@ -37,7 +34,7 @@ You need to configure how your local files will be mapped inside docker containe
 ![Path mappings](images/phpstorm_03.png)
 
 ### Test Frameworks
-If you want to run tests directly from your IDE you need to do following configuration in `Settings -> PHP -> Test Frameworks`:
+If you want to run tests directly from your IDE you need to do a following configuration in `Settings -> PHP -> Test Frameworks`:
 
 ![Path mappings](images/phpstorm_04.png)
 
@@ -63,7 +60,7 @@ Anyway you can always import our recommended code style if you don't have commit
 ![Path mappings](images/phpstorm_php_code_sniffer_2.png)
 ![Path mappings](images/phpstorm_php_cs_fixer_1.png)
 
-Note: make sure that you have proper local path for the PHP CS Fixer ruleset `.php-cs-fixer.dist.php`.
+Note: make sure that you have a proper local path for the PHP CS Fixer ruleset `.php-cs-fixer.dist.php`.
 
 ![Path mappings](images/phpstorm_php_cs_fixer_2.png)
 ![Path mappings](images/phpstorm_laravel_pint_1.png)
@@ -72,7 +69,7 @@ Note: make sure that you have proper local path for the PHP CS Fixer ruleset `.p
 ![Path mappings](images/phpstorm_phpstan_2.png)
 ![Path mappings](images/phpstorm_phpmd_1.png)
 
-Note: make sure that you have proper local path for the MessDetector ruleset `phpmd_ruleset.xml`.
+Note: make sure that you have a proper local path for the MessDetector ruleset `phpmd_ruleset.xml`.
 
 ![Path mappings](images/phpstorm_phpmd_2.png)
 
@@ -80,7 +77,7 @@ Note: make sure that you have proper local path for the MessDetector ruleset `ph
 
 ![Path mappings](images/phpstorm_inspections.png)
 
-* Go to `Settings -> Tools -> External tools` and create ecs tool:
+* Go to `Settings -> Tools -> External Tools` and create ecs tool:
 
 ![Path mappings](images/phpstorm_12.png)
 
@@ -88,7 +85,7 @@ Note: Arguments value should be `exec-bash cmd="./vendor/bin/ecs --clear-cache c
 
 Note: In order to use it - right click on the necessary file/folder in PhpStorm and select context menu `External Tools -> ecs`.
 
-* Go to `Settings -> Tools -> External tools` and create phpcs tool:
+* Go to `Settings -> Tools -> External Tools` and create phpcs tool:
 
 ![Path mappings](images/phpstorm_13.png)
 
@@ -97,7 +94,7 @@ Note: Arguments value should be `exec-bash cmd="./vendor/bin/phpcs --version && 
 Note: In order to use it - right click on the necessary file/folder in PhpStorm and select context menu `External Tools -> phpcs`.
 
 
-For inspecting your code you can use main menu item `Code -> Inspect Code`. Code will be processed by code quality tools like PHP CS Fixer, PHP Mess Detector, PHP CodeSniffer, PHPStan. 
+For inspecting your code you can use main menu item `Code -> Inspect Code`. Code will be processed by code quality tools like PHP CS Fixer, PHP CodeSniffer, PHPStan, PHP Mess Detector. 
 
 ## External documentations
 * [Configuring Remote PHP Interpreters](https://www.jetbrains.com/help/phpstorm/configuring-remote-interpreters.html)

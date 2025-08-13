@@ -3,10 +3,10 @@ jobs:
   build:
     working_directory: ~/html
     machine:
-        image: ubuntu-2204:2023.04.2
+      image: ubuntu-2204:2023.04.2
     branches:
-        ignore:
-          - develop
+      ignore:
+        - develop
     steps:
       - checkout
 
@@ -72,4 +72,4 @@ jobs:
           path: reports
 
       - store_test_results:
-          path: reports
+          path: reports/junit.xml

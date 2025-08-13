@@ -5,7 +5,7 @@
 		"php": "^8.4.0"
 	},
 	"require-dev": {
-		"rector/rector": "2.0.*",
+		"rector/rector": "2.1.*",
 		"driftingly/rector-laravel": "2.0.*",
 		"roave/security-advisories": "dev-latest"
 	},

@@ -35,7 +35,7 @@ Note 2: If you are using Docker Desktop for MacOS 12.2 or later - please enable 
 ## Setting up DEV environment
 1.You can clone this repository from GitHub or install via composer.
 
-Note: Delete `storage/mysql-data` folder if it is exists.
+Note: Delete `storage/mysql-data` folder if it exists.
 
 If you have installed composer and want to install environment via composer you can use next cmd command:
 ```bash

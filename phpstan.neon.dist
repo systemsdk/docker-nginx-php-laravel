@@ -1,4 +1,6 @@
 parameters:
+    bootstrapFiles:
+        - tools/01_phpunit/vendor/autoload.php
     level: max
     paths:
         - app
@@ -7,3 +9,4 @@ parameters:
     checkExplicitMixed: false
 includes:
     - tools/02_phpstan/vendor/larastan/larastan/extension.neon
+    - tools/02_phpstan/vendor/nesbot/carbon/extension.neon
