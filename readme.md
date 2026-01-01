@@ -19,7 +19,7 @@ Docker environment required to run Laravel (based on official php and mysql dock
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
-1. Nginx 1.27
+1. Nginx 1.29
 2. PHP 8.4 fpm
 3. MySQL 8
 4. Laravel 12
@@ -37,7 +37,7 @@ Note 2: If you are using Docker Desktop for MacOS 12.2 or later - please enable 
 
 Note: Delete `storage/mysql-data` folder if it exists.
 
-If you have installed composer and want to install environment via composer you can use next cmd command:
+If you have installed composer and want to install environment via composer, you can use the next cmd command:
 ```bash
 composer create-project systemsdk/docker-nginx-php-laravel example-app
 ```
@@ -55,7 +55,7 @@ xdebug.start_with_request = no
 ```
 Install locally in Firefox extension "Xdebug helper" and set in settings IDE KEY: PHPSTORM
 
-- In case you need debug any request to an api (by default):
+- In case you need to debug any request to an api (by default):
 ```bash
 xdebug.start_with_request = yes
 ```

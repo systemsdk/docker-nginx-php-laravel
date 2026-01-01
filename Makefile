@@ -2,8 +2,8 @@ export COMPOSE_PROJECT_NAME=environment3
 export WEB_PORT_HTTP=80
 export WEB_PORT_SSL=443
 export XDEBUG_CONFIG=main
-export XDEBUG_VERSION=3.4.5
-export MYSQL_VERSION=8.4.6
+export XDEBUG_VERSION=3.5.0
+export MYSQL_VERSION=8.4.7
 export INNODB_USE_NATIVE_AIO=1
 export SQL_MODE=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
 export MYSQL_ROOT_PASSWORD=secret
@@ -242,7 +242,7 @@ composer-update: ## Updates composer dependencies
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
 composer-audit: ## Checks for security vulnerability advisories for installed packages
-	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer audit"
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer audit --abandoned=report"
 
 key-generate: ## Sets the application key
 	@make exec cmd="php artisan key:generate"

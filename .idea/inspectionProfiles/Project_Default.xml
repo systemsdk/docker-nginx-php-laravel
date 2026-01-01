@@ -206,7 +206,9 @@
     <inspection_tool class="TernaryOperatorSimplifyInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThrowRawExceptionInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="TypeUnsafeArraySearchInspection" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="UnqualifiedReferenceInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnqualifiedReferenceInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="REPORT_ALL_FUNCTIONS" value="true" />
+    </inspection_tool>
     <inspection_tool class="UntrustedInclusionInspection" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="UnusedConstructorDependenciesInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnusedGotoLabelInspection" enabled="true" level="WARNING" enabled_by_default="true" />

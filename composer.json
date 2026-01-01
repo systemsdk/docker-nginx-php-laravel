@@ -14,7 +14,7 @@
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Dmitriy Kravtsov",
+			"name": "Dmitry Kravtsov",
 			"email": "dmytro.kravtsov@systemsdk.com",
 			"homepage": "https://github.com/systemsdk",
 			"role": "Developer"
@@ -32,7 +32,7 @@
 		"laravel/tinker": "^2.10.1"
 	},
 	"require-dev": {
-		"bamarni/composer-bin-plugin": "^1.8",
+		"bamarni/composer-bin-plugin": "^1.8.3",
 		"barryvdh/laravel-ide-helper": "^3.6",
 		"fakerphp/faker": "^1.23",
 		"laravel/pail": "^1.2.2",
@@ -79,7 +79,7 @@
 		"psr-4": {
 			"Tests\\": "tests/",
 			"PHPUnit\\": "tools/01_phpunit/vendor",
-			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/src/bin",
+			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/bin",
 			"Systemsdk\\PhpCPD\\": "tools/10_phpcpd/vendor/systemsdk/phpcpd/src",
 			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
 			"PHP_CodeSniffer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/src",

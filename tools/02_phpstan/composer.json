@@ -5,7 +5,7 @@
 		"php": "^8.4.0"
 	},
 	"require-dev": {
-		"larastan/larastan":  "3.6.*",
+		"larastan/larastan":  "3.8.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

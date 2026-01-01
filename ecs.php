@@ -39,7 +39,9 @@ return static function (ECSConfig $ecsConfig): void {
     $ruleConfigurations = [
         [
             IncrementStyleFixer::class,
-            ['style' => 'post'],
+            [
+                'style' => 'post',
+            ],
         ],
         [
             YodaStyleFixer::class,
@@ -51,15 +53,21 @@ return static function (ECSConfig $ecsConfig): void {
         ],
         [
             ConcatSpaceFixer::class,
-            ['spacing' => 'one'],
+            [
+                'spacing' => 'one',
+            ],
         ],
         [
             CastSpacesFixer::class,
-            ['space' => 'none'],
+            [
+                'space' => 'none',
+            ],
         ],
         [
             OrderedImportsFixer::class,
-            ['imports_order' => ['class', 'function', 'const']],
+            [
+                'imports_order' => ['class', 'function', 'const'],
+            ],
         ],
         [
             NoSuperfluousPhpdocTagsFixer::class,
@@ -71,35 +79,42 @@ return static function (ECSConfig $ecsConfig): void {
         ],
         [
             DeclareEqualNormalizeFixer::class,
-            ['space' => 'none'],
+            [
+                'space' => 'none',
+            ],
         ],
         [
             BlankLineBeforeStatementFixer::class,
-            ['statements' => ['continue', 'declare', 'return', 'throw', 'try']],
+            [
+                'statements' => ['continue', 'declare', 'return', 'throw', 'try'],
+            ],
         ],
         [
             BinaryOperatorSpacesFixer::class,
-            ['operators' => ['&' => 'align']],
+            [
+                'operators' => ['&' => 'align'],
+            ],
         ],
         [
             // https://github.com/nunomaduro/phpinsights/blob/master/docs/insights/style.md#no-extra-blank-lines---
             NoExtraBlankLinesFixer::class,
             [
-                'tokens' => [
-                    'break',
-                    'case',
-                    'continue',
-                    'curly_brace_block',
-                    'default',
-                    'extra',
-                    'parenthesis_brace_block',
-                    'return',
-                    'square_brace_block',
-                    'switch',
-                    'throw',
-                    //'use',
-                    'use_trait',
-                ],
+                'tokens' =>
+                    [
+                        'break',
+                        'case',
+                        'continue',
+                        'curly_brace_block',
+                        'default',
+                        'extra',
+                        'parenthesis_brace_block',
+                        'return',
+                        'square_brace_block',
+                        'switch',
+                        'throw',
+                        //'use',
+                        'use_trait',
+                    ],
             ],
         ],
         [

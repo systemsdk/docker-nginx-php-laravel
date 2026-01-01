@@ -5,7 +5,7 @@
 		"php": "^8.4.0"
 	},
 	"require-dev": {
-		"phpmd/phpmd": "2.15.*",
+		"phpmd/phpmd": "3.x-dev",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
@@ -17,5 +17,7 @@
 			"*": "dist"
 		},
 		"sort-packages": true
-	}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }
