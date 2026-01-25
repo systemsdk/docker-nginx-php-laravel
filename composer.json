@@ -20,6 +20,12 @@
 			"role": "Developer"
 		}
 	],
+	"funding": [
+		{
+			"type": "other",
+			"url": "https://secure.wayforpay.com/button/b0b1af16db515"
+		}
+	],
 	"require": {
 		"php": "^8.4",
 		"ext-ctype": "*",
