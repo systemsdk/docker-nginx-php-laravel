@@ -22,7 +22,15 @@
 	],
 	"funding": [
 		{
-			"type": "other",
+			"type": "github",
+			"url": "https://github.com/sponsors/systemsdk"
+		},
+		{
+			"type": "open_collective",
+			"url": "https://opencollective.com/systemsdk-engineering"
+		},
+		{
+			"type": "wayforpay",
 			"url": "https://secure.wayforpay.com/button/b0b1af16db515"
 		}
 	],
