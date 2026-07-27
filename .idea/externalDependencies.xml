@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ExternalDependencies">
     <plugin id="String Manipulation" />
-    <plugin id="com.kalessil.phpStorm.phpInspectionsEA" />
+    <plugin id="com.kalessil.phpStorm.phpInspectionsUltimate-mp" />
     <plugin id="com.laravel_idea.plugin" />
     <plugin id="dev.ekvedaras.laravelquery" />
     <plugin id="izhangzhihao.rainbow.brackets" />

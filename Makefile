@@ -1,8 +1,9 @@
 export COMPOSE_PROJECT_NAME=environment3
+export NGINX_VERSION=1.29
 export WEB_PORT_HTTP=80
 export WEB_PORT_SSL=443
 export XDEBUG_CONFIG=main
-export XDEBUG_VERSION=3.5.0
+export XDEBUG_VERSION=3.5.3
 export MYSQL_VERSION=8.4.8
 export INNODB_USE_NATIVE_AIO=1
 export SQL_MODE=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
@@ -33,171 +34,173 @@ ifeq ($(GITLAB_CI), 1)
 	PHPUNIT_OPTIONS := --coverage-text --colors=never
 endif
 
-help: ## Shows available commands with description
+help: ## Show available commands and their descriptions
 	@echo "\033[34mList of available commands:\033[39m"
 	@grep -E '^[a-zA-Z-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "[32m%-27s[0m %s\n", $$1, $$2}'
 
-build: ## Build dev environment
+export HOST_UID HOST_GID NGINX_VERSION WEB_PORT_HTTP WEB_PORT_SSL XDEBUG_CONFIG XDEBUG_VERSION MYSQL_VERSION INNODB_USE_NATIVE_AIO SQL_MODE MYSQL_ROOT_PASSWORD MYSQL_PORT
+
+build: ## Build the development environment
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose -f compose.yaml build
+	@docker compose -f compose.yaml build
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-build-test: ## Build test or continuous integration environment
+build-test: ## Build the test or CI environment
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose -f compose-test-ci.yaml build
+	@docker compose -f compose-test-ci.yaml build
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-build-staging: ## Build staging environment
+build-staging: ## Build the staging environment
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) docker compose -f compose-staging.yaml build
+	@docker compose -f compose-staging.yaml build
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-build-prod: ## Build prod environment
+build-prod: ## Build the production environment
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) docker compose -f compose-prod.yaml build
+	@docker compose -f compose-prod.yaml build
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-start: ## Start dev environment
+start: ## Start the development environment
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose -f compose.yaml $(PROJECT_NAME) up -d
+	@docker compose -f compose.yaml $(PROJECT_NAME) up -d
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-start-test: ## Start test or continuous integration environment
+start-test: ## Start the test or CI environment
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose -f compose-test-ci.yaml $(PROJECT_NAME) up -d
+	@docker compose -f compose-test-ci.yaml $(PROJECT_NAME) up -d
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-start-staging: ## Start staging environment
+start-staging: ## Start the staging environment
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) docker compose -f compose-staging.yaml $(PROJECT_NAME) up -d
+	@docker compose -f compose-staging.yaml $(PROJECT_NAME) up -d
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-start-prod: ## Start prod environment
+start-prod: ## Start the production environment
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) docker compose -f compose-prod.yaml $(PROJECT_NAME) up -d
+	@docker compose -f compose-prod.yaml $(PROJECT_NAME) up -d
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-stop: ## Stop dev environment containers
+stop: ## Stop the development environment containers (without removing them)
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose -f compose.yaml $(PROJECT_NAME) stop
+	@docker compose -f compose.yaml $(PROJECT_NAME) stop
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-stop-test: ## Stop test or continuous integration environment containers
+stop-test: ## Stop the test or CI environment containers (without removing them)
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose -f compose-test-ci.yaml $(PROJECT_NAME) stop
+	@docker compose -f compose-test-ci.yaml $(PROJECT_NAME) stop
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-stop-staging: ## Stop staging environment containers
+stop-staging: ## Stop the staging environment containers (without removing them)
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) docker compose -f compose-staging.yaml $(PROJECT_NAME) stop
+	@docker compose -f compose-staging.yaml $(PROJECT_NAME) stop
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-stop-prod: ## Stop prod environment containers
+stop-prod: ## Stop the production environment containers (without removing them)
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) docker compose -f compose-prod.yaml $(PROJECT_NAME) stop
+	@docker compose -f compose-prod.yaml $(PROJECT_NAME) stop
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-down: ## Stop and remove dev environment containers, networks
+down: ## Stop and remove the development environment containers and networks
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose -f compose.yaml $(PROJECT_NAME) down
+	@docker compose -f compose.yaml $(PROJECT_NAME) down
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-down-test: ## Stop and remove test or continuous integration environment containers, networks
+down-test: ## Stop and remove the test or CI environment containers and networks
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose -f compose-test-ci.yaml $(PROJECT_NAME) down
+	@docker compose -f compose-test-ci.yaml $(PROJECT_NAME) down
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-down-staging: ## Stop and remove staging environment containers, networks
+down-staging: ## Stop and remove the staging environment containers and networks
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) docker compose -f compose-staging.yaml $(PROJECT_NAME) down
+	@docker compose -f compose-staging.yaml $(PROJECT_NAME) down
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-down-prod: ## Stop and remove prod environment containers, networks
+down-prod: ## Stop and remove the production environment containers and networks
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) docker compose -f compose-prod.yaml $(PROJECT_NAME) down
+	@docker compose -f compose-prod.yaml $(PROJECT_NAME) down
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-restart: stop start ## Stop and start dev environment
-restart-test: stop-test start-test ## Stop and start test or continuous integration environment
-restart-staging: stop-staging start-staging ## Stop and start staging environment
-restart-prod: stop-prod start-prod ## Stop and start prod environment
+restart: stop start ## Restart the development environment
+restart-test: stop-test start-test ## Restart the test or CI environment
+restart-staging: stop-staging start-staging ## Restart the staging environment
+restart-prod: stop-prod start-prod ## Restart the production environment
 
-env-dev: ## Creates config for dev environment
+env-dev: ## Create config for the dev environment
 	@make exec cmd="cp ./.env.dev ./.env"
 
-env-test-ci: ## Creates config for test/ci environment
+env-test-ci: ## Create config for test/ci environment
 	@make exec cmd="cp ./.env.test-ci ./.env"
 
-ssh: ## Get bash inside laravel docker container
+ssh: ## Access the bash shell inside the laravel container
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose $(PROJECT_NAME) exec $(OPTION_T) $(PHP_USER) laravel bash
+	@docker compose $(PROJECT_NAME) exec $(OPTION_T) $(PHP_USER) laravel bash
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-ssh-root: ## Get bash as root user inside laravel docker container
+ssh-root: ## Access the bash shell as root inside the laravel container
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose $(PROJECT_NAME) exec $(OPTION_T) laravel bash
+	@docker compose $(PROJECT_NAME) exec $(OPTION_T) laravel bash
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-fish: ## Get fish shell inside laravel docker container
+fish: ## Access the fish shell inside the laravel container
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose $(PROJECT_NAME) exec $(OPTION_T) $(PHP_USER) laravel fish
+	@docker compose $(PROJECT_NAME) exec $(OPTION_T) $(PHP_USER) laravel fish
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-ssh-nginx: ## Get bash inside nginx docker container
+ssh-nginx: ## Access the bash shell inside the nginx container
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose $(PROJECT_NAME) exec nginx /bin/sh
+	@docker compose $(PROJECT_NAME) exec nginx /bin/sh
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-ssh-supervisord: ## Get bash inside supervisord docker container (cron jobs running there, etc...)
+ssh-supervisord: ## Access the bash shell inside the supervisord container (cron jobs, etc.)
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose $(PROJECT_NAME) exec supervisord bash
+	@docker compose $(PROJECT_NAME) exec supervisord bash
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-ssh-mysql: ## Get bash inside mysql docker container
+ssh-mysql: ## Access the bash shell inside the mysql container
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose $(PROJECT_NAME) exec mysql bash
+	@docker compose $(PROJECT_NAME) exec mysql bash
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
@@ -206,111 +209,111 @@ exec:
 ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
 	@$$cmd
 else
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose $(PROJECT_NAME) exec $(OPTION_T) $(PHP_USER) laravel $$cmd
+	@docker compose $(PROJECT_NAME) exec $(OPTION_T) $(PHP_USER) laravel $$cmd
 endif
 
 exec-bash:
 ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
 	@bash -c "$(cmd)"
 else
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose $(PROJECT_NAME) exec $(OPTION_T) $(PHP_USER) laravel bash -c "$(cmd)"
+	@docker compose $(PROJECT_NAME) exec $(OPTION_T) $(PHP_USER) laravel bash -c "$(cmd)"
 endif
 
 exec-by-root:
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) XDEBUG_VERSION=$(XDEBUG_VERSION) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) MYSQL_PORT=$(MYSQL_PORT) docker compose $(PROJECT_NAME) exec $(OPTION_T) laravel $$cmd
+	@docker compose $(PROJECT_NAME) exec $(OPTION_T) laravel $$cmd
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-report-prepare:
+report-prepare: ## Create the /reports/coverage folder (used for test reports)
 	@make exec cmd="mkdir -p reports/coverage"
 
-report-clean:
+report-clean: ## Remove all generated reports in the /reports/ folder
 	@make exec-by-root cmd="rm -rf reports/*"
 
-wait-for-db:
+wait-for-db: ## Check MySQL database availability (useful for CI/CD, e.g. /.circleci)
 	@make exec cmd="php artisan db:wait"
 
-composer-install-no-dev: ## Installs composer no-dev dependencies
+composer-install-no-dev: ## Install Composer dependencies (excluding dev packages)
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-dev"
 
-composer-install: ## Installs composer dependencies
+composer-install: ## Install all Composer dependencies
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader"
 
-composer-update: ## Updates composer dependencies
+composer-update: ## Update Composer dependencies
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
-composer-audit: ## Checks for security vulnerability advisories for installed packages
+composer-audit: ## Check installed packages for security vulnerabilities
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer audit --abandoned=report"
 
-key-generate: ## Sets the application key
+key-generate: ## Set the application key
 	@make exec cmd="php artisan key:generate"
 
-info: ## Shows Php and Laravel version
+info: ## Show the current PHP and Laravel version
 	@make exec cmd="php artisan --version"
 	@make exec cmd="php artisan env"
 	@make exec cmd="php --version"
 	@make exec cmd="composer --version"
 
-logs: ## Shows logs from the laravel container. Use ctrl+c in order to exit
+logs: ## View logs from the laravel container (use ctrl+c to exit)
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
 	@docker logs -f ${COMPOSE_PROJECT_NAME}-laravel
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-logs-nginx: ## Shows logs from the nginx container. Use ctrl+c in order to exit
+logs-nginx: ## View logs from the nginx container (use ctrl+c to exit)
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
 	@docker logs -f ${COMPOSE_PROJECT_NAME}-nginx
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-logs-supervisord: ## Shows logs from the supervisord container. Use ctrl+c in order to exit
+logs-supervisord: ## View logs from the supervisord container (use ctrl+c to exit)
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
 	@docker logs -f ${COMPOSE_PROJECT_NAME}-supervisord
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-logs-mysql: ## Shows logs from the mysql container. Use ctrl+c in order to exit
+logs-mysql: ## View logs from the mysql container (use ctrl+c to exit)
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
 	@docker logs -f ${COMPOSE_PROJECT_NAME}-mysql
 else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-drop-migrate: ## Drops databases and runs all migrations for the main/test databases
+drop-migrate: ## Drop databases and run all migrations for main/test databases
 	@make exec cmd="php artisan migrate:fresh"
 	@make exec cmd="php artisan migrate:fresh --env=test"
 
-migrate-no-test: ## Runs all migrations for main database
+migrate-no-test: ## Run all migrations for the main database only
 	@make exec cmd="php artisan migrate --force"
 
-migrate: ## Runs all migrations for main/test databases
+migrate: ## Run all migrations for main/test databases
 	@make exec cmd="php artisan migrate --force"
 	@make exec cmd="php artisan migrate --force --env=test"
 
-seed: ## Runs all seeds for test database
+seed: ## Run all seeds for the test database
 	@make exec cmd="php artisan db:seed --force"
 
-phpunit: ## Runs PhpUnit tests
-	@make exec cmd="./vendor/bin/phpunit -c phpunit.xml --coverage-html reports/coverage $(PHPUNIT_OPTIONS) --coverage-clover reports/clover.xml --log-junit reports/junit.xml"
+phpunit: ## Run the PHPUnit test suite
+	@make exec-bash cmd="./vendor/bin/phpunit -c phpunit.xml --coverage-html reports/coverage $(PHPUNIT_OPTIONS) --coverage-clover reports/clover.xml --log-junit reports/junit.xml"
 
-report-code-coverage: ## Updates code coverage on coveralls.io. Note: COVERALLS_REPO_TOKEN should be set on CI side.
+report-code-coverage: ## Update code coverage report on Coveralls.io (requires COVERALLS_REPO_TOKEN, should be set on CI side)
 	@make exec-bash cmd="export COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} && php ./vendor/bin/php-coveralls -v --coverage_clover reports/clover.xml --json_path reports/coverals.json"
 
-phpcs: ## Runs PHP CodeSniffer
+phpcs: ## Run PHP CodeSniffer checks
 	@make exec-bash cmd="./vendor/bin/phpcs --version && ./vendor/bin/phpcs --standard=PSR12 --colors -p app tests"
 
-ecs: ## Runs Easy Coding Standard tool
+ecs: ## Run Easy Coding Standard (ECS) checks
 	@make exec-bash cmd="./vendor/bin/ecs --version && ./vendor/bin/ecs --clear-cache check app tests"
 
-ecs-fix: ## Runs Easy Coding Standard tool to fix issues
+ecs-fix: ## Run Easy Coding Standard to automatically fix issues
 	@make exec-bash cmd="./vendor/bin/ecs --version && ./vendor/bin/ecs --clear-cache --fix check app tests"
 
-phpmetrics: ## Generates phpmetrics static analysis report
+phpmetrics: ## Generate a PhpMetrics static analysis report
 ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
 	@mkdir -p reports/phpmetrics
 	@if [ ! -f reports/junit.xml ] ; then \
@@ -324,10 +327,10 @@ else
 	@make exec-by-root cmd="make phpmetrics"
 endif
 
-phpcpd: ## Runs php copy/paste detector
+phpcpd: ## Run PHP Copy/Paste Detector
 	@make exec-bash cmd="mkdir -p reports/phpcpd && php ./vendor/bin/phpcpd --fuzzy --verbose --log-pmd=reports/phpcpd/phpcpd-report-v1.xml app tests"
 
-phpcpd-html-report: ## Generates phpcpd html report
+phpcpd-html-report: ## Generate an HTML report for PHP Copy/Paste Detector
 ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
 	@if [ ! -f reports/phpcpd/phpcpd-report-v1.xml ] ; then \
 		printf "\033[32;49mreports/phpcpd/phpcpd-report-v1.xml not found, please run phpcpd.\033[39m\n" ; \
@@ -339,10 +342,10 @@ else
 	@make exec-bash cmd="make phpcpd-html-report"
 endif
 
-phpmd: ## Runs php mess detector
+phpmd: ## Run PHP Mess Detector
 	@make exec cmd="php ./vendor/bin/phpmd analyze --format=text --ruleset=phpmd_ruleset.xml --suffixes=php app tests"
 
-phpstan: ## Runs PhpStan static analysis tool
+phpstan: ## Run PHPStan static analysis
 ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
 	@echo "\033[32mRunning PHPStan - PHP Static Analysis Tool\033[39m"
 	@php artisan cache:clear --env=test
@@ -352,7 +355,7 @@ else
 	@make exec cmd="make phpstan"
 endif
 
-phpinsights: ## Runs Php Insights analysis tool
+phpinsights: ## Run PHP Insights analysis
 ifeq ($(INSIDE_DOCKER_CONTAINER), 1)
 	@echo "\033[32mRunning PHP Insights\033[39m"
 	@php -d error_reporting=0 ./vendor/bin/phpinsights analyse --no-interaction --min-quality=100 --min-complexity=80 --min-architecture=100 --min-style=100
@@ -360,14 +363,14 @@ else
 	@make exec-by-root cmd="make phpinsights"
 endif
 
-composer-normalize: ## Normalizes composer.json file content
+composer-normalize: ## Normalize the composer.json file structure
 	@make exec cmd="composer normalize"
 
-composer-validate: ## Validates composer.json file content
+composer-validate: ## Validate the composer.json file syntax
 	@make exec cmd="composer validate --no-check-version"
 
-composer-require-checker: ## Checks the defined dependencies against your code
+composer-require-checker: ## Check defined dependencies against actual code usage
 	@make exec-bash cmd="XDEBUG_MODE=off php ./vendor/bin/composer-require-checker"
 
-composer-unused: ## Shows unused packages by scanning and comparing package namespaces against your code
+composer-unused: ## Detect unused Composer packages by scanning namespaces
 	@make exec-bash cmd="XDEBUG_MODE=off php ./vendor/bin/composer-unused"

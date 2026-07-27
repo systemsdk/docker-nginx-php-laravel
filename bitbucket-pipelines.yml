@@ -3,9 +3,10 @@ image: docker:stable
 options:
   docker: true
 
-pipelines:
-  default:
-    - step:
+definitions:
+  steps:
+    - step: &build-test-analyze
+        name: Build, Test and Analyze
         script:
           - chmod +x .bitbucket/dependencies.sh
           - .bitbucket/dependencies.sh
@@ -24,4 +25,21 @@ pipelines:
           - make phpinsights
           - make phpmd
           - make phpcpd
-          - make stop-test
+          - make down-test
+        artifacts:
+          - reports/**
+
+pipelines:
+  branches:
+    main:
+      - step: *build-test-analyze
+    develop:
+      - step: *build-test-analyze
+
+  pull-requests:
+    '**':
+      - step: *build-test-analyze
+
+  tags:
+    '*':
+      - step: *build-test-analyze

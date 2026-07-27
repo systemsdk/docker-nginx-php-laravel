@@ -11,7 +11,7 @@ services:
 before_script:
   - apk update
   - apk upgrade
-  - apk add --no-cache make bash docker-compose && rm -rf /var/cache/apk/*
+  - apk add --no-cache make bash && rm -rf /var/cache/apk/*
 
 stages:
   - build
@@ -22,6 +22,7 @@ stages:
 
 build:
   stage: build
+  coverage: '/^\s*Lines:\s*\d+.\d+\%/'
   script:
     - make build-test
     - make start-test
@@ -38,15 +39,16 @@ build:
     - make phpinsights
     - make phpmd
     - make phpcpd
-    - make stop-test
+    - make down-test
   artifacts:
     paths:
       - reports/
-  only:
-    - merge_requests
-    - tags
-    - master
-    - develop
+    expire_in: 1 week
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_TAG'
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH == "develop"'
 
 push_staging_images:
   stage: deploy
@@ -55,10 +57,10 @@ push_staging_images:
     # TODO: set necessary image name in compose-staging.yaml according to your registry and edit lines bellow
     #- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     #- docker compose -f compose-staging.yaml push
-  only:
-    - master
-    - develop
-    - /^release.*$/
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+    - if: '$CI_COMMIT_BRANCH =~ /^release.*$/'
 
 push_prod_images:
   stage: deploy
@@ -67,6 +69,6 @@ push_prod_images:
     # TODO: set necessary image name in compose-prod.yaml according to your registry and edit lines bellow
     #- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     #- docker compose -f compose-prod.yaml push
-  only:
-    - master
-    - /^release.*$/
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH =~ /^release.*$/'

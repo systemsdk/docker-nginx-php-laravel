@@ -3,7 +3,7 @@
   <component name="GitSharedSettings">
     <option name="FORCE_PUSH_PROHIBITED_PATTERNS">
       <list>
-        <option value="master1" />
+        <option value="master" />
       </list>
     </option>
   </component>

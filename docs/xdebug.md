@@ -1,57 +1,69 @@
-# Xdebug
-This document describing how you can use [Xdebug](https://xdebug.org/) and [PhpStorm](https://www.jetbrains.com/phpstorm/) for the DEV environment.
+# Xdebug Configuration & Usage
+This document describes how to configure and use [Xdebug](https://xdebug.org/) with [PhpStorm](https://www.jetbrains.com/phpstorm/) in our local development environment.
 
-## Configuration and usage
-Please follow [PhpStorm](phpstorm.md) documentation before actions described below.
+> Prerequisite: Please ensure you have completed the [PhpStorm Setup Guide](phpstorm.md) before proceeding with the actions described below.
 
-### PhpStorm basic configuration
-1.Check /docker/dev/xdebug-main.ini or /docker/dev/xdebug-osx.ini (optional)
+## Basic Configuration
 
-- Set option in case you need to debug every request to an api (by default):
-```bash
-xdebug.start_with_request = yes
-```
+1. Verify Xdebug Configuration Files
 
-- Set option in case you need to debug only requests with IDE KEY: PHPSTORM from frontend in your browser:
-```bash
-xdebug.start_with_request = no
-```
+   Check `/docker/dev/xdebug-main.ini` (for Linux/Windows) or `/docker/dev/xdebug-osx.ini` (for macOS).
+   * If you want to debug every request to the API automatically (by default), set:
+   ```ini
+   xdebug.start_with_request = yes
+   ```
 
-2.Go to `Settings -> Php -> Debug` and set Xdebug port `10000`
+   * If you want to debug only requests triggered by your browser (via the `PHPSTORM` IDE key), set:
+   ```ini
+   xdebug.start_with_request = no
+   ```
 
-3.Check your `Run/Debug Configurations` as on image below:
+2. Configure PhpStorm Port
 
-![Basic configuration](images/xdebug_01.png)
+   Go to `Settings` -> `PHP` -> `Debug` and ensure the Xdebug port is set to `10000`.
 
-![Basic configuration](images/phpstorm_05.png)
+3. Run/Debug Configurations
 
-4.Install browser extensions (optional, see step 1). For example, for Firefox, install extension "Xdebug helper" and set in extension settings IDE KEY: PHPSTORM
+   Verify that your Run/Debug configuration matches the images below:
 
-### Using Xdebug
-After actions above, you can start listening for incoming PHP debug connections:
+   ![PhpStorm Debug Configuration 1](images/xdebug_01.png)
+   ![PhpStorm Debug Configuration 2](images/phpstorm_05.png)
 
-1. Add breakpoint to your code
-2. Enable Xdebug in your browser (optional, required only when xdebug.start_with_request = no)
-3. Click `Debug` button in PhpStorm
-4. Reload page in the browser
+4. Browser Extension (Optional)
+   
+   If you opted for `xdebug.start_with_request = no` in step 1, install a browser extension (e.g., `Xdebug Helper` for Firefox/Chrome) and set the IDE KEY to `PHPSTORM` in its settings.
 
-If everything configured properly, you will get something like next:
+## Using Xdebug (Web Requests)
+Once configured, you can start debugging incoming PHP connections:
 
-![Using Xdebug](images/xdebug_02.png)
+1. Add a breakpoint to your code.
+2. Enable Xdebug in your browser via the extension (only required if `xdebug.start_with_request = no`).
+3. Click the `Debug` button in PhpStorm.
+4. Reload the page in your browser or execute the endpoint.
 
-## Debug Postman requests
-If you're using [Postman](https://www.getpostman.com/) to test/debug your application, when `xdebug.start_with_request = no`, you need to add `?XDEBUG_SESSION_START=PHPSTORM` to each URL that you use with Postman.
-If you have default configuration (`xdebug.start_with_request = yes`) - nothing to do and your Xdebug should work out of the box.
+If everything is configured properly, PhpStorm will intercept the request:
 
-## Debug Console commands
-If you want to debug console commands, you need to uncomment/edit (nothing to do in case MacOS and `XDEBUG_CONFIG=osx`) option `xdebug.client_host` inside config `docker/dev/xdebug-main.ini`:
-```bash
+![Active Xdebug Session](images/xdebug_02.png)
+
+## Debugging Postman Requests
+If you are using Postman to test your application and your configuration is set to `xdebug.start_with_request = no`, you must append `?XDEBUG_SESSION_START=PHPSTORM` to the URL query string for each request you want to debug.
+
+If you are using the default configuration (`xdebug.start_with_request = yes`), Xdebug will intercept Postman requests automatically out of the box.
+
+## Debugging Console Commands
+
+### Host IP Configuration (Linux only)
+To debug CLI commands or async handlers on Linux, you must explicitly set the `xdebug.client_host` option inside `docker/dev/xdebug-main.ini`:
+```ini
 xdebug.client_host=172.17.0.1
 ```
-Just find out the proper host ip in your docker bridge configuration and set above option (in general it is `172.17.0.1`).
-Don't forget to rebuild docker containers according to [general](../readme.md) documentation.
+> Note: Find the proper host IP in your Docker bridge configuration (usually `172.17.0.1`). If you make changes, don't forget to rebuild the Docker containers according to the [general documentation](../readme.md).
+> (macOS users using `XDEBUG_CONFIG=osx` do not need to do this, as `host.docker.internal` is handled automatically).
 
-## External documentations
-* [Debugging PHP (web and cli) with Xdebug using Docker and PHPStorm](https://thecodingmachine.io/configuring-xdebug-phpstorm-docker)
-* [Debug your PHP in Docker with Intellij/PHPStorm and Xdebug](https://gist.github.com/jehaby/61a89b15571b4bceee2417106e80240d)
-* [Debugging with Postman and PHPStorm (Xdebug)](https://www.thinkbean.com/drupal-development-blog/debugging-postman-and-phpstorm-xdebug)
+---
+
+## External References
+* [Debugging PHP (web and cli) with Xdebug using Docker and PhpStorm](https://thecodingmachine.io/configuring-xdebug-phpstorm-docker)
+* [Debug your PHP in Docker with Intellij/PhpStorm and Xdebug](https://gist.github.com/jehaby/61a89b15571b4bceee2417106e80240d)
+* [Debugging with Postman and PhpStorm (Xdebug)](https://www.thinkbean.com/drupal-development-blog/debugging-postman-and-phpstorm-xdebug)
+

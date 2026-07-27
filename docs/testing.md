@@ -2,7 +2,7 @@
 This document describes how to run and configure tests for this project.
 
 ## Overview
-This environment uses [PHPUnit](https://phpunit.de/) and includes the following types of tests:
+This environment uses [PHPUnit](https://phpunit.de/) and includes the following [types](https://symfony.com/doc/current/testing.html#types-of-tests) of tests:
 
 * Application tests (TODO: Implement it)
 * Integration tests (TODO: Implement it)
@@ -25,7 +25,7 @@ make phpunit
 
 After the command finishes, you can open the code coverage report in your browser. The report is generated at: `reports/coverage/index.html`.
 
-### 2. Run Specific Tests (Advanced):
+### 2. Run Specific Tests (Advanced)
 
 If you need to run a single test file, a specific directory, or a test suite (e.g., only "Unit" tests), you must do so from within the container's shell.
 

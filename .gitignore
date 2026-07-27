@@ -1,3 +1,28 @@
+### User-specific stuff & OS ###
+.DS_Store
+
+### PhpStorm / IntelliJ IDEA Shared Configs ###
+# 1. Personal editor state (changes frequently, causes merge conflicts)
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/shelf/
+.idea/usage.statistics.xml
+.idea/caches/
+# 2. Local history (may contain session cookies and tokens from REST Client)
+.idea/httpRequests/
+# 3. Databases (MUST be ignored to prevent leaking passwords and local ports)
+.idea/dataSources/
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqldialects.xml
+.idea/queries/
+# 4. Local dictionaries (to avoid sharing personal typos with the team)
+.idea/dictionaries/
+
+### Docker local overrides ###
+compose.override.yaml
+docker-compose.override.yaml
+
 reports/*
 !reports/.gitkeep
 

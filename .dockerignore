@@ -1,7 +1,14 @@
 ### User-specific stuff:
 /.git*
-/.idea/workspace.xml
+.DS_Store
+.vscode/
+/.idea/
 .dockerignore
+/node_modules/
+
+### Exclude local app artifacts ###
+/storage/logs/
+/reports/
 
 ### Other data
 storage/mysql-data

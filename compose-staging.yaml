@@ -5,6 +5,7 @@ services:
         build:
             context: ./docker/
             args:
+                NGINX_VERSION: ${NGINX_VERSION}
                 BUILD_ARGUMENT_ENV: staging
             dockerfile: ./nginx/Dockerfile
         container_name: ${COMPOSE_PROJECT_NAME}-nginx

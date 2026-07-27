@@ -3,11 +3,11 @@ name: Laravel App
 on:
   push:
     branches:
-      - master
+      - main
       - develop
   pull_request:
     branches:
-      - master
+      - main
       - develop
   release:
     types: [ published ]
@@ -33,11 +33,12 @@ jobs:
         run: make info
       - name: Run test suite
         run: make phpunit
-      - name: Archive coverage data for Qodana
+      - name: Archive coverage data and reports
         uses: actions/upload-artifact@v4
         with:
           name: php-coverage-data
-          path: reports/clover.xml
+          path: reports/
+          retention-days: 7
       - name: Checks for security vulnerability advisories for installed packages
         run: make composer-audit
       - name: Run coding standard
@@ -53,7 +54,7 @@ jobs:
       - name: Run php copy paste detector
         run: make phpcpd
       - name: Stop the docker images
-        run: make stop-test
+        run: make down-test
 
   build-staging:
     needs: build
@@ -75,7 +76,7 @@ jobs:
       - name: Show framework version and additional info, php & composer version
         run: make info
       - name: Stop the staging docker images
-        run: make stop-staging
+        run: make down-staging
 
 # Currently local Qodana report differ from CI Qodana report due to some issues https://youtrack.jetbrains.com/issue/QD-7379
 #    qodana:

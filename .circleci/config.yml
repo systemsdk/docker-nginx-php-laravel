@@ -1,18 +1,16 @@
-version: 2
+version: 2.1
 jobs:
   build:
     working_directory: ~/html
     machine:
-      image: ubuntu-2204:2023.04.2
-    branches:
-      ignore:
-        - develop
+      image: ubuntu-2204:2026.05.1
     steps:
       - checkout
 
       - run:
-          name: Start containers and verify it's working
+          name: Prepare and start containers and verify it's working
           command: |
+            make build-test
             make start-test
 
       - run:
@@ -67,6 +65,11 @@ jobs:
           name: Run PHP copy paste detector
           command: |
             make phpcpd
+
+      - run:
+          name: Clean up environment
+          command: |
+            make down-test
 
       - store_artifacts:
           path: reports

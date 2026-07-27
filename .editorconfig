@@ -15,5 +15,5 @@ trim_trailing_whitespace = false
 [*.yml]
 indent_size = 2
 
-[{composer.json,Makefile}]
+[Makefile]
 indent_style = tab

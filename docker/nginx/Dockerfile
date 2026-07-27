@@ -1,6 +1,7 @@
-FROM nginx:alpine
+ARG NGINX_VERSION=1.29
 
-# set main params
+FROM nginx:${NGINX_VERSION}-alpine
+
 ARG BUILD_ARGUMENT_ENV=dev
 ENV ENV=$BUILD_ARGUMENT_ENV
 

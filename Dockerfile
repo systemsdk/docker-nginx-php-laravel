@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.7-labs
 FROM php:8.5-fpm-bookworm
 
 # set main params
@@ -11,7 +12,7 @@ ARG INSIDE_DOCKER_CONTAINER=1
 ENV INSIDE_DOCKER_CONTAINER=$INSIDE_DOCKER_CONTAINER
 ARG XDEBUG_CONFIG=main
 ENV XDEBUG_CONFIG=$XDEBUG_CONFIG
-ARG XDEBUG_VERSION=3.5.0
+ARG XDEBUG_VERSION=3.5.3
 ENV XDEBUG_VERSION=$XDEBUG_VERSION
 
 # check environment
@@ -40,8 +41,11 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       cron \
       sudo \
       libzip-dev \
+      wget \
       debsecan \
-      xalan \
+    && if [ "$BUILD_ARGUMENT_ENV" = "dev" ] || [ "$BUILD_ARGUMENT_ENV" = "test" ]; then \
+        apt-get install -y --no-install-recommends xalan; \
+    fi \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-configure intl \
     && docker-php-ext-install \
@@ -52,10 +56,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       bcmath \
     && apt-get install --no-install-recommends -y \
         $(debsecan --suite bookworm --format packages --only-fixed) \
-    && rm -rf /tmp/* \
-    && rm -rf /var/list/apt/* \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Pull the PHP extension installer from the official image
 COPY --from=mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/local/bin/

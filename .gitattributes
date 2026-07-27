@@ -1,12 +1,22 @@
 * text=auto
+
+### Enforce LF for infrastructure (CRITICAL for Docker on Windows)
+Makefile text eol=lf
+Dockerfile text eol=lf
+docker/** text eol=lf
+*.sh text eol=lf
+
+### Exclude from archives
+CHANGELOG.md export-ignore
+
+### Hide generated files in PRs but prevent text auto-merging
+tools/**/composer.lock linguist-generated=true -merge
+composer.lock linguist-generated=true -merge
+
 *.blade.php diff=html
 *.css diff=css
 *.html diff=html
 *.md diff=markdown
 *.php diff=php
-/.github export-ignore
-CHANGELOG.md export-ignore
 .styleci.yml export-ignore
-tools/**/composer.lock binary
-composer.lock binary
 *.blade.php linguist-detectable=false

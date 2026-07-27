@@ -1,143 +1,145 @@
 {
-	"name": "systemsdk/docker-nginx-php-laravel",
-	"type": "project",
-	"description": "Docker laravel environment",
-	"keywords": [
-		"Docker",
-		"Nginx",
-		"Php",
-		"Laravel",
-		"Supervisord",
-		"MySQL"
-	],
-	"homepage": "https://github.com/systemsdk/docker-nginx-php-laravel",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Dmitry Kravtsov",
-			"email": "dmytro.kravtsov@systemsdk.com",
-			"homepage": "https://github.com/systemsdk",
-			"role": "Developer"
-		}
-	],
-	"funding": [
-		{
-			"type": "github",
-			"url": "https://github.com/sponsors/systemsdk"
-		},
-		{
-			"type": "open_collective",
-			"url": "https://opencollective.com/systemsdk-engineering"
-		},
-		{
-			"type": "wayforpay",
-			"url": "https://secure.wayforpay.com/button/b0b1af16db515"
-		}
-	],
-	"require": {
-		"php": "^8.5",
-		"ext-ctype": "*",
-		"ext-iconv": "*",
-		"ext-json": "*",
-		"ext-mbstring": "*",
-		"ext-pdo": "*",
-		"ext-pdo_mysql": "*",
-		"laravel/framework": "^13.0",
-		"laravel/tinker": "^3.0"
-	},
-	"require-dev": {
-		"bamarni/composer-bin-plugin": "^1.9.1",
-		"barryvdh/laravel-ide-helper": "^3.7",
-		"fakerphp/faker": "^1.23",
-		"laravel/pail": "^1.2.5",
-		"laravel/pint": "^1.27",
-		"laravel/sail": "^1.56",
-		"mockery/mockery": "^1.6",
-		"neronmoon/scriptsdev": "^0.1",
-		"nunomaduro/collision": "^8.6",
-		"roave/security-advisories": "dev-latest"
-	},
-	"config": {
-		"optimize-autoloader": true,
-		"platform": {
-			"php": "8.5.0"
-		},
-		"preferred-install": "dist",
-		"sort-packages": true,
-		"allow-plugins": true
-	},
-	"extra": {
-		"bamarni-bin": {
-			"bin-links": true,
-			"forward-command": true,
-			"target-directory": "tools"
-		},
-		"laravel": {
-			"dont-discover": []
-		},
-		"scripts-dev": {
-			"post-update-cmd": [
-				"php artisan ide-helper:generate",
-				"php artisan ide-helper:meta"
-			]
-		}
-	},
-	"autoload": {
-		"psr-4": {
-			"App\\": "app/",
-			"Database\\Factories\\": "database/factories/",
-			"Database\\Seeders\\": "database/seeders/"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Tests\\": "tests/",
-			"PHPUnit\\": "tools/01_phpunit/vendor",
-			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/bin",
-			"Systemsdk\\PhpCPD\\": "tools/10_phpcpd/vendor/systemsdk/phpcpd/src",
-			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
-			"PHP_CodeSniffer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/src",
-			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
-			"Symplify\\EasyCodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/src",
-			"ECSPrefix20210928\\Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
-			"Rector\\": "tools/08_rector/vendor/rector"
-		}
-	},
-	"minimum-stability": "dev",
-	"prefer-stable": true,
-	"scripts": {
-		"post-install-cmd": [
-			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all install; fi"
-		],
-		"post-update-cmd": [
-			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi",
-			 "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
-		],
-		"post-autoload-dump": [
-			"Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-			"@php artisan package:discover --ansi"
-		],
-		"post-root-package-install": [
-			"@php -r \"file_exists('.env') || copy('.env.dev', '.env');\""
-		],
-		"post-create-project-cmd": [
-			"@php artisan key:generate --ansi",
-			"@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-			"@php artisan migrate --graceful --ansi"
-		],
-		"pre-package-uninstall": [
-			"Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
-		],
-		"dev": [
-			"Composer\\Config::disableProcessTimeout",
-			"npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
-		],
-		"test": [
-			"@php artisan config:clear --ansi",
-			"@php artisan test"
-		]
-	},
-	"support": {
-		"issues": "https://github.com/systemsdk/docker-nginx-php-laravel/issues"
-	}
+    "name": "systemsdk/docker-nginx-php-laravel",
+    "type": "project",
+    "description": "Docker laravel environment",
+    "keywords": [
+        "Docker",
+        "Nginx",
+        "Php",
+        "Laravel",
+        "Supervisord",
+        "MySQL"
+    ],
+    "homepage": "https://github.com/systemsdk/docker-nginx-php-laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Kravtsov",
+            "email": "dmitry.kravtsov@systemsdk.com",
+            "homepage": "https://github.com/systemsdk",
+            "role": "Developer"
+        }
+    ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/systemsdk"
+        },
+        {
+            "type": "open_collective",
+            "url": "https://opencollective.com/systemsdk-engineering"
+        },
+        {
+            "type": "wayforpay",
+            "url": "https://secure.wayforpay.com/button/b0b1af16db515"
+        }
+    ],
+    "require": {
+        "php": "^8.5.0",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "laravel/framework": "^13.0",
+        "laravel/tinker": "^3.0"
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.9.1",
+        "barryvdh/laravel-ide-helper": "^3.7",
+        "fakerphp/faker": "^1.23",
+        "laravel/pail": "^1.2.5",
+        "laravel/pint": "^1.27",
+        "laravel/sail": "^1.56",
+        "mockery/mockery": "^1.6",
+        "neronmoon/scriptsdev": "^0.1",
+        "nunomaduro/collision": "^8.6",
+        "roave/security-advisories": "dev-latest"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "8.5.0"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "allow-plugins": true
+    },
+    "extra": {
+        "bamarni-bin": {
+            "bin-links": true,
+            "forward-command": true,
+            "target-directory": "tools"
+        },
+        "laravel": {
+            "dont-discover": []
+        },
+        "scripts-dev": {
+            "post-update-cmd": [
+                "php artisan ide-helper:generate",
+                "php artisan ide-helper:meta"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "PHPUnit\\": "tools/01_phpunit/vendor",
+            "PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/bin",
+            "Systemsdk\\PhpCPD\\": "tools/10_phpcpd/vendor/systemsdk/phpcpd/src",
+            "PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
+            "PHP_CodeSniffer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/src",
+            "Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
+            "Symplify\\EasyCodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/src",
+            "ECSPrefix20210928\\Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
+            "Rector\\": "tools/08_rector/vendor/rector"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "if test -d vendor/bamarni/composer-bin-plugin; then composer bin all install; fi"
+        ],
+        "post-update-cmd": [
+            "if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi",
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.dev', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi"
+        ],
+        "pre-package-uninstall": [
+            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ]
+    },
+    "support": {
+        "issues": "https://github.com/systemsdk/docker-nginx-php-laravel/issues"
+    }
 }
